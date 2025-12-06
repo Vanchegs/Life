@@ -15,6 +15,12 @@ namespace Codebase
             this.maxValue = maxValue;
             this.minValue = minValue;
         }
+
+        public void InitializeStat() => 
+            currentValue = maxValue;
+
+        public float GetCurrentStat() => 
+            currentValue;
     }
 }
 
