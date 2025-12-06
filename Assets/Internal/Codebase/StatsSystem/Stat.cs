@@ -11,14 +11,13 @@ namespace Codebase
         private float currentValue;
         private float decreaseValue;
 
-        public Stat(int maxValue, int minValue, float decreaseValue)
+        public Stat(int maxValue, float decreaseValue)
         {
             this.maxValue = maxValue;
             this.decreaseValue = decreaseValue;
-        }
-
-        public void InitializeStat() => 
+            
             currentValue = maxValue;
+        }
 
         public void DecreaseValue() => 
             currentValue -= decreaseValue * Time.deltaTime;
