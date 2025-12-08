@@ -6,6 +6,7 @@ namespace Codebase
     public class StatsController : MonoBehaviour
     {
         [SerializeField] private StatConfig statConfig;
+        [SerializeField] private StatVisual statVisual;
         
         private Stat foodStat;
         private Stat sleepStat;
@@ -14,12 +15,16 @@ namespace Codebase
 
         private List<Stat> stats;
 
-        private void Start() => 
+        private void Start()
+        {
             InitializeStats();
+            statVisual.Init(statConfig.minValue, statConfig.maxValue, foodStat);
+        }
 
         private void Update()
         {
             UpdateStats();
+            statVisual.UpdateValue();
         }
 
         private void InitializeStats()

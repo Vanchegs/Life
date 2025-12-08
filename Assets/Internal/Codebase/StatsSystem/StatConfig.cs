@@ -6,6 +6,7 @@ namespace Codebase
     public class StatConfig : ScriptableObject
     {
         public int maxValue;
+        public int minValue;
         
         [Header("Food Stat")] 
         public float foodDecreaseValue;
