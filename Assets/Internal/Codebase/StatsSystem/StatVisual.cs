@@ -9,10 +9,10 @@ namespace Codebase
 
         private Stat stat;
         
-        public void Init(float min, float max, Stat stat)
+        public void Init(StatConfig statConfig, Stat stat)
         {
-            slider.minValue = min;
-            slider.maxValue = max;
+            slider.minValue = statConfig.minValue;
+            slider.maxValue = statConfig.maxValue;
             this.stat = stat;
             slider.value = stat.GetCurrentStat();
         }

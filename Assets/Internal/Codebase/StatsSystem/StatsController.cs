@@ -18,7 +18,7 @@ namespace Codebase
         private void Start()
         {
             InitializeStats();
-            statVisual.Init(statConfig.minValue, statConfig.maxValue, foodStat);
+            statVisual.Init(statConfig, foodStat);
         }
 
         private void Update()
