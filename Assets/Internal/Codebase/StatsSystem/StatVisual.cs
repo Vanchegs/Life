@@ -5,21 +5,33 @@ namespace Codebase
 {
     public class StatVisual : MonoBehaviour
     {
-        [SerializeField] private Slider slider;
+        [SerializeField] private Slider foodSlider;
+        [SerializeField] private Slider sleepSlider;
+        [SerializeField] private Slider healthSlider;
+        [SerializeField] private Slider mentalHealthSlider;
 
-        private Stat stat;
-        
-        public void Init(StatConfig statConfig, Stat stat)
+        private Stat foodStat;
+        private Stat sleepStat;
+        private Stat healthStat;
+        private Stat mentalHealthStat;
+
+        public void Init(StatConfig statConfig, Stat foodStat, Stat sleepStat, Stat healthStat, Stat mentalHealthStat)
         {
-            slider.minValue = statConfig.minValue;
-            slider.maxValue = statConfig.maxValue;
-            this.stat = stat;
-            slider.value = stat.GetCurrentStat();
+            foodSlider.minValue = statConfig.minValue;
+            foodSlider.maxValue = statConfig.maxValue;
+            this.foodStat = foodStat;
+            this.sleepStat = sleepStat;
+            this.healthStat = healthStat;
+            this.mentalHealthStat = mentalHealthStat;
+            foodSlider.value = foodStat.GetCurrentStat();
         }
     
         public void UpdateValue()
         {
-            slider.value = Mathf.Clamp(stat.GetCurrentStat(), slider.minValue, slider.maxValue);
+            foodSlider.value = Mathf.Clamp(foodStat.GetCurrentStat(), foodSlider.minValue, foodSlider.maxValue);
+            sleepSlider.value = Mathf.Clamp(sleepStat.GetCurrentStat(), foodSlider.minValue, foodSlider.maxValue);
+            healthSlider.value = Mathf.Clamp(healthStat.GetCurrentStat(), foodSlider.minValue, foodSlider.maxValue);
+            mentalHealthSlider.value = Mathf.Clamp(mentalHealthStat.GetCurrentStat(), foodSlider.minValue, foodSlider.maxValue);
         }
     }
 }

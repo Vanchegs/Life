@@ -18,7 +18,7 @@ namespace Codebase
         private void Start()
         {
             InitializeStats();
-            statVisual.Init(statConfig, foodStat);
+            statVisual.Init(statConfig, foodStat, sleepStat, healthStat, mentalHealthStat);
         }
 
         private void Update()
