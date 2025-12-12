@@ -29,9 +29,9 @@ namespace Codebase
         public void UpdateValue()
         {
             foodSlider.value = Mathf.Clamp(foodStat.GetCurrentStat(), foodSlider.minValue, foodSlider.maxValue);
-            sleepSlider.value = Mathf.Clamp(sleepStat.GetCurrentStat(), foodSlider.minValue, foodSlider.maxValue);
-            healthSlider.value = Mathf.Clamp(healthStat.GetCurrentStat(), foodSlider.minValue, foodSlider.maxValue);
-            mentalHealthSlider.value = Mathf.Clamp(mentalHealthStat.GetCurrentStat(), foodSlider.minValue, foodSlider.maxValue);
+            sleepSlider.value = Mathf.Clamp(sleepStat.GetCurrentStat(), sleepSlider.minValue, sleepSlider.maxValue);
+            healthSlider.value = Mathf.Clamp(healthStat.GetCurrentStat(), healthSlider.minValue, healthSlider.maxValue);
+            mentalHealthSlider.value = Mathf.Clamp(mentalHealthStat.GetCurrentStat(), mentalHealthSlider.minValue, mentalHealthSlider.maxValue);
         }
     }
 }
