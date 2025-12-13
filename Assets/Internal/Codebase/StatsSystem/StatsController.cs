@@ -29,10 +29,10 @@ namespace Codebase
 
         private void InitializeStats()
         {
-            foodStat = new Stat(statConfig.maxValue, statConfig.foodDecreaseValue);
-            sleepStat = new Stat(statConfig.maxValue, statConfig.sleepDecreaseValue);
-            mentalHealthStat = new Stat(statConfig.maxValue, statConfig.mentalDecreaseValue);
-            healthStat = new Stat(statConfig.maxValue, statConfig.healthDecreaseValue);
+            foodStat = new Stat(StatType.FoodStat, statConfig.maxValue, statConfig.foodDecreaseValue);
+            sleepStat = new Stat(StatType.SleepStat, statConfig.maxValue, statConfig.sleepDecreaseValue);
+            mentalHealthStat = new Stat(StatType.MentalHealthStat, statConfig.maxValue, statConfig.mentalDecreaseValue);
+            healthStat = new Stat(StatType.HealthStat, statConfig.maxValue, statConfig.healthDecreaseValue);
             
             stats = new List<Stat> { foodStat, sleepStat, mentalHealthStat, healthStat };
         }
@@ -43,6 +43,7 @@ namespace Codebase
             {
                 stat.DecreaseValue();
                 Debug.Log(stat.GetCurrentStat());
+                Debug.Log(stat.GetStatType());
             }
         }
     }

@@ -17,13 +17,30 @@ namespace Codebase
 
         public void Init(StatConfig statConfig, Stat foodStat, Stat sleepStat, Stat healthStat, Stat mentalHealthStat)
         {
-            foodSlider.minValue = statConfig.minValue;
-            foodSlider.maxValue = statConfig.maxValue;
+            InitSlider(foodSlider, statConfig);
+            InitSlider(sleepSlider, statConfig);
+            InitSlider(healthSlider, statConfig);
+            InitSlider(mentalHealthSlider, statConfig);
+        
             this.foodStat = foodStat;
             this.sleepStat = sleepStat;
             this.healthStat = healthStat;
             this.mentalHealthStat = mentalHealthStat;
-            foodSlider.value = foodStat.GetCurrentStat();
+        
+            UpdateValue();
+        }
+        
+        private void InitSlider(Slider slider, StatConfig config)
+        {
+            if (slider == null) 
+            {
+                Debug.LogError($"Slider is null in {gameObject.name}");
+                return;
+            }
+        
+            slider.minValue = config.minValue;
+            slider.maxValue = config.maxValue;
+            slider.value = config.maxValue; // Начальное значение = максимум
         }
     
         public void UpdateValue()
