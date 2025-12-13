@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: StatConfig
   m_EditorClassIdentifier: 
   maxValue: 100
+  minValue: 0
   foodDecreaseValue: 1
   sleepDecreaseValue: 1
-  healthDecreaseValue: 0.2
-  mentalDecreaseValue: 0.2
+  healthDecreaseValue: 0.4
+  mentalDecreaseValue: 0.4
