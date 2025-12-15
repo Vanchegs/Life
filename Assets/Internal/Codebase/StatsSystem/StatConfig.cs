@@ -10,14 +10,18 @@ namespace Codebase
         
         [Header("Food Stat")] 
         public float foodDecreaseValue;
+        public float foodIncreaseValue;
 
         [Header("Sleep Stat")] 
         public float sleepDecreaseValue;
+        public float sleepIncreaseValue;
 
         [Header("Health Stat")] 
         public float healthDecreaseValue;
+        public float healthIncreaseValue;
 
         [Header("Mental Health Stat")] 
         public float mentalDecreaseValue;
+        public float mentalIncreaseValue;
     }
 }
