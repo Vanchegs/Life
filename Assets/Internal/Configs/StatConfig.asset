@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxValue: 100
   minValue: 0
-  foodDecreaseValue: 1
-  foodIncreaseValue: 2
-  sleepDecreaseValue: 1
-  sleepIncreaseValue: 2
+  foodDecreaseValue: 0.7
+  foodIncreaseValue: 1.5
+  sleepDecreaseValue: 0.7
+  sleepIncreaseValue: 1.5
   healthDecreaseValue: 0.4
   healthIncreaseValue: 0.8
   mentalDecreaseValue: 0.4

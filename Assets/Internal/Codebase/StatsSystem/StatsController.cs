@@ -42,8 +42,6 @@ namespace Codebase
             foreach (var stat in stats)
             {
                 stat.DecreaseValue();
-                Debug.Log(stat.GetCurrentStat());
-                Debug.Log(stat.GetStatType());
             }
         }
     }
