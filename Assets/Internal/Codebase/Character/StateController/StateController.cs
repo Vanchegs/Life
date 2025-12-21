@@ -30,6 +30,11 @@ namespace Codebase
                 statsController.IncreaseCurrentStat(StatType.SleepStat);
             }
         }
+
+        private void UpdateIncreaseStat()
+        {
+            
+        }
     }
 }
 
