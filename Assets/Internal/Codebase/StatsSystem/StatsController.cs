@@ -29,12 +29,33 @@ namespace Codebase
 
         private void InitializeStats()
         {
-            foodStat = new Stat(StatType.FoodStat, statConfig.maxValue, statConfig.foodDecreaseValue);
-            sleepStat = new Stat(StatType.SleepStat, statConfig.maxValue, statConfig.sleepDecreaseValue);
-            mentalHealthStat = new Stat(StatType.MentalHealthStat, statConfig.maxValue, statConfig.mentalDecreaseValue);
-            healthStat = new Stat(StatType.HealthStat, statConfig.maxValue, statConfig.healthDecreaseValue);
+            foodStat = new Stat(StatType.FoodStat, statConfig.maxValue, statConfig.foodDecreaseValue, statConfig.foodIncreaseValue);
+            sleepStat = new Stat(StatType.SleepStat, statConfig.maxValue, statConfig.sleepDecreaseValue, statConfig.sleepIncreaseValue);
+            mentalHealthStat = new Stat(StatType.MentalHealthStat, statConfig.maxValue, statConfig.mentalDecreaseValue, statConfig.mentalIncreaseValue);
+            healthStat = new Stat(StatType.HealthStat, statConfig.maxValue, statConfig.healthDecreaseValue, statConfig.healthIncreaseValue);
             
             stats = new List<Stat> { foodStat, sleepStat, mentalHealthStat, healthStat };
+        }
+
+        public void IncreaseCurrentStat(StatType statType)
+        {
+            switch (statType)
+            {
+                case StatType.FoodStat:
+                    foodStat.IncreaseValue();
+                    break;
+                case StatType.HealthStat:
+                    healthStat.IncreaseValue();
+                    break;
+                case StatType.SleepStat:
+                    sleepStat.IncreaseValue();
+                    break;
+                case StatType.MentalHealthStat:
+                    mentalHealthStat.IncreaseValue();
+                    break;
+                default:
+                    return;
+            }
         }
 
         private void UpdateStats()

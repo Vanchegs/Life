@@ -12,14 +12,16 @@ namespace Codebase
 
         private float currentValue;
         private float decreaseValue;
+        private float increaseValue;
 
-        public Stat(StatType statType, int maxValue, float decreaseValue)
+        public Stat(StatType statType, int maxValue, float decreaseValue, float increaseValue)
         {
             this.statType = statType;
             
             this.maxValue = maxValue;
             this.decreaseValue = decreaseValue;
-            
+            this.increaseValue = increaseValue;
+
             currentValue = maxValue;
         }
 
@@ -28,6 +30,11 @@ namespace Codebase
 
         public void DecreaseValue() => 
             currentValue -= decreaseValue * Time.deltaTime;
+
+        public void IncreaseValue()
+        {
+            currentValue += increaseValue * Time.deltaTime;
+        }
 
         public float GetCurrentStat() => 
             currentValue;

@@ -1,35 +1,33 @@
-using System;
 using UnityEngine;
 
 namespace Codebase
 {
     public class StateController : MonoBehaviour
     {
-        private StatsController statsController;
+        [SerializeField] private StatsController statsController;
 
-        public void Update()
+        private void Update()
         {
             CheckInput();
         }
 
         private void CheckInput()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                Debug.Log("Нажата клавиша 1 - Спать");
+                statsController.IncreaseCurrentStat(StatType.FoodStat);
             }
-        
-            if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+            else if (Input.GetKeyDown(KeyCode.W))
             {
-                Debug.Log("Нажата клавиша 2 - Работать");
+                statsController.IncreaseCurrentStat(StatType.HealthStat);
             }
-            if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
+            else if (Input.GetKeyDown(KeyCode.E))
             {
+                statsController.IncreaseCurrentStat(StatType.MentalHealthStat);
             }
-
-            switch (typeof(KeyCode))
+            else if (Input.GetKeyDown(KeyCode.R))
             {
-                
+                statsController.IncreaseCurrentStat(StatType.SleepStat);
             }
         }
     }
