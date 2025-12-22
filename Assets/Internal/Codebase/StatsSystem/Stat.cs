@@ -28,12 +28,21 @@ namespace Codebase
         public StatType GetStatType() => 
             statType;
 
-        public void DecreaseValue() => 
-            currentValue -= decreaseValue * Time.deltaTime;
+        public void DecreaseValue()
+        {
+            if (currentValue >= MinValue) 
+                currentValue -= decreaseValue * Time.deltaTime;
+        }
 
         public void IncreaseValue()
         {
-            currentValue += increaseValue * Time.deltaTime;
+            if (decreaseValue < maxValue)
+            {
+                currentValue += increaseValue * Time.deltaTime;
+                Debug.Log(currentValue);
+            }
+            else
+                Debug.Log("Полный запас стата");
         }
 
         public float GetCurrentStat() => 
