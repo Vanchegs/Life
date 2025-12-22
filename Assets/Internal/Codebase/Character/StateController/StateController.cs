@@ -17,6 +17,7 @@ namespace Codebase
         private void Update()
         {
             CheckInput();
+            UpdateIncreaseStat();
         }
 
         private void CheckInput()
@@ -29,16 +30,29 @@ namespace Codebase
                 currentState = States.HealthsState;
             else if (Input.GetKeyDown(KeyCode.R))
                 currentState = States.MentalHealthsState;
-            else
-                currentState = States.NoneState;
+            
+            Debug.Log(currentState);
         }
 
         private void UpdateIncreaseStat()
         {
-            statsController.IncreaseCurrentStat(StatType.FoodStat);
-            statsController.IncreaseCurrentStat(StatType.HealthStat);
-            statsController.IncreaseCurrentStat(StatType.MentalHealthStat);
-            statsController.IncreaseCurrentStat(StatType.SleepStat);
+            switch (currentState)
+            {
+                case States.FoodState:
+                    statsController.IncreaseCurrentStat(StatType.FoodStat);
+                    break;
+                case States.SleepState:
+                    statsController.IncreaseCurrentStat(StatType.SleepStat);
+                    break;
+                case States.HealthsState:
+                    statsController.IncreaseCurrentStat(StatType.HealthStat);
+                    break;
+                case States.MentalHealthsState:
+                    statsController.IncreaseCurrentStat(StatType.MentalHealthStat);
+                    break;
+                case States.NoneState:
+                    break;
+            }
         }
     }
 }
