@@ -5,6 +5,7 @@ namespace Codebase
         FoodState,
         MentalHealthsState,
         HealthsState,
-        SleepState
+        SleepState,
+        NoneState
     }
 }

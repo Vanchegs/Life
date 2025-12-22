@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Codebase
@@ -8,6 +9,11 @@ namespace Codebase
 
         private States currentState;
 
+        private void Start()
+        {
+            currentState = States.NoneState;
+        }
+
         private void Update()
         {
             CheckInput();
@@ -16,26 +22,23 @@ namespace Codebase
         private void CheckInput()
         {
             if (Input.GetKeyDown(KeyCode.Q))
-            {
-                statsController.IncreaseCurrentStat(StatType.FoodStat);
-            }
+                currentState = States.SleepState;
             else if (Input.GetKeyDown(KeyCode.W))
-            {
-                statsController.IncreaseCurrentStat(StatType.HealthStat);
-            }
+                currentState = States.FoodState;
             else if (Input.GetKeyDown(KeyCode.E))
-            {
-                statsController.IncreaseCurrentStat(StatType.MentalHealthStat);
-            }
+                currentState = States.HealthsState;
             else if (Input.GetKeyDown(KeyCode.R))
-            {
-                statsController.IncreaseCurrentStat(StatType.SleepStat);
-            }
+                currentState = States.MentalHealthsState;
+            else
+                currentState = States.NoneState;
         }
 
         private void UpdateIncreaseStat()
         {
-            
+            statsController.IncreaseCurrentStat(StatType.FoodStat);
+            statsController.IncreaseCurrentStat(StatType.HealthStat);
+            statsController.IncreaseCurrentStat(StatType.MentalHealthStat);
+            statsController.IncreaseCurrentStat(StatType.SleepStat);
         }
     }
 }
