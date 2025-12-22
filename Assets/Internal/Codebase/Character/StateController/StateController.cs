@@ -6,6 +6,8 @@ namespace Codebase
     {
         [SerializeField] private StatsController statsController;
 
+        private States currentState;
+
         private void Update()
         {
             CheckInput();
