@@ -36,7 +36,7 @@ namespace Codebase
 
         public void IncreaseValue()
         {
-            if (decreaseValue < maxValue)
+            if (currentValue < maxValue)
             {
                 currentValue += increaseValue * Time.deltaTime;
                 Debug.Log(currentValue);
