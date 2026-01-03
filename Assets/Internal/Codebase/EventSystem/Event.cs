@@ -17,5 +17,6 @@ namespace Codebase
         public int foodChangeValue;
         public int healthChangeValue;
         public int mentalHealthChangeValue;
+        public int moneyChangeValue;
     }
 }

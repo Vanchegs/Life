@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Codebase
 {
-    [CreateAssetMenu(menuName = "Configs/Stat Config", fileName = "StatConfig", order = 1)]
+    [CreateAssetMenu(menuName = "Configs/Stat Config", fileName = "StatConfig")]
     public class StatConfig : ScriptableObject
     {
         public int maxValue;
