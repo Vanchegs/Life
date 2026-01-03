@@ -42,7 +42,7 @@ namespace Codebase
                     statsController.IncreaseCurrentStat(StatType.FoodStat);
                     break;
                 case States.SleepState:
-                    statsController.IncreaseCurrentStat(StatType.SleepStat);
+                    statsController.IncreaseCurrentStat(StatType.EnergyStat);
                     break;
                 case States.HealthsState:
                     statsController.IncreaseCurrentStat(StatType.HealthStat);

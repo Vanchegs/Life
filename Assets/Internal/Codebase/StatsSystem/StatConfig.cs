@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Codebase
 {
-    [CreateAssetMenu(menuName = "Configs", fileName = "StatConfig", order = 1)]
+    [CreateAssetMenu(menuName = "Configs/Stat Config", fileName = "StatConfig", order = 1)]
     public class StatConfig : ScriptableObject
     {
         public int maxValue;
@@ -13,8 +13,8 @@ namespace Codebase
         public float foodIncreaseValue;
 
         [Header("Sleep Stat")] 
-        public float sleepDecreaseValue;
-        public float sleepIncreaseValue;
+        public float energyDecreaseValue;
+        public float energyIncreaseValue;
 
         [Header("Health Stat")] 
         public float healthDecreaseValue;

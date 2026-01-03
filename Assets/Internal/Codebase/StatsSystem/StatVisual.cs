@@ -11,11 +11,11 @@ namespace Codebase
         [SerializeField] private Slider mentalHealthSlider;
 
         private Stat foodStat;
-        private Stat sleepStat;
+        private Stat energyStat;
         private Stat healthStat;
         private Stat mentalHealthStat;
 
-        public void Init(StatConfig statConfig, Stat foodStat, Stat sleepStat, Stat healthStat, Stat mentalHealthStat)
+        public void Init(StatConfig statConfig, Stat foodStat, Stat energyStat, Stat healthStat, Stat mentalHealthStat)
         {
             InitSlider(foodSlider, statConfig);
             InitSlider(sleepSlider, statConfig);
@@ -23,7 +23,7 @@ namespace Codebase
             InitSlider(mentalHealthSlider, statConfig);
         
             this.foodStat = foodStat;
-            this.sleepStat = sleepStat;
+            this.energyStat = energyStat;
             this.healthStat = healthStat;
             this.mentalHealthStat = mentalHealthStat;
         
@@ -46,7 +46,7 @@ namespace Codebase
         public void UpdateValue()
         {
             foodSlider.value = Mathf.Clamp(foodStat.GetCurrentStat(), foodSlider.minValue, foodSlider.maxValue);
-            sleepSlider.value = Mathf.Clamp(sleepStat.GetCurrentStat(), sleepSlider.minValue, sleepSlider.maxValue);
+            sleepSlider.value = Mathf.Clamp(energyStat.GetCurrentStat(), sleepSlider.minValue, sleepSlider.maxValue);
             healthSlider.value = Mathf.Clamp(healthStat.GetCurrentStat(), healthSlider.minValue, healthSlider.maxValue);
             mentalHealthSlider.value = Mathf.Clamp(mentalHealthStat.GetCurrentStat(), mentalHealthSlider.minValue, mentalHealthSlider.maxValue);
         }

@@ -9,7 +9,7 @@ namespace Codebase
         [SerializeField] private StatVisual statVisual;
         
         private Stat foodStat;
-        private Stat sleepStat;
+        private Stat energyStat;
         private Stat mentalHealthStat;
         private Stat healthStat;
 
@@ -18,7 +18,7 @@ namespace Codebase
         private void Start()
         {
             InitializeStats();
-            statVisual.Init(statConfig, foodStat, sleepStat, healthStat, mentalHealthStat);
+            statVisual.Init(statConfig, foodStat, energyStat, healthStat, mentalHealthStat);
         }
 
         private void Update()
@@ -30,11 +30,11 @@ namespace Codebase
         private void InitializeStats()
         {
             foodStat = new Stat(StatType.FoodStat, statConfig.maxValue, statConfig.foodDecreaseValue, statConfig.foodIncreaseValue);
-            sleepStat = new Stat(StatType.SleepStat, statConfig.maxValue, statConfig.sleepDecreaseValue, statConfig.sleepIncreaseValue);
+            energyStat = new Stat(StatType.EnergyStat, statConfig.maxValue, statConfig.energyDecreaseValue, statConfig.energyIncreaseValue);
             mentalHealthStat = new Stat(StatType.MentalHealthStat, statConfig.maxValue, statConfig.mentalDecreaseValue, statConfig.mentalIncreaseValue);
             healthStat = new Stat(StatType.HealthStat, statConfig.maxValue, statConfig.healthDecreaseValue, statConfig.healthIncreaseValue);
             
-            stats = new List<Stat> { foodStat, sleepStat, mentalHealthStat, healthStat };
+            stats = new List<Stat> { foodStat, energyStat, mentalHealthStat, healthStat };
         }
 
         public void IncreaseCurrentStat(StatType statType)
@@ -47,8 +47,8 @@ namespace Codebase
                 case StatType.HealthStat:
                     healthStat.IncreaseValue();
                     break;
-                case StatType.SleepStat:
-                    sleepStat.IncreaseValue();
+                case StatType.EnergyStat:
+                    energyStat.IncreaseValue();
                     break;
                 case StatType.MentalHealthStat:
                     mentalHealthStat.IncreaseValue();

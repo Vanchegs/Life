@@ -3,7 +3,7 @@ namespace Codebase
     public enum StatType
     {
         FoodStat,
-        SleepStat,
+        EnergyStat,
         HealthStat,
         MentalHealthStat
     }

@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 202377030}
   - component: {fileID: 202377031}
   m_Layer: 5
-  m_Name: SleepSlider
+  m_Name: EnergySlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
