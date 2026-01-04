@@ -8,15 +8,24 @@ namespace Codebase
         [Header("Info")] 
         public string eventName;
         public string description;
-
-        [Header("Solutions"), Space(10)]
+        
+        [Space(10)]
+        [Header("Solutions")]
         public string firstSolution;
         public string secondSolution;
 
-        [Header("Food Stat")] 
-        public int foodChangeValue;
-        public int healthChangeValue;
-        public int mentalHealthChangeValue;
-        public int moneyChangeValue;
+        [Space(10)]
+        [Header("First solution change value")] 
+        public int firstSolutionFoodChangeValue;
+        public int firstSolutionHealthChangeValue;
+        public int firstSolutionMentalHealthChangeValue;
+        public int firstSolutionMoneyChangeValue;
+        
+        [Space(10)]
+        [Header("Second solution change value")]
+        public int secondSolutionFoodChangeValue;
+        public int secondSolutionHealthChangeValue;
+        public int secondSolutionMentalHealthChangeValue;
+        public int secondSolutionMoneyChangeValue;
     }
 }
