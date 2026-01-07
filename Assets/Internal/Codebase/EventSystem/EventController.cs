@@ -8,6 +8,8 @@ namespace Codebase
     {
         [SerializeField] private List<Event> events;
 
+        [SerializeField] private EventView eventView;
+
         private void Start()
         {
             Debug.Log(GetEvent().eventName);
