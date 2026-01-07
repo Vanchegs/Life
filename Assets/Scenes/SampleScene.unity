@@ -1366,6 +1366,7 @@ GameObject:
   - component: {fileID: 1179982746}
   - component: {fileID: 1179982747}
   - component: {fileID: 1179982748}
+  - component: {fileID: 1179982749}
   m_Layer: 0
   m_Name: Contrllers
   m_TagString: Untagged
@@ -1431,6 +1432,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsController: {fileID: 1179982746}
+--- !u!114 &1179982749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179982744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664360ae97074bd4c911de5557a5879c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+  - {fileID: 11400000, guid: c6b589ebf8960544f95e0aa50a633acf, type: 2}
+  - {fileID: 11400000, guid: b0e2c2da381e49647965f098966e5a2b, type: 2}
+  - {fileID: 11400000, guid: 7fc0d39302724d141adc9d9ecdb36a95, type: 2}
+  - {fileID: 11400000, guid: 42d6a6cf043d97346a330335f5d8522a, type: 2}
+  - {fileID: 11400000, guid: b5258976c9b66bc43b932d8af8464e4e, type: 2}
+  - {fileID: 11400000, guid: 812471a3e05617c4ebdd72e21bd3fb8f, type: 2}
 --- !u!1 &1196823595
 GameObject:
   m_ObjectHideFlags: 0
