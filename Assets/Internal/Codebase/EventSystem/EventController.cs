@@ -10,9 +10,11 @@ namespace Codebase
 
         [SerializeField] private EventView eventView;
 
+        private Event currentEvent;
+
         private void Start()
         {
-            Debug.Log(GetEvent().eventName);
+            CreateEvent();
         }
 
         private Event GetEvent()
@@ -20,6 +22,12 @@ namespace Codebase
             var index = Random.Range(0, events.Count);
 
             return events[index];
+        }
+
+        private void CreateEvent()
+        {
+            currentEvent = GetEvent();
+            eventView.ViewEvent(currentEvent);
         }
     }
 }
