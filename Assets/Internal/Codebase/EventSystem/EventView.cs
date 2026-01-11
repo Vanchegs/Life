@@ -12,7 +12,6 @@ namespace Codebase
         [SerializeField] private Button firstSolutionButton;
         [SerializeField] private Button secondSolutionButton;
 
-        // ReSharper disable once InconsistentNaming
         public void ViewEvent(Event _event)
         {
             eventNameText.text = _event.eventName;

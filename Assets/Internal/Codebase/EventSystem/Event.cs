@@ -17,6 +17,7 @@ namespace Codebase
         [Space(10)]
         [Header("First solution change value")] 
         public int firstSolutionFoodChangeValue;
+        public int firstSolutionEnergyValue;
         public int firstSolutionHealthChangeValue;
         public int firstSolutionMentalHealthChangeValue;
         public int firstSolutionMoneyChangeValue;
@@ -24,6 +25,7 @@ namespace Codebase
         [Space(10)]
         [Header("Second solution change value")]
         public int secondSolutionFoodChangeValue;
+        public int secondSolutionEnergyValue;
         public int secondSolutionHealthChangeValue;
         public int secondSolutionMentalHealthChangeValue;
         public int secondSolutionMoneyChangeValue;

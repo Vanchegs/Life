@@ -1841,6 +1841,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b5258976c9b66bc43b932d8af8464e4e, type: 2}
   - {fileID: 11400000, guid: 812471a3e05617c4ebdd72e21bd3fb8f, type: 2}
   eventView: {fileID: 1179982750}
+  statsController: {fileID: 1179982746}
 --- !u!114 &1179982750
 MonoBehaviour:
   m_ObjectHideFlags: 0

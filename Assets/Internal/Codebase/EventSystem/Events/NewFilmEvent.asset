@@ -19,10 +19,12 @@ MonoBehaviour:
   firstSolution: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C"
   secondSolution: "\u0418\u0433\u043D\u043E\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C"
   firstSolutionFoodChangeValue: 2
+  firstSolutionEnergyValue: 2
   firstSolutionHealthChangeValue: 0
   firstSolutionMentalHealthChangeValue: 10
   firstSolutionMoneyChangeValue: -2
   secondSolutionFoodChangeValue: 0
+  secondSolutionEnergyValue: 0
   secondSolutionHealthChangeValue: 0
   secondSolutionMentalHealthChangeValue: -2
   secondSolutionMoneyChangeValue: 0

@@ -58,6 +58,14 @@ namespace Codebase
             }
         }
 
+        public void ChangeStatsAfterEvent(int foodChangeValue, int energyChangeValue, int mentalHealthChangeValue, int healthChangeValue)
+        {
+            foodStat.EventStatChange(foodChangeValue);
+            energyStat.EventStatChange(energyChangeValue);
+            mentalHealthStat.EventStatChange(mentalHealthChangeValue);
+            healthStat.EventStatChange(healthChangeValue);
+        }
+
         private void UpdateStats()
         {
             foreach (var stat in stats)

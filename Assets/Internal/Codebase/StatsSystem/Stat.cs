@@ -45,6 +45,9 @@ namespace Codebase
                 Debug.Log("Полный запас стата");
         }
 
+        public void EventStatChange(int changeValue) => 
+            currentValue += changeValue;
+
         public float GetCurrentStat() => 
             currentValue;
     }
