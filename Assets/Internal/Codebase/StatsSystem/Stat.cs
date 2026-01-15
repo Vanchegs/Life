@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Codebase
@@ -45,8 +46,11 @@ namespace Codebase
                 Debug.Log("Полный запас стата");
         }
 
-        public void EventStatChange(int changeValue) => 
-            currentValue += changeValue;
+        public void EventStatChange(int changeValue)
+        {
+            currentValue = Math.Clamp(currentValue + changeValue, MinValue, maxValue);
+            Debug.Log(currentValue);
+        }
 
         public float GetCurrentStat() => 
             currentValue;
