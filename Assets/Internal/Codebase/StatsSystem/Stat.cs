@@ -31,25 +31,19 @@ namespace Codebase
 
         public void DecreaseValue()
         {
-            if (currentValue >= MinValue) 
-                currentValue -= decreaseValue * Time.deltaTime;
+            currentValue = Mathf.Clamp(currentValue - decreaseValue * Time.deltaTime, MinValue, maxValue);
         }
 
         public void IncreaseValue()
         {
             if (currentValue < maxValue)
-            {
-                currentValue += increaseValue * Time.deltaTime;
-                Debug.Log(currentValue);
-            }
-            else
-                Debug.Log("Полный запас стата");
+                currentValue = Mathf.Clamp(currentValue + increaseValue * Time.deltaTime, MinValue, maxValue);
         }
 
-        public void EventStatChange(int changeValue)
+        public void EventStatChange(float changeValue)
         {
-            currentValue = Math.Clamp(currentValue + changeValue, MinValue, maxValue);
-            Debug.Log(currentValue);
+            currentValue = Mathf.Clamp(currentValue + changeValue, MinValue, maxValue);
+            Debug.Log($"Stat {statType} changed to: {currentValue}");
         }
 
         public float GetCurrentStat() => 
