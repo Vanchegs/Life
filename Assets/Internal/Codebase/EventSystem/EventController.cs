@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,22 +12,18 @@ namespace Codebase
         [SerializeField] private EventView eventView;
         [SerializeField] private StatsController statsController;
         
+        [SerializeField] private int minSpawnDelay, maxSpawnDelay;
+
+        private bool isEventActive;
         private Event currentEvent;
+        private int spawnDelay;
 
-        private void Start() => 
-            CreateEvent();
-
-        private Event GetEvent()
+        private void Start()
         {
-            var index = Random.Range(0, events.Count);
+            isEventActive = true;
+            spawnDelay = minSpawnDelay;
 
-            return events[index];
-        }
-
-        private void CreateEvent()
-        {
-            currentEvent = GetEvent();
-            eventView.ViewEvent(currentEvent);
+            StartCoroutine(SpawnEvent());
         }
 
         public void ClickFirstSolutionButton()
@@ -39,6 +36,31 @@ namespace Codebase
         {
             statsController.ChangeStatsAfterEvent(currentEvent.secondSolutionFoodChangeValue, currentEvent.secondSolutionEnergyValue,
                 currentEvent.secondSolutionMentalHealthChangeValue, currentEvent.secondSolutionHealthChangeValue);
+        }
+
+        private IEnumerator SpawnEvent()
+        {
+            while (isEventActive)
+            {
+                yield return new WaitForSeconds(spawnDelay);
+
+                CreateEvent();
+
+                spawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
+            }
+        }
+        
+        private Event GetEvent()
+        {
+            var index = Random.Range(0, events.Count);
+
+            return events[index];
+        }
+
+        private void CreateEvent()
+        {
+            currentEvent = GetEvent();
+            eventView.ViewEvent(currentEvent);
         }
     }
 }
