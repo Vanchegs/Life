@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -7,7 +6,7 @@ namespace Codebase
 {
     public class EventController : MonoBehaviour
     {
-        [SerializeField] private List<Event> events;
+        [SerializeField] private EventsList eventsList;
         
         [SerializeField] private EventView eventView;
         [SerializeField] private StatsController statsController;
@@ -52,9 +51,9 @@ namespace Codebase
         
         private Event GetEvent()
         {
-            var index = Random.Range(0, events.Count);
+            var index = Random.Range(0, eventsList.events.Count);
 
-            return events[index];
+            return eventsList.events[index];
         }
 
         private void CreateEvent()

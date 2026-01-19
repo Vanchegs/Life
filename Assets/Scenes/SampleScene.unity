@@ -1846,15 +1846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664360ae97074bd4c911de5557a5879c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events:
-  - {fileID: 11400000, guid: c6b589ebf8960544f95e0aa50a633acf, type: 2}
-  - {fileID: 11400000, guid: b0e2c2da381e49647965f098966e5a2b, type: 2}
-  - {fileID: 11400000, guid: 7fc0d39302724d141adc9d9ecdb36a95, type: 2}
-  - {fileID: 11400000, guid: 42d6a6cf043d97346a330335f5d8522a, type: 2}
-  - {fileID: 11400000, guid: b5258976c9b66bc43b932d8af8464e4e, type: 2}
-  - {fileID: 11400000, guid: 812471a3e05617c4ebdd72e21bd3fb8f, type: 2}
-  - {fileID: 11400000, guid: ea20c439e12819f48a78626ac808bbbf, type: 2}
-  - {fileID: 11400000, guid: ace1715e291a8b147a0e935ed32f5235, type: 2}
+  eventsList: {fileID: 0}
   eventView: {fileID: 1179982750}
   statsController: {fileID: 1179982746}
   minSpawnDelay: 15
