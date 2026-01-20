@@ -6,8 +6,8 @@ namespace Codebase
     public class StatsController : MonoBehaviour
     {
         private const float NormalMultiplier = 1;
-        private const float DeficitMultiplier = 5f;
-        private const int DeficitValue = 15;
+        private const float DeficitMultiplier = 2;
+        private const int DeficitValue = 20;
         
         [SerializeField] private StatConfig statConfig;
         [SerializeField] private StatVisual statVisual;
