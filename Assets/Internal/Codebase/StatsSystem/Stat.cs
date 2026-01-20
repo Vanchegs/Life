@@ -39,8 +39,6 @@ namespace Codebase
 
         public void ChangeMultiplier(float _multiplier)
         {
-            if (_multiplier > 3)
-                return;
             multiplier = _multiplier;
         }
 

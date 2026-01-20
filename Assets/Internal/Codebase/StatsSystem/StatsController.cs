@@ -6,7 +6,7 @@ namespace Codebase
     public class StatsController : MonoBehaviour
     {
         private const float NormalMultiplier = 1;
-        private const float DeficitMultiplier = 2f;
+        private const float DeficitMultiplier = 5f;
         private const int DeficitValue = 15;
         
         [SerializeField] private StatConfig statConfig;
@@ -72,45 +72,23 @@ namespace Codebase
 
         private void UpdateStats()
         {
-            if (foodStat.GetCurrentStat() < 15)
-            {
-                energyStat.ChangeMultiplier(DeficitMultiplier);
-                healthStat.ChangeMultiplier(DeficitMultiplier);
-                mentalHealthStat.ChangeMultiplier(DeficitMultiplier);
-            }
-            else
-            {
-                energyStat.ChangeMultiplier(NormalMultiplier);
-                healthStat.ChangeMultiplier(NormalMultiplier);
-                mentalHealthStat.ChangeMultiplier(NormalMultiplier);
-            }
+            SetMultipliers();
 
-            if (energyStat.GetCurrentStat() < 15)
-            {
-                healthStat.ChangeMultiplier(DeficitMultiplier);
-                mentalHealthStat.ChangeMultiplier(DeficitMultiplier);
-            }
-            else
-            {
-                healthStat.ChangeMultiplier(NormalMultiplier);
-                mentalHealthStat.ChangeMultiplier(NormalMultiplier);
-            }
-
-            if (mentalHealthStat.GetCurrentStat() < 15)
-            {
-                energyStat.ChangeMultiplier(DeficitMultiplier); 
-                healthStat.ChangeMultiplier(DeficitMultiplier);
-            }
-            else
-            {
-                energyStat.ChangeMultiplier(NormalMultiplier);
-                healthStat.ChangeMultiplier(NormalMultiplier);
-            }
-            
             foreach (var stat in stats)
             {
                 stat.DecreaseValue();
             }
+        }
+
+        private void SetMultipliers()
+        {
+            bool isHungry = foodStat.GetCurrentStat() < DeficitValue;
+            bool isTired = energyStat.GetCurrentStat() < DeficitValue;
+            bool isStressed = mentalHealthStat.GetCurrentStat() < DeficitValue;
+    
+            energyStat.ChangeMultiplier((isHungry || isStressed) ? DeficitMultiplier : NormalMultiplier);
+            healthStat.ChangeMultiplier((isHungry || isTired || isStressed) ? DeficitMultiplier : NormalMultiplier);
+            mentalHealthStat.ChangeMultiplier((isHungry || isTired) ? DeficitMultiplier : NormalMultiplier);
         }
     }
 }
