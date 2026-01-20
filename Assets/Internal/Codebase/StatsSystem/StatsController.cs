@@ -82,51 +82,38 @@ namespace Codebase
 
         private void SetMultipliers()
         {
+            float energyMultiplier = NormalMultiplier;
+            float healthMultiplier = NormalMultiplier; 
+            float mentalMultiplier = NormalMultiplier;
+
             if (foodStat.GetCurrentStat() < DeficitValue)
             {
-                energyStat.ChangeMultiplier(DeficitMultiplier);
-                healthStat.ChangeMultiplier(DeficitMultiplier);
-                mentalHealthStat.ChangeMultiplier(DeficitMultiplier);
-            }
-            else
-            {
-                energyStat.ChangeMultiplier(NormalMultiplier);
-                healthStat.ChangeMultiplier(NormalMultiplier);
-                mentalHealthStat.ChangeMultiplier(NormalMultiplier);
+                energyMultiplier = DeficitMultiplier;
+                healthMultiplier = DeficitMultiplier;
+                mentalMultiplier = DeficitMultiplier;
             }
 
             if (energyStat.GetCurrentStat() < DeficitValue)
             {
-                healthStat.ChangeMultiplier(DeficitMultiplier);
-                mentalHealthStat.ChangeMultiplier(DeficitMultiplier);
-            }
-            else
-            {
-                healthStat.ChangeMultiplier(NormalMultiplier);
-                mentalHealthStat.ChangeMultiplier(NormalMultiplier);
+                healthMultiplier = DeficitMultiplier;
+                mentalMultiplier = DeficitMultiplier;
             }
 
             if (mentalHealthStat.GetCurrentStat() < DeficitValue)
             {
-                energyStat.ChangeMultiplier(DeficitMultiplier);
-                healthStat.ChangeMultiplier(DeficitMultiplier);
-            }
-            else
-            {
-                energyStat.ChangeMultiplier(NormalMultiplier);
-                healthStat.ChangeMultiplier(NormalMultiplier);
+                energyMultiplier = DeficitMultiplier;
+                healthMultiplier = DeficitMultiplier;
             }
 
             if (healthStat.GetCurrentStat() < DeficitValue)
             {
-                energyStat.ChangeMultiplier(DeficitMultiplier);
-                mentalHealthStat.ChangeMultiplier(DeficitMultiplier);
+                energyMultiplier = DeficitMultiplier;
+                mentalMultiplier = DeficitMultiplier;
             }
-            else
-            {
-                energyStat.ChangeMultiplier(NormalMultiplier);
-                mentalHealthStat.ChangeMultiplier(NormalMultiplier);
-            }
+
+            energyStat.ChangeMultiplier(energyMultiplier);
+            healthStat.ChangeMultiplier(healthMultiplier);
+            mentalHealthStat.ChangeMultiplier(mentalMultiplier);
         }
     }
 }
