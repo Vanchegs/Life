@@ -7,6 +7,7 @@ namespace Codebase
     {
         private const float NormalMultiplier = 1;
         private const float DeficitMultiplier = 2f;
+        private const int DeficitValue = 15;
         
         [SerializeField] private StatConfig statConfig;
         [SerializeField] private StatVisual statVisual;
@@ -71,7 +72,7 @@ namespace Codebase
 
         private void UpdateStats()
         {
-            if (foodStat.GetCurrentStat() < 20)
+            if (foodStat.GetCurrentStat() < 15)
             {
                 energyStat.ChangeMultiplier(DeficitMultiplier);
                 healthStat.ChangeMultiplier(DeficitMultiplier);
@@ -82,6 +83,28 @@ namespace Codebase
                 energyStat.ChangeMultiplier(NormalMultiplier);
                 healthStat.ChangeMultiplier(NormalMultiplier);
                 mentalHealthStat.ChangeMultiplier(NormalMultiplier);
+            }
+
+            if (energyStat.GetCurrentStat() < 15)
+            {
+                healthStat.ChangeMultiplier(DeficitMultiplier);
+                mentalHealthStat.ChangeMultiplier(DeficitMultiplier);
+            }
+            else
+            {
+                healthStat.ChangeMultiplier(NormalMultiplier);
+                mentalHealthStat.ChangeMultiplier(NormalMultiplier);
+            }
+
+            if (mentalHealthStat.GetCurrentStat() < 15)
+            {
+                energyStat.ChangeMultiplier(DeficitMultiplier); 
+                healthStat.ChangeMultiplier(DeficitMultiplier);
+            }
+            else
+            {
+                energyStat.ChangeMultiplier(NormalMultiplier);
+                healthStat.ChangeMultiplier(NormalMultiplier);
             }
             
             foreach (var stat in stats)
