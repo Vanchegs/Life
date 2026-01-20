@@ -5,6 +5,9 @@ namespace Codebase
 {
     public class StatsController : MonoBehaviour
     {
+        private const float NormalMultiplier = 1;
+        private const float DeficitMultiplier = 2f;
+        
         [SerializeField] private StatConfig statConfig;
         [SerializeField] private StatVisual statVisual;
         
@@ -68,6 +71,19 @@ namespace Codebase
 
         private void UpdateStats()
         {
+            if (foodStat.GetCurrentStat() < 20)
+            {
+                energyStat.ChangeMultiplier(DeficitMultiplier);
+                healthStat.ChangeMultiplier(DeficitMultiplier);
+                mentalHealthStat.ChangeMultiplier(DeficitMultiplier);
+            }
+            else
+            {
+                energyStat.ChangeMultiplier(NormalMultiplier);
+                healthStat.ChangeMultiplier(NormalMultiplier);
+                mentalHealthStat.ChangeMultiplier(NormalMultiplier);
+            }
+            
             foreach (var stat in stats)
             {
                 stat.DecreaseValue();

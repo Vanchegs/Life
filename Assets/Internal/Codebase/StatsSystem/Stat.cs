@@ -7,6 +7,7 @@ namespace Codebase
     {
         private const int MinValue = 0;
         
+        
         private StatType statType;
         
         private int maxValue;
@@ -14,6 +15,7 @@ namespace Codebase
         private float currentValue;
         private float decreaseValue;
         private float increaseValue;
+        private float multiplier;
 
         public Stat(StatType statType, int maxValue, float decreaseValue, float increaseValue)
         {
@@ -24,14 +26,22 @@ namespace Codebase
             this.increaseValue = increaseValue;
 
             currentValue = maxValue;
+            ChangeMultiplier(1);
         }
 
         public StatType GetStatType() => 
             statType;
 
         public void DecreaseValue()
+        { 
+            currentValue = Mathf.Clamp(currentValue - decreaseValue * Time.deltaTime * multiplier, MinValue, maxValue);
+        }
+
+        public void ChangeMultiplier(float _multiplier)
         {
-            currentValue = Mathf.Clamp(currentValue - decreaseValue * Time.deltaTime, MinValue, maxValue);
+            if (_multiplier > 3)
+                return;
+            multiplier = _multiplier;
         }
 
         public void IncreaseValue()
