@@ -1009,7 +1009,7 @@ GameObject:
   - component: {fileID: 693856512}
   - component: {fileID: 693856511}
   m_Layer: 5
-  m_Name: Name
+  m_Name: EventName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1209,7 +1209,7 @@ GameObject:
   - component: {fileID: 879595678}
   - component: {fileID: 879595677}
   m_Layer: 5
-  m_Name: Description
+  m_Name: EventDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
