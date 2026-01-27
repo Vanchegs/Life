@@ -1779,10 +1779,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888c0e44ecb344c4b8ba9c39c1743842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventNameText: {fileID: 693856511}
-  eventDescriptionText: {fileID: 879595677}
-  firstSolutionText: {fileID: 1290554349}
-  secondSolutionText: {fileID: 1902183790}
+  panel: {fileID: 1839195781}
+  panelRect: {fileID: 1839195782}
+  title: {fileID: 693856511}
+  desc: {fileID: 879595677}
+  choice1: {fileID: 1290554349}
+  choice2: {fileID: 1902183790}
+  btn1: {fileID: 1435282754}
+  btn2: {fileID: 1028357545}
 --- !u!1 &1196823595
 GameObject:
   m_ObjectHideFlags: 0
@@ -2626,7 +2630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -86948.61, y: -1960.9995}
+  m_AnchoredPosition: {x: 7.5, y: 0}
   m_SizeDelta: {x: 549.45996, y: 927}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1839195783
