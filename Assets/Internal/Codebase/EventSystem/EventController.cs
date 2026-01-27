@@ -59,7 +59,7 @@ namespace Codebase
         private void CreateEvent()
         {
             currentEvent = GetEvent();
-            eventView.ViewEvent(currentEvent);
+            eventView.ShowEvent(currentEvent);
         }
     }
 }

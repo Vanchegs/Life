@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Codebase
 {
@@ -12,7 +11,7 @@ namespace Codebase
         [SerializeField] private TMP_Text firstSolutionText;
         [SerializeField] private TMP_Text secondSolutionText;
 
-        public void ViewEvent(Event _event)
+        public void ShowEvent(Event _event)
         {
             eventNameText.text = _event.eventName;
             eventDescriptionText.text = _event.description;
