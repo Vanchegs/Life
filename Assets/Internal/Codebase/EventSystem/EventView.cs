@@ -14,7 +14,6 @@ namespace Codebase
         [SerializeField] private TMP_Text firstSolutionText;
         [SerializeField] private TMP_Text secondSolutionText;
         
-
         public void ShowEvent(Event _event)
         {
             eventNameText.text = _event.eventName;
@@ -30,6 +29,17 @@ namespace Codebase
             
             panelTransform.DOAnchorPos(finishPosition, 0.5f)
                 .SetEase(Ease.OutBack);
+        }
+
+        public void HideEvent()
+        {
+            var finishPosition = new Vector2(-300, 1200);
+
+            panelTransform.DOAnchorPos(finishPosition, 0.5f)
+                .SetEase(Ease.InBack)
+                .OnComplete(() => {
+                    eventPanel.SetActive(false);
+                });
         }
     }
 }
