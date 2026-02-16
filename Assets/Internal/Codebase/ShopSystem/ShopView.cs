@@ -14,12 +14,12 @@ namespace Codebase
         {
             if (isStoreActivate == false)
             {
-                transform.DOMoveX(finalPosition.position.x, 1.5f, false);
+                transform.DOMoveX(finalPosition.position.x, 0.5f, false);
                 isStoreActivate = true;
             }
             else
             {
-                transform.DOMoveX(startPosition.position.x, 1.5f, false);
+                transform.DOMoveX(startPosition.position.x, 0.5f, false);
                 isStoreActivate = false;
             }
         }
