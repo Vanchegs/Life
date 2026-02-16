@@ -1912,6 +1912,7 @@ GameObject:
   - component: {fileID: 1179982748}
   - component: {fileID: 1179982749}
   - component: {fileID: 1179982750}
+  - component: {fileID: 1179982751}
   m_Layer: 0
   m_Name: Contrllers
   m_TagString: Untagged
@@ -2012,6 +2013,19 @@ MonoBehaviour:
   eventDescriptionText: {fileID: 801442667}
   firstSolutionText: {fileID: 1084813452}
   secondSolutionText: {fileID: 2010680460}
+--- !u!114 &1179982751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179982744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e3a8a7b9e6daf4abedc8eee279b84f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopView: {fileID: 1353029703}
 --- !u!1 &1196823595
 GameObject:
   m_ObjectHideFlags: 0
