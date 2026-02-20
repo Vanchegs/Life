@@ -17,6 +17,8 @@ namespace Codebase
         private Stat mentalHealthStat;
         private Stat healthStat;
 
+        private Wallet wallet;
+
         private List<Stat> stats;
 
         private void Start()
@@ -37,6 +39,8 @@ namespace Codebase
             energyStat = new Stat(StatType.EnergyStat, statConfig.maxValue, statConfig.energyDecreaseValue, statConfig.energyIncreaseValue);
             mentalHealthStat = new Stat(StatType.MentalHealthStat, statConfig.maxValue, statConfig.mentalDecreaseValue, statConfig.mentalIncreaseValue);
             healthStat = new Stat(StatType.HealthStat, statConfig.maxValue, statConfig.healthDecreaseValue, statConfig.healthIncreaseValue);
+
+            wallet = new Wallet();
             
             stats = new List<Stat> { foodStat, energyStat, mentalHealthStat, healthStat };
         }
