@@ -5,7 +5,7 @@ namespace Codebase
         private int balance;
 
         public void ChangeBalance(int changeValue) => 
-            balance -= changeValue;
+            balance += changeValue;
 
         public void SetSaveBalance(int savedBalance) => 
             balance = savedBalance;
