@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Codebase
@@ -6,7 +7,7 @@ namespace Codebase
     {
         [SerializeField] private ShopView shopView;
 
-        [SerializeField] private ShopItemSlot shopItemSlot;
+        [SerializeField] private List<ShopItemSlot> itemSlots;
 
         public void OpenCloseShop() => 
             shopView.MoveStore();

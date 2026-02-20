@@ -2162,6 +2162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopView: {fileID: 1353029703}
+  itemSlots: []
 --- !u!1 &1196823595
 GameObject:
   m_ObjectHideFlags: 0

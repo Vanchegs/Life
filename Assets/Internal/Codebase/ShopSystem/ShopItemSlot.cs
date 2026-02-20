@@ -1,11 +1,14 @@
-using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Codebase
 {
-    [Serializable]
-    public class ShopItemSlot
+    public class ShopItemSlot : MonoBehaviour
     {
-        public ShopItem item;
+        [SerializeField] private ShopItem item;
+        [SerializeField] private Button buyButton;
+        
+        
     }
 }
 
