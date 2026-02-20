@@ -27,13 +27,13 @@ namespace Codebase
 
         public void ClickFirstSolutionButton()
         {
-            statsController.ChangeStatsAfterEvent(currentEvent.firstSolutionFoodChangeValue, currentEvent.firstSolutionEnergyValue, 
+            statsController.ChangeStatsAfterEvent(currentEvent.firstSolutionMoneyChangeValue, currentEvent.firstSolutionFoodChangeValue, currentEvent.firstSolutionEnergyValue, 
                 currentEvent.firstSolutionMentalHealthChangeValue, currentEvent.firstSolutionHealthChangeValue);
         }
         
         public void ClickSecondSolutionButton()
         {
-            statsController.ChangeStatsAfterEvent(currentEvent.secondSolutionFoodChangeValue, currentEvent.secondSolutionEnergyValue,
+            statsController.ChangeStatsAfterEvent(currentEvent.secondSolutionMoneyChangeValue, currentEvent.secondSolutionFoodChangeValue, currentEvent.secondSolutionEnergyValue,
                 currentEvent.secondSolutionMentalHealthChangeValue, currentEvent.secondSolutionHealthChangeValue);
         }
 
