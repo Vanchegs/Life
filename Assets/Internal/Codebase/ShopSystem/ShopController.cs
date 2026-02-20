@@ -6,6 +6,8 @@ namespace Codebase
     {
         [SerializeField] private ShopView shopView;
 
+        [SerializeField] private ShopItemSlot shopItemSlot;
+
         public void OpenCloseShop() => 
             shopView.MoveStore();
     }
