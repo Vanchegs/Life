@@ -12,7 +12,7 @@ namespace Codebase
         public float foodDecreaseValue;
         public float foodIncreaseValue;
 
-        [Header("Sleep Stat")] 
+        [Header("Energy Stat")] 
         public float energyDecreaseValue;
         public float energyIncreaseValue;
 
