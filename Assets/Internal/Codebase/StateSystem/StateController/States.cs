@@ -2,10 +2,10 @@ namespace Codebase
 {
     internal enum States
     {
-        FoodState,
-        MentalHealthsState,
-        HealthsState,
+        EatState,
+        WorkState,
         SleepState,
-        NoneState
+        NoneState,
+        GamingState
     }
 }
