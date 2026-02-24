@@ -1,4 +1,5 @@
-using System.Collections;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Codebase
@@ -7,21 +8,27 @@ namespace Codebase
     {
         [SerializeField] private StatsController statsController;
         
-        private States currentState;
+        private State currentState;
+
+        private Dictionary<Type, State> states;
 
         private void Start()
         {
-            currentState = States.NoneState;
-            StartCoroutine(IncreaseBalance());
+            /*currentState = States.NoneState;*/
+            /*StartCoroutine(IncreaseBalance());*/
+            
+            ChangeState<IdleState>();
         }
 
         private void Update()
         {
-            CheckInput();
-            UpdateIncreaseStat();
+            /*CheckInput();*/
+            /*UpdateIncreaseStat();*/
+            
+            currentState.Update();
         }
 
-        private void CheckInput()
+        /*private void CheckInput()
         {
             if (Input.GetKeyDown(KeyCode.Q))
                 currentState = States.WorkState;
@@ -33,9 +40,31 @@ namespace Codebase
                 currentState = States.SleepState;
             
             Debug.Log(currentState);
+        }*/
+
+        private void InitStates()
+        {
+            AddState(new IdleState());
+            AddState(new SleepState());
         }
 
-        private void UpdateIncreaseStat()
+        private void AddState(State newState) => 
+            states[newState.GetType()] = newState;
+
+        private void ChangeState<T>() where T : State
+        {
+            if (states.TryGetValue(typeof(T), out var newState))
+            {
+                currentState?.Exit();
+                currentState = newState; 
+                currentState.Enter();
+            }
+        }
+
+        private T GetState<T>() where T : State => 
+            (T)states[typeof(T)];
+
+        /*private void UpdateIncreaseStat()
         {
             switch (currentState)
             {
@@ -54,9 +83,9 @@ namespace Codebase
                 case States.NoneState:
                     break;
             }
-        }
+        }*/
 
-        private IEnumerator IncreaseBalance()
+        /*private IEnumerator IncreaseBalance()
         {
             while (true)
             {
@@ -65,7 +94,7 @@ namespace Codebase
                 
                 yield return new WaitForSeconds(1);
             }
-        }
+        }*/
     }
 }
 
