@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Codebase
 {
     public class WorkState : State
@@ -9,6 +11,7 @@ namespace Codebase
         public override void Enter()
         {
             StateController.StartCoroutine(StateController.IncreaseBalance());
+            Debug.Log("Work state");
         }
 
         public override void Update()

@@ -6,17 +6,16 @@ namespace Codebase
 
         public override void Enter()
         {
-            
         }
 
         public override void Update()
         {
-            
+            StatsController.IncreaseCurrentStat(StatType.EnergyStat);
+            StatsController.IncreaseCurrentStat(StatType.HealthStat);
         }
 
         public override void Exit()
         {
-            throw new System.NotImplementedException();
         }
     }
 }
