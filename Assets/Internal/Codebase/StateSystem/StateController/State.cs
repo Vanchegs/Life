@@ -3,12 +3,12 @@ namespace Codebase
     public abstract class State
     {
         protected StatsController StatsController;
-        protected Wallet Wallet;
+        protected StateController StateController;
         
         protected State(StateController stateController)
         {
+            StateController = stateController;
             StatsController = stateController.GetStatsController();
-            Wallet = StatsController.GetWallet();
         }
         
         public abstract void Enter();

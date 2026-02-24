@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ namespace Codebase
             /*currentState = States.NoneState;*/
             /*StartCoroutine(IncreaseBalance());*/
             
+            InitStates();
+            
             ChangeState<IdleState>();
         }
 
@@ -31,19 +34,22 @@ namespace Codebase
         public StatsController GetStatsController() => 
             statsController;
 
-        /*private void CheckInput()
+        private void CheckInput()
         {
             if (Input.GetKeyDown(KeyCode.Q))
-                currentState = States.WorkState;
-            else if (Input.GetKeyDown(KeyCode.W))
+            {
+                ChangeState<WorkState>();
+            }
+            /*else if (Input.GetKeyDown(KeyCode.W))
                 currentState = States.GamingState;
             else if (Input.GetKeyDown(KeyCode.E))
                 currentState = States.EatState;
             else if (Input.GetKeyDown(KeyCode.R))
                 currentState = States.SleepState;
+                */
             
             Debug.Log(currentState);
-        }*/
+        }
 
 
         private void InitStates()
@@ -91,16 +97,16 @@ namespace Codebase
             }
         }*/
 
-        /*private IEnumerator IncreaseBalance()
+
+        public IEnumerator IncreaseBalance()
         {
             while (true)
-            {
-                if (currentState == States.WorkState)
-                    statsController.IncreaseWalletBalance();
+            { 
+                statsController.IncreaseWalletBalance();
 
                 yield return new WaitForSeconds(1);
             }
-        }*/
+        }
     }
 }
 

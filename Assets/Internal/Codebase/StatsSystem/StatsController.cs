@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -69,7 +70,7 @@ namespace Codebase
                     return;
             }
         }
-
+        
         public void ChangeStatsAfterEvent(int moneyChangeValue, int foodChangeValue, int energyChangeValue, int mentalHealthChangeValue, int healthChangeValue)
         {
             wallet.ChangeBalance(moneyChangeValue);
