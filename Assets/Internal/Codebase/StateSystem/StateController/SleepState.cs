@@ -2,6 +2,8 @@ namespace Codebase
 {
     public class SleepState : State
     {
+        public SleepState(StateController stateController) : base(stateController) { }
+
         public override void Enter()
         {
             

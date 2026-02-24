@@ -28,6 +28,9 @@ namespace Codebase
             currentState.Update();
         }
 
+        public StatsController GetStatsController() => 
+            statsController;
+
         /*private void CheckInput()
         {
             if (Input.GetKeyDown(KeyCode.Q))
@@ -42,10 +45,11 @@ namespace Codebase
             Debug.Log(currentState);
         }*/
 
+
         private void InitStates()
         {
-            AddState(new IdleState());
-            AddState(new SleepState());
+            AddState(new IdleState(this));
+            AddState(new SleepState(this));
         }
 
         private void AddState(State newState) => 
@@ -89,9 +93,9 @@ namespace Codebase
         {
             while (true)
             {
-                if (currentState == States.WorkState) 
+                if (currentState == States.WorkState)
                     statsController.IncreaseWalletBalance();
-                
+
                 yield return new WaitForSeconds(1);
             }
         }*/

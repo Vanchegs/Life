@@ -1,14 +1,12 @@
-using UnityEngine;
-
 namespace Codebase
 {
-    public class IdleState : State
+    public class GamingState : State
     {
-        public IdleState(StateController stateController) : base(stateController) { }
-
+        public GamingState(StateController stateController) : base(stateController) { }
+        
         public override void Enter()
         {
-            Debug.Log("Current state is enter");
+            throw new System.NotImplementedException();
         }
 
         public override void Update()
@@ -18,7 +16,7 @@ namespace Codebase
 
         public override void Exit()
         {
-             Debug.Log("Current state is exit");
+            throw new System.NotImplementedException();
         }
     }
 }
