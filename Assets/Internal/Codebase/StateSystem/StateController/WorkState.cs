@@ -13,7 +13,7 @@ namespace Codebase
 
         public override void Update()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public override void Exit()

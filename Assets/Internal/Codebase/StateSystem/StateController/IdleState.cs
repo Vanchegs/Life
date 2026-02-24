@@ -8,12 +8,12 @@ namespace Codebase
 
         public override void Enter()
         {
-            Debug.Log("Current state is enter");
+            Debug.Log("Idle state is enter");
         }
 
         public override void Update()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public override void Exit()

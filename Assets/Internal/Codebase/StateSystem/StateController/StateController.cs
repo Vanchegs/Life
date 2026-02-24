@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Codebase
@@ -8,27 +6,26 @@ namespace Codebase
     public class StateController : MonoBehaviour
     {
         [SerializeField] private StatsController statsController;
-        
-        private State currentState;
 
-        private Dictionary<Type, State> states;
+        private StateMachine stateMachine;
 
         private void Start()
         {
             /*currentState = States.NoneState;*/
             /*StartCoroutine(IncreaseBalance());*/
-            
+
+            stateMachine = new StateMachine();
             InitStates();
             
-            ChangeState<IdleState>();
+            stateMachine.ChangeState<IdleState>();
         }
 
         private void Update()
         {
-            /*CheckInput();*/
+            CheckInput();
             /*UpdateIncreaseStat();*/
             
-            currentState.Update();
+            stateMachine.UpdateCurrentState();
         }
 
         public StatsController GetStatsController() => 
@@ -38,7 +35,7 @@ namespace Codebase
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                ChangeState<WorkState>();
+                stateMachine.ChangeState<WorkState>();
             }
             /*else if (Input.GetKeyDown(KeyCode.W))
                 currentState = States.GamingState;
@@ -48,33 +45,17 @@ namespace Codebase
                 currentState = States.SleepState;
                 */
             
-            Debug.Log(currentState);
+            Debug.Log(stateMachine.GetCurrentState());
         }
 
 
         private void InitStates()
         {
-            AddState(new IdleState(this));
-            AddState(new SleepState(this));
-            AddState(new GamingState(this));
-            AddState(new EatState(this));
+            stateMachine.AddState(new IdleState(this));
+            stateMachine.AddState(new SleepState(this));
+            stateMachine.AddState(new GamingState(this));
+            stateMachine.AddState(new EatState(this));
         }
-
-        private void AddState(State newState) => 
-            states[newState.GetType()] = newState;
-
-        private void ChangeState<T>() where T : State
-        {
-            if (states.TryGetValue(typeof(T), out var newState))
-            {
-                currentState?.Exit();
-                currentState = newState; 
-                currentState.Enter();
-            }
-        }
-
-        private T GetState<T>() where T : State => 
-            (T)states[typeof(T)];
 
         /*private void UpdateIncreaseStat()
         {

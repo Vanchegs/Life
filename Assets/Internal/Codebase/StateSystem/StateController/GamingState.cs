@@ -11,7 +11,7 @@ namespace Codebase
 
         public override void Update()
         {
-            StatsController.IncreaseCurrentStat(StatType.MentalHealthStat);
+            
         }
 
         public override void Exit()
