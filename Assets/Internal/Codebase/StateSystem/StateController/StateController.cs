@@ -57,6 +57,7 @@ namespace Codebase
             stateMachine.AddState(new SleepState(this));
             stateMachine.AddState(new GamingState(this));
             stateMachine.AddState(new EatState(this));
+            stateMachine.AddState(new WorkState(this));
         }
 
         public IEnumerator IncreaseBalance()
