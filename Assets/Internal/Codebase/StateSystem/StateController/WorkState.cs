@@ -4,14 +4,14 @@ namespace Codebase
 {
     public class WorkState : State
     {
-        public WorkState(StateController stateController) : base(stateController)
-        {
-        }
+        private Coroutine workCoroutine;
+
+        public WorkState(StateController stateController) : base(stateController) { }
 
         public override void Enter()
         {
-            StateController.StartCoroutine(StateController.IncreaseBalance());
-            Debug.Log("Work state");
+            workCoroutine = StateController.StartCoroutine(StateController.IncreaseBalance());
+            Debug.Log("Work state started");
         }
 
         public override void Update()
@@ -21,7 +21,12 @@ namespace Codebase
 
         public override void Exit()
         {
-            StateController.StopCoroutine(StateController.IncreaseBalance());
+            if (workCoroutine != null)
+            {
+                StateController.StopCoroutine(workCoroutine);
+                workCoroutine = null;
+                Debug.Log("Work state stopped");
+            }
         }
     }
 }
