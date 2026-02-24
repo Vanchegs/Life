@@ -51,6 +51,7 @@ namespace Codebase
             AddState(new IdleState(this));
             AddState(new SleepState(this));
             AddState(new GamingState(this));
+            AddState(new EatState(this));
         }
 
         private void AddState(State newState) => 
