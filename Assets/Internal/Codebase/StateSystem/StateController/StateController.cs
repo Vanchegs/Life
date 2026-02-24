@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Codebase
@@ -11,6 +12,7 @@ namespace Codebase
         private void Start()
         {
             currentState = States.NoneState;
+            StartCoroutine(IncreaseBalance());
         }
 
         private void Update()
@@ -48,10 +50,20 @@ namespace Codebase
                     statsController.IncreaseCurrentStat(StatType.MentalHealthStat);
                     break;
                 case States.WorkState:
-                    statsController.IncreaseWalletBalance();
                     break;
                 case States.NoneState:
                     break;
+            }
+        }
+
+        private IEnumerator IncreaseBalance()
+        {
+            while (true)
+            {
+                if (currentState == States.WorkState) 
+                    statsController.IncreaseWalletBalance();
+                
+                yield return new WaitForSeconds(1);
             }
         }
     }
