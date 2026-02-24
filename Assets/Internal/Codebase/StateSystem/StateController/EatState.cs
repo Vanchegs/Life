@@ -10,7 +10,8 @@ namespace Codebase
 
         public override void Update()
         {
-            StatsController.IncreaseCurrentStat(StatType.FoodStat);  
+            StatsController.IncreaseCurrentStat(StatType.FoodStat);
+            StatsController.IncreaseCurrentStat(StatType.HealthStat);
         }
 
         public override void Exit()

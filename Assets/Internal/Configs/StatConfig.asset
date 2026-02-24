@@ -19,6 +19,6 @@ MonoBehaviour:
   energyDecreaseValue: 0.7
   energyIncreaseValue: 1.5
   healthDecreaseValue: 0.4
-  healthIncreaseValue: 0.8
+  healthIncreaseValue: 0.6
   mentalDecreaseValue: 0.4
   mentalIncreaseValue: 0.8
