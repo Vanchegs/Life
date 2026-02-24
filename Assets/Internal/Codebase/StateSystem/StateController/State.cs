@@ -8,6 +8,7 @@ namespace Codebase
         protected State(StateController stateController)
         {
             StatsController = stateController.GetStatsController();
+            Wallet = StatsController.GetWallet();
         }
         
         public abstract void Enter();

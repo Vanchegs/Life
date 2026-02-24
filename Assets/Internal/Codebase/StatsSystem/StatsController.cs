@@ -46,6 +46,9 @@ namespace Codebase
             stats = new List<Stat> { foodStat, energyStat, mentalHealthStat, healthStat };
         }
 
+        public Wallet GetWallet() => 
+            wallet;
+
         public void IncreaseCurrentStat(StatType statType)
         {
             switch (statType)
