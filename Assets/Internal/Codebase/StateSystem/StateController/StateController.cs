@@ -45,13 +45,19 @@ namespace Codebase
 
         public void StopWorkCoroutine()
         {
-            StopCoroutine(workCoroutine);
+            if (workCoroutine != null)
+            {
+                StopCoroutine(workCoroutine);
+                workCoroutine = null;
+            }
         }
 
         private void CheckInput()
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                if (stateMachine.GetCurrentState() == typeof(WorkState))
+                    return;
                 stateMachine.ChangeState<WorkState>();
             }
             else if (Input.GetKeyDown(KeyCode.W))
@@ -84,9 +90,9 @@ namespace Codebase
         {
             while (true)
             { 
-                statsController.IncreaseWalletBalance();
-
                 yield return new WaitForSeconds(1);
+                
+                statsController.IncreaseWalletBalance();
             }
         }
     }
