@@ -2048,6 +2048,7 @@ GameObject:
   - component: {fileID: 1179982748}
   - component: {fileID: 1179982749}
   - component: {fileID: 1179982750}
+  - component: {fileID: 1179982752}
   - component: {fileID: 1179982751}
   m_Layer: 0
   m_Name: Contrllers
@@ -2085,6 +2086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statConfig: {fileID: 11400000, guid: 6fdbda9db4302184eb797724bf8441bb, type: 2}
   statVisual: {fileID: 1179982747}
+  walletController: {fileID: 1179982752}
 --- !u!114 &1179982747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2114,6 +2116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsController: {fileID: 1179982746}
+  walletController: {fileID: 1179982752}
 --- !u!114 &1179982749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2163,6 +2166,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopView: {fileID: 1353029703}
   itemSlots: []
+--- !u!114 &1179982752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179982744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6432f33192d54391bb459f0bc3b0ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1196823595
 GameObject:
   m_ObjectHideFlags: 0

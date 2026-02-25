@@ -6,11 +6,11 @@ namespace Codebase
     public class StateController : MonoBehaviour
     {
         [SerializeField] private StatsController statsController;
-
+        [SerializeField] private WalletController walletController;
+        
         private StateMachine stateMachine;
         
         private Coroutine workCoroutine;
-
 
         private void Start()
         {
@@ -23,7 +23,6 @@ namespace Codebase
         private void Update()
         {
             CheckInput();
-            /*UpdateIncreaseStat();*/
             
             stateMachine.UpdateCurrentState();
         }
@@ -34,13 +33,9 @@ namespace Codebase
         public void StartWorkCoroutine()
         {
             if (workCoroutine != null)
-            {
-                Debug.Log("Работа уже идет!");
                 return;
-            }
-        
+
             workCoroutine = StartCoroutine(MoneyAccrual());
-            Debug.Log("Корутина работы ЗАПУЩЕНА");
         }
 
         public void StopWorkCoroutine()
@@ -92,7 +87,7 @@ namespace Codebase
             { 
                 yield return new WaitForSeconds(1);
                 
-                statsController.IncreaseWalletBalance();
+                walletController.IncreaseWalletBalance();
             }
         }
     }

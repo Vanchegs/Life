@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +11,7 @@ namespace Codebase
         
         [SerializeField] private StatConfig statConfig;
         [SerializeField] private StatVisual statVisual;
+        [SerializeField] private WalletController walletController;
         
         private Stat foodStat;
         private Stat energyStat;
@@ -26,9 +26,6 @@ namespace Codebase
         {
             InitializeStats();
             statVisual.Init(statConfig, foodStat, energyStat, healthStat, mentalHealthStat);
-            
-            wallet = new Wallet();
-            GameEventBus.OnUpdateBalance?.Invoke(wallet.GetBalance());
         }
 
         private void Update()
@@ -43,12 +40,11 @@ namespace Codebase
             energyStat = new Stat(StatType.EnergyStat, statConfig.maxValue, statConfig.energyDecreaseValue, statConfig.energyIncreaseValue);
             mentalHealthStat = new Stat(StatType.MentalHealthStat, statConfig.maxValue, statConfig.mentalDecreaseValue, statConfig.mentalIncreaseValue);
             healthStat = new Stat(StatType.HealthStat, statConfig.maxValue, statConfig.healthDecreaseValue, statConfig.healthIncreaseValue);
+
+            wallet = walletController.GetWallet();
             
             stats = new List<Stat> { foodStat, energyStat, mentalHealthStat, healthStat };
         }
-
-        public Wallet GetWallet() => 
-            wallet;
 
         public void IncreaseCurrentStat(StatType statType)
         {
@@ -79,9 +75,6 @@ namespace Codebase
             mentalHealthStat.EventStatChange(mentalHealthChangeValue);
             healthStat.EventStatChange(healthChangeValue);
         }
-
-        public void IncreaseWalletBalance() => 
-            wallet.ChangeBalance(2);
 
         private void UpdateStats()
         {
