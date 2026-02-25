@@ -8,6 +8,9 @@ namespace Codebase
         [SerializeField] private StatsController statsController;
 
         private StateMachine stateMachine;
+        
+        private Coroutine workCoroutine;
+
 
         private void Start()
         {
@@ -27,6 +30,23 @@ namespace Codebase
 
         public StatsController GetStatsController() => 
             statsController;
+        
+        public void StartWorkCoroutine()
+        {
+            if (workCoroutine != null)
+            {
+                Debug.Log("Работа уже идет!");
+                return;
+            }
+        
+            workCoroutine = StartCoroutine(MoneyAccrual());
+            Debug.Log("Корутина работы ЗАПУЩЕНА");
+        }
+
+        public void StopWorkCoroutine()
+        {
+            StopCoroutine(workCoroutine);
+        }
 
         private void CheckInput()
         {
@@ -60,7 +80,7 @@ namespace Codebase
             stateMachine.AddState(new WorkState(this));
         }
 
-        public IEnumerator IncreaseBalance()
+        private IEnumerator MoneyAccrual()
         {
             while (true)
             { 
