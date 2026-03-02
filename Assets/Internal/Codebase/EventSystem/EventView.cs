@@ -1,5 +1,4 @@
 using DG.Tweening;
-using TMPro;
 using UnityEngine;
 
 namespace Codebase
@@ -8,16 +7,14 @@ namespace Codebase
     {
         [SerializeField] private GameObject eventPanel;
         [SerializeField] private RectTransform panelTransform;
-        
-        [SerializeField] private TMP_Text eventNameText;
-        [SerializeField] private TMP_Text eventDescriptionText;
-        [SerializeField] private TMP_Text firstSolutionText;
-        [SerializeField] private TMP_Text secondSolutionText;
+
+        [SerializeField] private SolutionEventPanel solutionEventPanel;
+        [SerializeField] private SimpleEventPanel simpleEventPanel;
         
         public void ShowEvent(GameEvent _event)
         {
-            eventNameText.text = _event.eventName;
-            eventDescriptionText.text = _event.description;
+            /*eventNameText.text = _event.eventName;
+            eventDescriptionText.text = _event.description;*/
             /*firstSolutionText.text = _event.firstSolution;
             secondSolutionText.text = _event.secondSolution;*/
     
@@ -30,6 +27,13 @@ namespace Codebase
             panelTransform.DOAnchorPos(finishPosition, 0.5f)
                 .SetEase(Ease.OutBack);
         }
+
+        private void FillSolutionEventPanel(ChoiceEvent choiceEvent) => 
+            solutionEventPanel.SetText(choiceEvent.eventName, choiceEvent.description, 
+                choiceEvent.firstSolution, choiceEvent.secondSolution);
+
+        private void FillSimpleEventPanel(SimpleEvent simpleEvent) => 
+            simpleEventPanel.SetText(simpleEvent.eventName, simpleEvent.description, simpleEvent.buttonText);
 
         public void HideEvent()
         {

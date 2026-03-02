@@ -2148,10 +2148,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventPanel: {fileID: 1905386131}
   panelTransform: {fileID: 1905386132}
-  eventNameText: {fileID: 1764287011}
-  eventDescriptionText: {fileID: 801442667}
-  firstSolutionText: {fileID: 1084813452}
-  secondSolutionText: {fileID: 2010680460}
+  solutionEventPanel:
+    eventNameText: {fileID: 0}
+    eventDescriptionText: {fileID: 0}
+    firstSolutionText: {fileID: 0}
+    secondSolutionText: {fileID: 0}
+  simpleEventPanel:
+    eventNameText: {fileID: 0}
+    eventDescriptionText: {fileID: 0}
+    solutionText: {fileID: 0}
 --- !u!114 &1179982751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3385,7 +3390,7 @@ GameObject:
   - component: {fileID: 1905386134}
   - component: {fileID: 1905386133}
   m_Layer: 5
-  m_Name: EventPanel
+  m_Name: SolutionEventPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

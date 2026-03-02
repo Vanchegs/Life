@@ -1,12 +1,11 @@
 using UnityEngine;
-// ReSharper disable InconsistentNaming
 
 namespace Codebase
 {
     [CreateAssetMenu(menuName = "Configs/Simple Event Config", fileName = "SimpleEventConfig")]
     public class SimpleEvent : GameEvent
     {
-        public string ButtonText;
+        public string buttonText;
         
         [Space(10)]
         [Header("Second solution change value")]
