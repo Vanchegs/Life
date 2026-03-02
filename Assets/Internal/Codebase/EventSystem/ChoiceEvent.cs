@@ -2,13 +2,9 @@ using UnityEngine;
 
 namespace Codebase
 {
-    [CreateAssetMenu(menuName = "Configs/Event Config", fileName = "EventConfig")]
-    public class Event : ScriptableObject
+    [CreateAssetMenu(menuName = "Configs/Choice Event Config", fileName = "ChoiceEventConfig")]
+    public class ChoiceEvent : GameEvent
     {
-        [Header("Info")] 
-        public string eventName;
-        public string description;
-        
         [Space(10)]
         [Header("Solutions")]
         public string firstSolution;

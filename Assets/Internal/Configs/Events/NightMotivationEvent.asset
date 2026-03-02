@@ -9,21 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a515f2e3bc376649a619935e2773514, type: 3}
+  m_Script: {fileID: 11500000, guid: 634816f49ec946cfba5f2906b71d4a59, type: 3}
   m_Name: NightMotivationEvent
   m_EditorClassIdentifier: 
-  eventName: "\u041D\u043E\u0447\u043D\u0430\u044F \u043C\u043E\u0442\u0438\u0432\u0430\u0446\u0438\u044F"
-  description: "\u0412\u0430\u0441 \u043D\u0430\u043A\u0440\u044B\u043B\u0430 \u0432\u043D\u0435\u0437\u0430\u043F\u043D\u0430\u044F
+  eventName: "\u041D\u0430\u043F\u043B\u044B\u0432 \u043C\u043E\u0442\u0438\u0432\u0430\u0446\u0438\u0438"
+  description: "\u041D\u0430\u0445\u043B\u044B\u043D\u0443\u043B\u0430 \u0432\u043D\u0435\u0437\u0430\u043F\u043D\u0430\u044F
     \u043D\u043E\u0447\u043D\u0430\u044F \u043C\u043E\u0442\u0438\u0432\u0430\u0446\u0438\u044F"
-  firstSolution: "\u041A\u0430\u0447\u0430\u0442\u044C\u0441\u044F"
-  secondSolution: "\u0412\u044B\u043F\u043E\u043B\u043D\u0438\u0442\u044C \u0437\u0430\u043A\u0430\u0437"
+  firstSolution: "\u0417\u0430\u043D\u044F\u0442\u044C\u0441\u044F \u0444\u0438\u0437\u043A\u0443\u043B\u044C\u0442\u0443\u0440\u043E\u0439"
+  secondSolution: "\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0437\u0430\u043A\u0430\u0437"
   firstSolutionFoodChangeValue: 0
   firstSolutionEnergyValue: 7
   firstSolutionHealthChangeValue: 7
   firstSolutionMentalHealthChangeValue: 7
   firstSolutionMoneyChangeValue: 0
   secondSolutionFoodChangeValue: 0
-  secondSolutionEnergyValue: 4
+  secondSolutionEnergyValue: -4
   secondSolutionHealthChangeValue: 0
   secondSolutionMentalHealthChangeValue: 5
-  secondSolutionMoneyChangeValue: 20
+  secondSolutionMoneyChangeValue: 15

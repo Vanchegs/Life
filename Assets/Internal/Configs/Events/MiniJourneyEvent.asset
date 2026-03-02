@@ -9,24 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a515f2e3bc376649a619935e2773514, type: 3}
+  m_Script: {fileID: 11500000, guid: 634816f49ec946cfba5f2906b71d4a59, type: 3}
   m_Name: MiniJourneyEvent
   m_EditorClassIdentifier: 
-  eventName: "\u041F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0435
-    \u043D\u0435 \u043D\u0430 \u043A\u0440\u0430\u0439 \u0441\u0432\u0435\u0442\u0430"
-  description: "\u0414\u0440\u0443\u0433 \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u0435\u0442
-    \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u043E\u0435 \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0435
-    \u0432 \u043A\u0430\u043A\u043E\u0439-\u043D\u0438\u0431\u0443\u0434\u044C \u0441\u043E\u0441\u0435\u0434\u043D\u0438\u0439
-    \u0433\u043E\u0440\u043E\u0434\u043E\u043A"
-  firstSolution: "\u041A\u043E\u043D\u0435\u0447\u043D\u043E!"
-  secondSolution: "\u041E\u0441\u0442\u0430\u0442\u044C\u0441\u044F \u0434\u043E\u043C\u0430"
+  eventName: "\u041D\u0435\u0431\u043E\u043B\u044C\u0448\u043E\u0435 \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0435"
+  description: "\u0414\u0440\u0443\u0433 \u043F\u043E\u0437\u0432\u0430\u043B \u0441\u043A\u0430\u0442\u0430\u0442\u044C\u0441\u044F
+    \u0432 \u0441\u043E\u0441\u0435\u0434\u043D\u0438\u0439 \u0433\u043E\u0440\u043E\u0434
+    \u0438 \u0440\u0430\u0437\u0432\u0435\u044F\u0442\u044C\u0441\u044F"
+  firstSolution: "\u0421\u043E\u0433\u043B\u0430\u0441\u0438\u0442\u044C\u0441\u044F"
+  secondSolution: "\u041E\u0442\u043A\u0430\u0437\u0430\u0442\u044C\u0441\u044F"
   firstSolutionFoodChangeValue: 0
-  firstSolutionEnergyValue: 10
-  firstSolutionHealthChangeValue: 7
+  firstSolutionEnergyValue: 7
+  firstSolutionHealthChangeValue: 5
   firstSolutionMentalHealthChangeValue: 10
-  firstSolutionMoneyChangeValue: -40
+  firstSolutionMoneyChangeValue: -15
   secondSolutionFoodChangeValue: 0
-  secondSolutionEnergyValue: 0
+  secondSolutionEnergyValue: -5
   secondSolutionHealthChangeValue: 0
-  secondSolutionMentalHealthChangeValue: -7
+  secondSolutionMentalHealthChangeValue: -5
   secondSolutionMoneyChangeValue: 0

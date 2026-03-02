@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 634816f49ec946cfba5f2906b71d4a59, type: 3}
-  m_Name: NewFilmEvent
+  m_Name: BurnoutEvent
   m_EditorClassIdentifier: 
-  eventName: "\u041D\u043E\u0432\u044B\u0439 \u0444\u0438\u043B\u044C\u043C"
-  description: "\u0412\u044B\u0448\u0435\u043B \u0444\u0438\u043B\u044C\u043C \u043E
-    \u043A\u043E\u0442\u043E\u0440\u043E\u043C \u0432\u044B \u043D\u0435\u043C\u0430\u043B\u043E
-    \u0441\u043B\u044B\u0448\u0430\u043B\u0438"
-  firstSolution: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C"
-  secondSolution: "\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0437\u0430\u043A\u0430\u0437"
+  eventName: "\u041D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u0445\u043E\u0447\u0443..."
+  description: "\u041E\u0442\u043F\u0430\u043B\u043E \u043B\u044E\u0431\u043E\u0435
+    \u0436\u0435\u043B\u0430\u043D\u0438\u0435 \u0434\u0435\u043B\u0430\u0442\u044C
+    \u0447\u0442\u043E-\u043B\u0438\u0431\u043E"
+  firstSolution: "\u041E\u0442\u0434\u043E\u0445\u043D\u0443\u0442\u044C "
+  secondSolution: "\u041F\u043E\u0431\u043E\u0440\u043E\u0442\u044C \u0441\u0438\u043B\u043E\u0439"
   firstSolutionFoodChangeValue: 0
   firstSolutionEnergyValue: 5
   firstSolutionHealthChangeValue: 0
-  firstSolutionMentalHealthChangeValue: 7
+  firstSolutionMentalHealthChangeValue: 0
   firstSolutionMoneyChangeValue: 0
   secondSolutionFoodChangeValue: 0
-  secondSolutionEnergyValue: -5
+  secondSolutionEnergyValue: 0
   secondSolutionHealthChangeValue: 0
   secondSolutionMentalHealthChangeValue: -5
-  secondSolutionMoneyChangeValue: 15
+  secondSolutionMoneyChangeValue: 0

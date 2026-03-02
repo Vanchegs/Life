@@ -14,7 +14,7 @@ namespace Codebase
         [SerializeField] private int minSpawnDelay, maxSpawnDelay;
 
         private bool isEventActive;
-        private Event currentEvent;
+        private GameEvent currentEvent;
         private int spawnDelay;
 
         private void Start()
@@ -25,7 +25,7 @@ namespace Codebase
             StartCoroutine(SpawnEvent());
         }
 
-        public void ClickFirstSolutionButton()
+        /*public void ClickFirstSolutionButton()
         {
             statsController.ChangeStatsAfterEvent(currentEvent.firstSolutionMoneyChangeValue, currentEvent.firstSolutionFoodChangeValue, currentEvent.firstSolutionEnergyValue, 
                 currentEvent.firstSolutionMentalHealthChangeValue, currentEvent.firstSolutionHealthChangeValue);
@@ -35,7 +35,7 @@ namespace Codebase
         {
             statsController.ChangeStatsAfterEvent(currentEvent.secondSolutionMoneyChangeValue, currentEvent.secondSolutionFoodChangeValue, currentEvent.secondSolutionEnergyValue,
                 currentEvent.secondSolutionMentalHealthChangeValue, currentEvent.secondSolutionHealthChangeValue);
-        }
+        }*/
 
         private IEnumerator SpawnEvent()
         {
@@ -49,7 +49,7 @@ namespace Codebase
             }
         }
         
-        private Event GetEvent()
+        private GameEvent GetEvent()
         {
             var index = Random.Range(0, eventsList.events.Count);
 
