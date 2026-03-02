@@ -544,10 +544,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1179982750}
         m_TargetAssemblyTypeName: Codebase.EventView, Assembly-CSharp
         m_MethodName: HideEvent
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1905386131}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1691,10 +1691,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1179982750}
         m_TargetAssemblyTypeName: Codebase.EventView, Assembly-CSharp
         m_MethodName: HideEvent
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1905386131}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2146,9 +2146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888c0e44ecb344c4b8ba9c39c1743842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPanel: {fileID: 1905386131}
+  choicePanel: {fileID: 0}
+  simplePanel: {fileID: 0}
   panelTransform: {fileID: 1905386132}
-  solutionEventPanel:
+  choiceEventPanel:
     eventNameText: {fileID: 0}
     eventDescriptionText: {fileID: 0}
     firstSolutionText: {fileID: 0}

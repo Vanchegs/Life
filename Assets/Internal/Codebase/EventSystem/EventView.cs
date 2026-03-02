@@ -15,30 +15,27 @@ namespace Codebase
         
         public void ShowEvent(GameEvent _event)
         {
-            /*eventNameText.text = _event.eventName;
-            eventDescriptionText.text = _event.description;*/
-            /*firstSolutionText.text = _event.firstSolution;
-            secondSolutionText.text = _event.secondSolution;*/
-
-            if (_event.GetType() == typeof(SimpleEvent))
+            RectTransform targetPanel = null;
+    
+            if (_event is SimpleEvent simpleEvent)
             {
                 simplePanel.SetActive(true);
-                
-                FillSimpleEventPanel((SimpleEvent)_event);
+                FillSimpleEventPanel(simpleEvent);
+                targetPanel = simplePanel.GetComponent<RectTransform>();
             }
-            else if (_event.GetType() == typeof(ChoiceEvent))
+            else if (_event is ChoiceEvent choiceEvent)
             {
                 choicePanel.SetActive(true);
-                
-                FillSolutionEventPanel((ChoiceEvent)_event);
+                FillSolutionEventPanel(choiceEvent);
+                targetPanel = choicePanel.GetComponent<RectTransform>();
             }
-    
-            panelTransform.anchoredPosition = new Vector2(0, -1000);
 
-            var finishPosition = new Vector2(-300, 0);
-            
-            panelTransform.DOAnchorPos(finishPosition, 0.5f)
-                .SetEase(Ease.OutBack);
+            if (targetPanel != null)
+            {
+                targetPanel.anchoredPosition = new Vector2(0, -1000);
+                targetPanel.DOAnchorPos(new Vector2(-300, 0), 0.5f)
+                    .SetEase(Ease.OutBack);
+            }
         }
 
         private void FillSolutionEventPanel(ChoiceEvent choiceEvent) => 
@@ -48,7 +45,7 @@ namespace Codebase
         private void FillSimpleEventPanel(SimpleEvent simpleEvent) => 
             simpleEventPanel.SetText(simpleEvent.eventName, simpleEvent.description, simpleEvent.buttonText);
 
-        public void HideEvent()
+        public void HideEvent(GameObject eventPanel)
         {
             var finishPosition = new Vector2(-300, 1200);
 
