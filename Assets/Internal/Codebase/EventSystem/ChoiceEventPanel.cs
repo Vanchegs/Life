@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Codebase
 {
     [Serializable]
-    public class SolutionEventPanel
+    public class ChoiceEventPanel
     {
         [SerializeField] private TMP_Text eventNameText;
         [SerializeField] private TMP_Text eventDescriptionText;

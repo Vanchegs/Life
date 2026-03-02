@@ -1,14 +1,16 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Codebase
 {
     public class EventView : MonoBehaviour
     {
-        [SerializeField] private GameObject eventPanel;
+        [SerializeField] private GameObject choicePanel;
+        [SerializeField] private GameObject simplePanel;
         [SerializeField] private RectTransform panelTransform;
 
-        [SerializeField] private SolutionEventPanel solutionEventPanel;
+        [SerializeField] private ChoiceEventPanel choiceEventPanel;
         [SerializeField] private SimpleEventPanel simpleEventPanel;
         
         public void ShowEvent(GameEvent _event)
@@ -17,8 +19,19 @@ namespace Codebase
             eventDescriptionText.text = _event.description;*/
             /*firstSolutionText.text = _event.firstSolution;
             secondSolutionText.text = _event.secondSolution;*/
-    
-            eventPanel.SetActive(true);
+
+            if (_event.GetType() == typeof(SimpleEvent))
+            {
+                simplePanel.SetActive(true);
+                
+                FillSimpleEventPanel((SimpleEvent)_event);
+            }
+            else if (_event.GetType() == typeof(ChoiceEvent))
+            {
+                choicePanel.SetActive(true);
+                
+                FillSolutionEventPanel((ChoiceEvent)_event);
+            }
     
             panelTransform.anchoredPosition = new Vector2(0, -1000);
 
@@ -29,7 +42,7 @@ namespace Codebase
         }
 
         private void FillSolutionEventPanel(ChoiceEvent choiceEvent) => 
-            solutionEventPanel.SetText(choiceEvent.eventName, choiceEvent.description, 
+            choiceEventPanel.SetText(choiceEvent.eventName, choiceEvent.description, 
                 choiceEvent.firstSolution, choiceEvent.secondSolution);
 
         private void FillSimpleEventPanel(SimpleEvent simpleEvent) => 
