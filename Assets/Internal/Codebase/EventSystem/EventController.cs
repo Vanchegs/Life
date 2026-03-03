@@ -24,18 +24,54 @@ namespace Codebase
 
             StartCoroutine(SpawnEvent());
         }
-
-        /*public void ClickFirstSolutionButton()
+        
+        public void OnSimpleEventButtonClicked()
         {
-            statsController.ChangeStatsAfterEvent(currentEvent.firstSolutionMoneyChangeValue, currentEvent.firstSolutionFoodChangeValue, currentEvent.firstSolutionEnergyValue, 
-                currentEvent.firstSolutionMentalHealthChangeValue, currentEvent.firstSolutionHealthChangeValue);
+            if (currentEvent is SimpleEvent simpleEvent)
+            {
+                statsController.ChangeStatsAfterEvent(
+                    simpleEvent.moneyChangeValue,
+                    simpleEvent.foodChangeValue,
+                    simpleEvent.energyChangeValue,
+                    simpleEvent.mentalHealthChangeValue,
+                    simpleEvent.healthChangeValue
+                );
+                
+                Debug.Log($"Simple event applied: {simpleEvent.eventName}");
+            }
         }
         
-        public void ClickSecondSolutionButton()
+        public void OnFirstSolutionButtonClicked()
         {
-            statsController.ChangeStatsAfterEvent(currentEvent.secondSolutionMoneyChangeValue, currentEvent.secondSolutionFoodChangeValue, currentEvent.secondSolutionEnergyValue,
-                currentEvent.secondSolutionMentalHealthChangeValue, currentEvent.secondSolutionHealthChangeValue);
-        }*/
+            if (currentEvent is ChoiceEvent choiceEvent)
+            {
+                statsController.ChangeStatsAfterEvent(
+                    choiceEvent.firstSolutionMoneyChangeValue,
+                    choiceEvent.firstSolutionFoodChangeValue,
+                    choiceEvent.firstSolutionEnergyValue,
+                    choiceEvent.firstSolutionMentalHealthChangeValue,
+                    choiceEvent.firstSolutionHealthChangeValue
+                );
+                
+                Debug.Log($"Choice event - first solution: {choiceEvent.eventName}");
+            }
+        }
+
+        public void OnSecondSolutionButtonClicked()
+        {
+            if (currentEvent is ChoiceEvent choiceEvent)
+            {
+                statsController.ChangeStatsAfterEvent(
+                    choiceEvent.secondSolutionMoneyChangeValue,
+                    choiceEvent.secondSolutionFoodChangeValue,
+                    choiceEvent.secondSolutionEnergyValue,
+                    choiceEvent.secondSolutionMentalHealthChangeValue,
+                    choiceEvent.secondSolutionHealthChangeValue
+                );
+                
+                Debug.Log($"Choice event - second solution: {choiceEvent.eventName}");
+            }
+        }
 
         private IEnumerator SpawnEvent()
         {

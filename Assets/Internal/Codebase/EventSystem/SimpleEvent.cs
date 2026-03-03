@@ -9,10 +9,10 @@ namespace Codebase
         
         [Space(10)]
         [Header("Second solution change value")]
-        public int secondSolutionFoodChangeValue;
-        public int secondSolutionEnergyValue;
-        public int secondSolutionHealthChangeValue;
-        public int secondSolutionMentalHealthChangeValue;
-        public int secondSolutionMoneyChangeValue;
+        public int foodChangeValue;
+        public int energyChangeValue;
+        public int healthChangeValue;
+        public int mentalHealthChangeValue;
+        public int moneyChangeValue;
     }
 }

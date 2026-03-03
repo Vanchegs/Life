@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Codebase
 {
@@ -9,13 +10,13 @@ namespace Codebase
     {
         [SerializeField] private TMP_Text eventNameText;
         [SerializeField] private TMP_Text eventDescriptionText;
-        [SerializeField] private TMP_Text solutionText;
+        [SerializeField] private TMP_Text firstSolutionText;
 
-        public void SetText(string nameText, string descriptionText, string solutionText)
+        public void SetText(string nameText, string descriptionText, string firstSolutionText)
         {
             eventNameText.text = nameText;
             eventDescriptionText.text = descriptionText;
-            this.solutionText.text = solutionText;
+            this.firstSolutionText.text = firstSolutionText;
         }
     }
 }
