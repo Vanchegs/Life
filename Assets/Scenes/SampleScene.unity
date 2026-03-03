@@ -865,7 +865,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1179982749}
         m_TargetAssemblyTypeName: Codebase.EventController, Assembly-CSharp
-        m_MethodName: OnFirstSolutionButtonClicked
+        m_MethodName: OnSimpleEventButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
