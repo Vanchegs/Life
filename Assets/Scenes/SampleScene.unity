@@ -786,7 +786,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &317610654
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2352,7 +2352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664360ae97074bd4c911de5557a5879c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventsList: {fileID: 11400000, guid: edb19670d2c86df4689f3c58043cbf9b, type: 2}
+  choiceEvents: {fileID: 11400000, guid: edb19670d2c86df4689f3c58043cbf9b, type: 2}
+  simpleEvents: {fileID: 11400000, guid: 5d91c786de644d343b2c2e0448f597c1, type: 2}
   eventView: {fileID: 1179982750}
   statsController: {fileID: 1179982746}
   minSpawnDelay: 15
@@ -2370,7 +2371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   choicePanel: {fileID: 1905386131}
-  simplePanel: {fileID: 0}
+  simplePanel: {fileID: 1093371723}
   panelTransform: {fileID: 1905386132}
   choiceEventPanel:
     eventNameText: {fileID: 1764287011}

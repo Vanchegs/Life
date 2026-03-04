@@ -15,7 +15,9 @@ namespace Codebase
 
         public GameEvent GetEvent()
         {
-            var randomList = Random.Range(0, 1);
+            var randomList = Random.Range(0, 2);
+            
+            Debug.Log(randomList);
 
             switch (randomList)
             {

@@ -99,6 +99,7 @@ namespace Codebase
         private void CreateEvent()
         {
             /*currentEvent = GetEvent();*/
+            currentEvent = eventSelector.GetEvent();
             eventView.ShowEvent(currentEvent);
         }
     }

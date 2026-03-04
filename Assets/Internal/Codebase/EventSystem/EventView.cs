@@ -7,32 +7,31 @@ namespace Codebase
     {
         [SerializeField] private GameObject choicePanel;
         [SerializeField] private GameObject simplePanel;
-        [SerializeField] private RectTransform panelTransform;
 
         [SerializeField] private ChoiceEventPanel choiceEventPanel;
         [SerializeField] private SimpleEventPanel simpleEventPanel;
-        
+
+        private RectTransform panelTransform;
+
         public void ShowEvent(GameEvent _event)
         {
-            RectTransform targetPanel = null;
-    
             if (_event is SimpleEvent simpleEvent)
             {
                 simplePanel.SetActive(true);
                 FillSimpleEventPanel(simpleEvent);
-                targetPanel = simplePanel.GetComponent<RectTransform>();
+                panelTransform = simplePanel.GetComponent<RectTransform>();
             }
             else if (_event is ChoiceEvent choiceEvent)
             {
                 choicePanel.SetActive(true);
                 FillSolutionEventPanel(choiceEvent);
-                targetPanel = choicePanel.GetComponent<RectTransform>();
+                panelTransform = choicePanel.GetComponent<RectTransform>();
             }
 
-            if (targetPanel != null)
+            if (panelTransform != null)
             {
-                targetPanel.anchoredPosition = new Vector2(0, -1000);
-                targetPanel.DOAnchorPos(new Vector2(-300, 0), 0.5f)
+                panelTransform.anchoredPosition = new Vector2(0, -1000);
+                panelTransform.DOAnchorPos(new Vector2(-300, 0), 0.5f)
                     .SetEase(Ease.OutBack);
             }
         }
