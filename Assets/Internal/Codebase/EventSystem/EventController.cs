@@ -6,7 +6,8 @@ namespace Codebase
 {
     public class EventController : MonoBehaviour
     {
-        [SerializeField] private EventsList eventsList;
+        [SerializeField] private EventsList choiceEvents;
+        [SerializeField] private EventsList simpleEvents;
         
         [SerializeField] private EventView eventView;
         [SerializeField] private StatsController statsController;
@@ -16,12 +17,15 @@ namespace Codebase
         private bool isEventActive;
         private GameEvent currentEvent;
         private int spawnDelay;
+        private EventSelector eventSelector;
 
         private void Start()
         {
             isEventActive = true;
             spawnDelay = minSpawnDelay;
 
+            eventSelector = new EventSelector(choiceEvents, simpleEvents);
+            
             StartCoroutine(SpawnEvent());
         }
         
@@ -85,16 +89,16 @@ namespace Codebase
             }
         }
         
-        private GameEvent GetEvent()
+        /*private GameEvent GetEvent()
         {
             var index = Random.Range(0, eventsList.events.Count);
 
             return eventsList.events[index];
-        }
+        }*/
 
         private void CreateEvent()
         {
-            currentEvent = GetEvent();
+            /*currentEvent = GetEvent();*/
             eventView.ShowEvent(currentEvent);
         }
     }
