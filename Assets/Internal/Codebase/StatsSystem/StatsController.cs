@@ -40,8 +40,6 @@ namespace Codebase
             energyStat = new Stat(StatType.EnergyStat, statConfig.maxValue, statConfig.energyDecreaseValue, statConfig.energyIncreaseValue);
             mentalHealthStat = new Stat(StatType.MentalHealthStat, statConfig.maxValue, statConfig.mentalDecreaseValue, statConfig.mentalIncreaseValue);
             healthStat = new Stat(StatType.HealthStat, statConfig.maxValue, statConfig.healthDecreaseValue, statConfig.healthIncreaseValue);
-
-            wallet = walletController.GetWallet();
             
             stats = new List<Stat> { foodStat, energyStat, mentalHealthStat, healthStat };
         }
@@ -69,7 +67,8 @@ namespace Codebase
         
         public void ChangeStatsAfterEvent(int moneyChangeValue, int foodChangeValue, int energyChangeValue, int mentalHealthChangeValue, int healthChangeValue)
         {
-            wallet.ChangeBalance(moneyChangeValue);
+            walletController.GetWallet()?.ChangeBalance(moneyChangeValue);
+            
             foodStat.EventStatChange(foodChangeValue);
             energyStat.EventStatChange(energyChangeValue);
             mentalHealthStat.EventStatChange(mentalHealthChangeValue);
