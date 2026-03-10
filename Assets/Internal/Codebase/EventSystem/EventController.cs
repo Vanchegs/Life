@@ -19,6 +19,8 @@ namespace Codebase
         private GameEvent currentEvent;
         private int spawnDelay;
         private EventSelector eventSelector;
+        
+        private Coroutine autoHideCoroutine;
 
         private void Start()
         {
@@ -34,6 +36,12 @@ namespace Codebase
         {
             if (currentEvent is SimpleEvent simpleEvent)
             {
+                if (autoHideCoroutine != null)
+                {
+                    StopCoroutine(autoHideCoroutine);
+                    autoHideCoroutine = null;
+                }
+                
                 statsController.ChangeStatsAfterEvent(
                     simpleEvent.moneyChangeValue,
                     simpleEvent.foodChangeValue,
@@ -43,6 +51,8 @@ namespace Codebase
                 );
                 
                 isEventExist = false;
+                eventView.HideEvent(currentEvent);
+                currentEvent = null;
                 
                 Debug.Log($"Simple event applied: {simpleEvent.eventName}");
             }
@@ -52,6 +62,12 @@ namespace Codebase
         {
             if (currentEvent is ChoiceEvent choiceEvent)
             {
+                if (autoHideCoroutine != null)
+                {
+                    StopCoroutine(autoHideCoroutine);
+                    autoHideCoroutine = null;
+                }
+                
                 statsController.ChangeStatsAfterEvent(
                     choiceEvent.firstSolutionMoneyChangeValue,
                     choiceEvent.firstSolutionFoodChangeValue,
@@ -61,6 +77,8 @@ namespace Codebase
                 );
                 
                 isEventExist = false;
+                eventView.HideEvent(currentEvent);
+                currentEvent = null;
                 
                 Debug.Log($"Choice event - first solution: {choiceEvent.eventName}");
             }
@@ -70,6 +88,12 @@ namespace Codebase
         {
             if (currentEvent is ChoiceEvent choiceEvent)
             {
+                if (autoHideCoroutine != null)
+                {
+                    StopCoroutine(autoHideCoroutine);
+                    autoHideCoroutine = null;
+                }
+                
                 statsController.ChangeStatsAfterEvent(
                     choiceEvent.secondSolutionMoneyChangeValue,
                     choiceEvent.secondSolutionFoodChangeValue,
@@ -79,6 +103,8 @@ namespace Codebase
                 );
 
                 isEventExist = false;
+                eventView.HideEvent(currentEvent);
+                currentEvent = null;
                 
                 Debug.Log($"Choice event - second solution: {choiceEvent.eventName}");
             }
@@ -88,9 +114,15 @@ namespace Codebase
         {
             if (currentEvent != null)
             {
+                if (autoHideCoroutine != null)
+                {
+                    StopCoroutine(autoHideCoroutine);
+                    autoHideCoroutine = null;
+                }
+                
                 isEventExist = false;
-                currentEvent = null;
                 eventView.HideEvent(currentEvent);
+                currentEvent = null;
             }
         }
 
@@ -98,6 +130,7 @@ namespace Codebase
         {
             yield return new WaitForSeconds(10f);
             HideCurrentEvent();
+            autoHideCoroutine = null;
         }
 
         private IEnumerator SpawnEvent()
@@ -119,11 +152,16 @@ namespace Codebase
 
         private void CreateEvent()
         {
+            if (autoHideCoroutine != null)
+            {
+                StopCoroutine(autoHideCoroutine);
+                autoHideCoroutine = null;
+            }
+            
             currentEvent = eventSelector.GetEvent();
             eventView.ShowEvent(currentEvent);
             isEventExist = true;
-            StartCoroutine(AutoHideCoroutine());
+            autoHideCoroutine = StartCoroutine(AutoHideCoroutine());
         }
     }
 }
-
