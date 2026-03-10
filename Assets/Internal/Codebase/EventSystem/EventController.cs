@@ -88,17 +88,9 @@ namespace Codebase
                 spawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
             }
         }
-        
-        /*private GameEvent GetEvent()
-        {
-            var index = Random.Range(0, eventsList.events.Count);
-
-            return eventsList.events[index];
-        }*/
 
         private void CreateEvent()
         {
-            /*currentEvent = GetEvent();*/
             currentEvent = eventSelector.GetEvent();
             eventView.ShowEvent(currentEvent);
         }
