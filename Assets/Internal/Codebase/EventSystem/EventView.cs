@@ -53,6 +53,34 @@ namespace Codebase
                     eventPanel.SetActive(false);
                 });
         }
+
+        public void HideEvent(GameEvent _event)
+        {
+            RectTransform targetPanel = null;
+    
+            if (_event is SimpleEvent)
+            {
+                targetPanel = simplePanel.GetComponent<RectTransform>();
+            }
+            else if (_event is ChoiceEvent)
+            {
+                targetPanel = choicePanel.GetComponent<RectTransform>();
+            }
+
+            if (targetPanel != null)
+            {
+                var finishPosition = new Vector2(-300, 1200);
+        
+                targetPanel.DOAnchorPos(finishPosition, 0.5f)
+                    .SetEase(Ease.InBack)
+                    .OnComplete(() => {
+                        if (_event is SimpleEvent)
+                            simplePanel.SetActive(false);
+                        else if (_event is ChoiceEvent)
+                            choicePanel.SetActive(false);
+                    });
+            }
+        }
     }
 }
 

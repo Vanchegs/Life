@@ -86,7 +86,18 @@ namespace Codebase
 
         private void HideCurrentEvent()
         {
-            
+            if (currentEvent != null)
+            {
+                isEventExist = false;
+                currentEvent = null;
+                eventView.HideEvent(currentEvent);
+            }
+        }
+
+        private IEnumerator AutoHideCoroutine()
+        {
+            yield return new WaitForSeconds(10f);
+            HideCurrentEvent();
         }
 
         private IEnumerator SpawnEvent()
@@ -111,6 +122,7 @@ namespace Codebase
             currentEvent = eventSelector.GetEvent();
             eventView.ShowEvent(currentEvent);
             isEventExist = true;
+            StartCoroutine(AutoHideCoroutine());
         }
     }
 }
