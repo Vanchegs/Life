@@ -89,12 +89,14 @@ namespace Codebase
             while (isEventActive)
             {
                 if (isEventExist)
-                    break;
-                
+                {
+                    yield return new WaitForSeconds(1f);
+                    continue;
+                }
+        
                 yield return new WaitForSeconds(spawnDelay);
 
                 CreateEvent();
-
                 spawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
             }
         }
