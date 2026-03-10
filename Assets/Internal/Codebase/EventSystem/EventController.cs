@@ -15,6 +15,7 @@ namespace Codebase
         [SerializeField] private int minSpawnDelay, maxSpawnDelay;
 
         private bool isEventActive;
+        private bool isEventExist;
         private GameEvent currentEvent;
         private int spawnDelay;
         private EventSelector eventSelector;
@@ -41,6 +42,8 @@ namespace Codebase
                     simpleEvent.healthChangeValue
                 );
                 
+                isEventExist = false;
+                
                 Debug.Log($"Simple event applied: {simpleEvent.eventName}");
             }
         }
@@ -57,6 +60,8 @@ namespace Codebase
                     choiceEvent.firstSolutionHealthChangeValue
                 );
                 
+                isEventExist = false;
+                
                 Debug.Log($"Choice event - first solution: {choiceEvent.eventName}");
             }
         }
@@ -72,6 +77,8 @@ namespace Codebase
                     choiceEvent.secondSolutionMentalHealthChangeValue,
                     choiceEvent.secondSolutionHealthChangeValue
                 );
+
+                isEventExist = false;
                 
                 Debug.Log($"Choice event - second solution: {choiceEvent.eventName}");
             }
@@ -81,6 +88,9 @@ namespace Codebase
         {
             while (isEventActive)
             {
+                if (isEventExist)
+                    break;
+                
                 yield return new WaitForSeconds(spawnDelay);
 
                 CreateEvent();
@@ -93,6 +103,7 @@ namespace Codebase
         {
             currentEvent = eventSelector.GetEvent();
             eventView.ShowEvent(currentEvent);
+            isEventExist = true;
         }
     }
 }
