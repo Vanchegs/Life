@@ -2372,7 +2372,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   choicePanel: {fileID: 1905386131}
   simplePanel: {fileID: 1093371723}
-  panelTransform: {fileID: 1905386132}
   choiceEventPanel:
     eventNameText: {fileID: 1764287011}
     eventDescriptionText: {fileID: 801442667}
