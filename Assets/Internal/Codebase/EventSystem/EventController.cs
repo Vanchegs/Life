@@ -84,6 +84,11 @@ namespace Codebase
             }
         }
 
+        private void HideCurrentEvent()
+        {
+            
+        }
+
         private IEnumerator SpawnEvent()
         {
             while (isEventActive)
