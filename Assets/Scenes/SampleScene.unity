@@ -1520,7 +1520,6 @@ GameObject:
   - component: {fileID: 1179982746}
   - component: {fileID: 1179982748}
   - component: {fileID: 1179982749}
-  - component: {fileID: 1179982750}
   - component: {fileID: 1179982752}
   - component: {fileID: 1179982751}
   m_Layer: 0
@@ -1588,33 +1587,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   choiceEvents: {fileID: 11400000, guid: edb19670d2c86df4689f3c58043cbf9b, type: 2}
   simpleEvents: {fileID: 11400000, guid: 5d91c786de644d343b2c2e0448f597c1, type: 2}
-  eventView: {fileID: 1179982750}
+  eventView: {fileID: 0}
   statsController: {fileID: 1179982746}
   minSpawnDelay: 10
   maxSpawnDelay: 15
---- !u!114 &1179982750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179982744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 888c0e44ecb344c4b8ba9c39c1743842, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  choicePanel: {fileID: 1905386131}
-  simplePanel: {fileID: 1093371723}
-  choiceEventPanel:
-    eventNameText: {fileID: 1764287011}
-    eventDescriptionText: {fileID: 801442667}
-    firstSolutionText: {fileID: 1084813452}
-    secondSolutionText: {fileID: 2010680460}
-  simpleEventPanel:
-    eventNameText: {fileID: 1481138937}
-    eventDescriptionText: {fileID: 1748882695}
-    firstSolutionText: {fileID: 1704955059}
 --- !u!114 &1179982751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1742,6 +1718,7 @@ RectTransform:
   - {fileID: 416878278}
   - {fileID: 764697956}
   - {fileID: 1538272852}
+  - {fileID: 1503090441}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2031,6 +2008,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1503090440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1503090441}
+  - component: {fileID: 1503090443}
+  - component: {fileID: 1503090442}
+  m_Layer: 5
+  m_Name: ViewController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1503090441
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503090440}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1196823599}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1503090442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503090440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c6783143254fbf9c5e23fc10360bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodSlider: {fileID: 1254315668}
+  sleepSlider: {fileID: 202377031}
+  healthSlider: {fileID: 1317464978}
+  mentalHealthSlider: {fileID: 280918718}
+--- !u!114 &1503090443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503090440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 888c0e44ecb344c4b8ba9c39c1743842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choicePanel: {fileID: 1905386131}
+  simplePanel: {fileID: 1093371723}
+  choiceEventPanel:
+    eventNameText: {fileID: 1764287011}
+    eventDescriptionText: {fileID: 801442667}
+    firstSolutionText: {fileID: 1084813452}
+    secondSolutionText: {fileID: 2010680460}
+  simpleEventPanel:
+    eventNameText: {fileID: 1481138937}
+    eventDescriptionText: {fileID: 1748882695}
+    firstSolutionText: {fileID: 1704955059}
 --- !u!1 &1521121648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,7 +2317,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1640783367}
-  - component: {fileID: 1640783368}
   m_Layer: 5
   m_Name: StatSliders
   m_TagString: Untagged
@@ -2295,22 +2347,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1640783368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640783366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c6783143254fbf9c5e23fc10360bfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodSlider: {fileID: 1254315668}
-  sleepSlider: {fileID: 202377031}
-  healthSlider: {fileID: 1317464978}
-  mentalHealthSlider: {fileID: 280918718}
 --- !u!1 &1656241147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2951,7 +2987,7 @@ PrefabInstance:
     - target: {fileID: 2438333119815673633, guid: cc3551b334aeaf046b6296d91773ee2b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1179982750}
+      objectReference: {fileID: 0}
     - target: {fileID: 2438333119815673633, guid: cc3551b334aeaf046b6296d91773ee2b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2963,7 +2999,7 @@ PrefabInstance:
     - target: {fileID: 9089486970556313197, guid: cc3551b334aeaf046b6296d91773ee2b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1179982750}
+      objectReference: {fileID: 0}
     - target: {fileID: 9089486970556313197, guid: cc3551b334aeaf046b6296d91773ee2b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2988,7 +3024,7 @@ PrefabInstance:
     - target: {fileID: 4184361992141273526, guid: 63fb61d13b17631489fc5373edbd7111, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1179982750}
+      objectReference: {fileID: 0}
     - target: {fileID: 4184361992141273526, guid: 63fb61d13b17631489fc5373edbd7111, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
