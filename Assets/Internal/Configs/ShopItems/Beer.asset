@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d7181dfd94e86f4a9f4ab17113f95cd, type: 3}
-  m_Name: EnergyDrink
+  m_Name: Beer
   m_EditorClassIdentifier: 
   price: 5
-  healthChangeValue: 1
-  mentalChangeValue: -3
-  foodChangeValue: 1
-  energyChangeValue: 10
+  healthChangeValue: -5
+  mentalChangeValue: 7
+  foodChangeValue: 0
+  energyChangeValue: -3
