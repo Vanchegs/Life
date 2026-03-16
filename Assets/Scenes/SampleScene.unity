@@ -1604,7 +1604,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopView: {fileID: 1353029703}
-  itemSlots: []
+  shopItemSlots:
+    _serializedList:
+    - Key: 1
+      Value: {fileID: 11400000, guid: 608121a172ae34a45b759f0bad0e2b64, type: 2}
+    - Key: 0
+      Value: {fileID: 11400000, guid: a3a32405fcd81bf498cb43dab1e7bff6, type: 2}
 --- !u!114 &1179982752
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,8 +7,6 @@ namespace Codebase
     {
         [SerializeField] private ShopItem item;
         [SerializeField] private Button buyButton;
-        
-        
     }
 }
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
 namespace Codebase
@@ -7,10 +8,12 @@ namespace Codebase
     {
         [SerializeField] private ShopView shopView;
 
-        [SerializeField] private List<ShopItemSlot> itemSlots;
+        [SerializeField, SerializedDictionary] private SerializedDictionary<ItemType, ShopItem> shopItemSlots;
 
         public void OpenCloseShop() => 
             shopView.MoveStore();
+        
+        
     }
 }
 
