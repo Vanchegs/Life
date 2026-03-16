@@ -2947,6 +2947,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeerItemPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 8694276966790237978, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
+      propertyPath: m_text
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3166,6 +3170,10 @@ PrefabInstance:
     - target: {fileID: 6731437790117267407, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
       propertyPath: m_Name
       value: EnergyItemPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694276966790237978, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
+      propertyPath: m_text
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
