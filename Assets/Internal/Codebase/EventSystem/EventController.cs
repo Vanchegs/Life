@@ -42,7 +42,7 @@ namespace Codebase
                     autoHideCoroutine = null;
                 }
                 
-                statsController.ChangeStatsAfterEvent(
+                statsController.ChangeStats(
                     simpleEvent.moneyChangeValue,
                     simpleEvent.foodChangeValue,
                     simpleEvent.energyChangeValue,
@@ -68,7 +68,7 @@ namespace Codebase
                     autoHideCoroutine = null;
                 }
                 
-                statsController.ChangeStatsAfterEvent(
+                statsController.ChangeStats(
                     choiceEvent.firstSolutionMoneyChangeValue,
                     choiceEvent.firstSolutionFoodChangeValue,
                     choiceEvent.firstSolutionEnergyValue,
@@ -94,7 +94,7 @@ namespace Codebase
                     autoHideCoroutine = null;
                 }
                 
-                statsController.ChangeStatsAfterEvent(
+                statsController.ChangeStats(
                     choiceEvent.secondSolutionMoneyChangeValue,
                     choiceEvent.secondSolutionFoodChangeValue,
                     choiceEvent.secondSolutionEnergyValue,

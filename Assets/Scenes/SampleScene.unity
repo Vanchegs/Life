@@ -1609,6 +1609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopView: {fileID: 1353029703}
+  statsController: {fileID: 1179982746}
   shopItemSlots:
     _serializedList:
     - Key: 1
@@ -2994,6 +2995,38 @@ PrefabInstance:
     - target: {fileID: 2016511296662397438, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1179982751}
+    - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Codebase.ShopController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 608121a172ae34a45b759f0bad0e2b64, type: 2}
+    - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Codebase.ShopItem, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6731437790117267407, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
       propertyPath: m_Name

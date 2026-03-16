@@ -65,7 +65,7 @@ namespace Codebase
             }
         }
         
-        public void ChangeStatsAfterEvent(int moneyChangeValue, int foodChangeValue, int energyChangeValue, int mentalHealthChangeValue, int healthChangeValue)
+        public void ChangeStats(int moneyChangeValue, int foodChangeValue, int energyChangeValue, int mentalHealthChangeValue, int healthChangeValue)
         {
             walletController.GetWallet()?.ChangeBalance(moneyChangeValue);
             
