@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
@@ -12,8 +11,11 @@ namespace Codebase
 
         public void OpenCloseShop() => 
             shopView.MoveStore();
-        
-        
+
+        public void BuyButton(ShopItem shopItem)
+        {
+            
+        }
     }
 }
 
