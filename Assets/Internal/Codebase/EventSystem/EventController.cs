@@ -13,6 +13,7 @@ namespace Codebase
         [SerializeField] private StatsController statsController;
         
         [SerializeField] private int minSpawnDelay, maxSpawnDelay;
+        [SerializeField] private float autoSelectDelay = 10f;
 
         private bool isEventActive;
         private bool isEventExist;
@@ -36,11 +37,7 @@ namespace Codebase
         {
             if (currentEvent is SimpleEvent simpleEvent)
             {
-                if (autoHideCoroutine != null)
-                {
-                    StopCoroutine(autoHideCoroutine);
-                    autoHideCoroutine = null;
-                }
+                StopAutoHideCoroutine();
                 
                 statsController.ChangeStats(
                     simpleEvent.moneyChangeValue,
@@ -50,9 +47,7 @@ namespace Codebase
                     simpleEvent.healthChangeValue
                 );
                 
-                isEventExist = false;
-                eventView.HideEvent(currentEvent);
-                currentEvent = null;
+                CloseEvent();
                 
                 Debug.Log($"Simple event applied: {simpleEvent.eventName}");
             }
@@ -62,11 +57,7 @@ namespace Codebase
         {
             if (currentEvent is ChoiceEvent choiceEvent)
             {
-                if (autoHideCoroutine != null)
-                {
-                    StopCoroutine(autoHideCoroutine);
-                    autoHideCoroutine = null;
-                }
+                StopAutoHideCoroutine();
                 
                 statsController.ChangeStats(
                     choiceEvent.firstSolutionMoneyChangeValue,
@@ -76,9 +67,7 @@ namespace Codebase
                     choiceEvent.firstSolutionHealthChangeValue
                 );
                 
-                isEventExist = false;
-                eventView.HideEvent(currentEvent);
-                currentEvent = null;
+                CloseEvent();
                 
                 Debug.Log($"Choice event - first solution: {choiceEvent.eventName}");
             }
@@ -88,11 +77,7 @@ namespace Codebase
         {
             if (currentEvent is ChoiceEvent choiceEvent)
             {
-                if (autoHideCoroutine != null)
-                {
-                    StopCoroutine(autoHideCoroutine);
-                    autoHideCoroutine = null;
-                }
+                StopAutoHideCoroutine();
                 
                 statsController.ChangeStats(
                     choiceEvent.secondSolutionMoneyChangeValue,
@@ -102,34 +87,79 @@ namespace Codebase
                     choiceEvent.secondSolutionHealthChangeValue
                 );
 
-                isEventExist = false;
-                eventView.HideEvent(currentEvent);
-                currentEvent = null;
+                CloseEvent();
                 
                 Debug.Log($"Choice event - second solution: {choiceEvent.eventName}");
             }
         }
 
-        private void HideCurrentEvent()
+        private void StopAutoHideCoroutine()
         {
-            if (currentEvent != null)
+            if (autoHideCoroutine != null)
             {
-                if (autoHideCoroutine != null)
-                {
-                    StopCoroutine(autoHideCoroutine);
-                    autoHideCoroutine = null;
-                }
-                
-                isEventExist = false;
-                eventView.HideEvent(currentEvent);
-                currentEvent = null;
+                StopCoroutine(autoHideCoroutine);
+                autoHideCoroutine = null;
             }
+        }
+
+        private void CloseEvent()
+        {
+            isEventExist = false;
+            eventView.HideEvent(currentEvent);
+            currentEvent = null;
         }
 
         private IEnumerator AutoHideCoroutine()
         {
-            yield return new WaitForSeconds(10f);
-            HideCurrentEvent();
+            yield return new WaitForSeconds(autoSelectDelay);
+            
+            if (currentEvent != null)
+            {
+                Debug.Log("Время вышло! Автоматический выбор...");
+                
+                if (currentEvent is SimpleEvent simpleEvent)
+                {
+                    statsController.ChangeStats(
+                        simpleEvent.moneyChangeValue,
+                        simpleEvent.foodChangeValue,
+                        simpleEvent.energyChangeValue,
+                        simpleEvent.mentalHealthChangeValue,
+                        simpleEvent.healthChangeValue
+                    );
+                    
+                    Debug.Log($"Simple event auto-applied: {simpleEvent.eventName}");
+                }
+                else if (currentEvent is ChoiceEvent choiceEvent)
+                {
+                    int randomChoice = Random.Range(0, 2);
+                    
+                    if (randomChoice == 0)
+                    {
+                        statsController.ChangeStats(
+                            choiceEvent.firstSolutionMoneyChangeValue,
+                            choiceEvent.firstSolutionFoodChangeValue,
+                            choiceEvent.firstSolutionEnergyValue,
+                            choiceEvent.firstSolutionMentalHealthChangeValue,
+                            choiceEvent.firstSolutionHealthChangeValue
+                        );
+                        Debug.Log($"Choice event auto-selected: first solution for {choiceEvent.eventName}");
+                    }
+                    else
+                    {
+                        statsController.ChangeStats(
+                            choiceEvent.secondSolutionMoneyChangeValue,
+                            choiceEvent.secondSolutionFoodChangeValue,
+                            choiceEvent.secondSolutionEnergyValue,
+                            choiceEvent.secondSolutionMentalHealthChangeValue,
+                            choiceEvent.secondSolutionHealthChangeValue
+                        );
+                        Debug.Log($"Choice event auto-selected: second solution for {choiceEvent.eventName}");
+                    }
+                }
+                
+                CloseEvent();
+            }
+            
             autoHideCoroutine = null;
         }
 
@@ -152,11 +182,7 @@ namespace Codebase
 
         private void CreateEvent()
         {
-            if (autoHideCoroutine != null)
-            {
-                StopCoroutine(autoHideCoroutine);
-                autoHideCoroutine = null;
-            }
+            StopAutoHideCoroutine();
             
             currentEvent = eventSelector.GetEvent();
             eventView.ShowEvent(currentEvent);

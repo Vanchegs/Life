@@ -13,7 +13,7 @@ namespace Codebase
         public void OpenCloseShop() => 
             shopView.MoveStore();
 
-        public void BuyButton(ShopItem shopItem)
+        public void BuyClick(ShopItem shopItem)
         {
             statsController.ChangeStats(-shopItem.price, shopItem.foodChangeValue, 
                 shopItem.energyChangeValue, shopItem.mentalChangeValue, shopItem.healthChangeValue);

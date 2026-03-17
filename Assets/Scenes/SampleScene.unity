@@ -2428,7 +2428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuyButton
+      value: BuyClick
       objectReference: {fileID: 0}
     - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -3068,7 +3068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuyButton
+      value: BuyClick
       objectReference: {fileID: 0}
     - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -3292,7 +3292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuyButton
+      value: BuyClick
       objectReference: {fileID: 0}
     - target: {fileID: 3969458127814080995, guid: 0221279240175fe4c872ec8eca0701d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
