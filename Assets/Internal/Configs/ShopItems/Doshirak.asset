@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7181dfd94e86f4a9f4ab17113f95cd, type: 3}
+  m_Name: Doshirak
+  m_EditorClassIdentifier: 
+  price: 5
+  healthChangeValue: -7
+  mentalChangeValue: 3
+  foodChangeValue: 7
+  energyChangeValue: 0
