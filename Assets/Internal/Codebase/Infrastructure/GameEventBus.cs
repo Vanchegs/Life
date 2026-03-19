@@ -6,6 +6,7 @@ namespace Codebase
     public class GameEventBus : MonoBehaviour
     {
         public static Action<int> OnUpdateBalance;
+        public static Action OnLossGame;
     }
 }
 
