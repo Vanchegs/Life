@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Codebase
@@ -55,6 +54,9 @@ namespace Codebase
 
         public float GetCurrentStat() => 
             currentValue;
+
+        public void SetSavedValue(float value) => 
+            currentValue = value;
     }
 }
 

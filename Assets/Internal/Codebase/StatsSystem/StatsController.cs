@@ -9,6 +9,11 @@ namespace Codebase
         private const float DeficitMultiplier = 2;
         private const int DeficitValue = 20;
         
+        public float FoodStat => foodStat.GetCurrentStat();
+        public float EnergyStat => energyStat.GetCurrentStat();
+        public float MentalStat => mentalHealthStat.GetCurrentStat();
+        public float HealthStat => healthStat.GetCurrentStat();
+        
         [SerializeField] private StatConfig statConfig;
         [SerializeField] private StatVisual statVisual;
         [SerializeField] private WalletController walletController;
@@ -83,6 +88,16 @@ namespace Codebase
             {
                 stat.DecreaseValue();
             }
+        }
+
+        public void SetSavedStats(SaveData saveData)
+        {
+            foodStat.SetSavedValue(saveData.FoodStat);
+            energyStat.SetSavedValue(saveData.EnergyStat);
+            healthStat.SetSavedValue(saveData.HealthStat);
+            mentalHealthStat.SetSavedValue(saveData.MentalStat);
+            
+            wallet.SetSaveBalance(saveData.Balance);
         }
 
         private void SetMultipliers()

@@ -98,11 +98,11 @@ namespace Codebase
 
         private void UpdateSaveData()
         {
-            /*saveData.Balance = walletController.GetBalance();
-            saveData.FoodStat = statsController.GetFoodStat();
-            saveData.EnergyStat = statsController.GetEnergyStat();
-            saveData.MentalStat = statsController.GetMentalStat();
-            saveData.HealthStat = statsController.GetHealthStat();*/
+            saveData.Balance = walletController.GetWallet().GetBalance();
+            saveData.FoodStat = statsController.FoodStat;
+            saveData.EnergyStat = statsController.EnergyStat;
+            saveData.MentalStat = statsController.MentalStat;
+            saveData.HealthStat = statsController.HealthStat;
             
             Debug.Log($"Saving stats: Food={saveData.FoodStat}, Energy={saveData.EnergyStat}, " +
                      $"Mental={saveData.MentalStat}, Health={saveData.HealthStat}, Balance={saveData.Balance}");
