@@ -82,16 +82,9 @@ namespace Codebase
 
         private void ApplyLoadedData()
         {
-            /*// Применяем загруженные данные к контроллерам
-            walletController.SetBalance(saveData.Balance);
+            walletController.GetWallet().SetSaveBalance(saveData.Balance);
             
-            statsController.SetStats(
-                saveData.FoodStat,
-                saveData.EnergyStat,
-                saveData.MentalStat,
-                saveData.HealthStat
-            );
-            */
+            statsController.SetSavedStats(saveData);
             
             Debug.Log("Loaded data applied to game");
         }
