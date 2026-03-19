@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Internal.Codebase
+namespace Codebase
 {
     [Serializable]
     [SuppressMessage("ReSharper", "InconsistentNaming")]

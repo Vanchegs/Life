@@ -7,7 +7,6 @@ namespace Codebase
     {
         private const int MinValue = 0;
         
-        
         private StatType statType;
         
         private int maxValue;

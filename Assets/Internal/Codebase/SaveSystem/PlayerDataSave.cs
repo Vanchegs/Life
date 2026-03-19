@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 using Newtonsoft.Json;
 
-namespace Internal.Codebase
+namespace Codebase
 {
     public static class PlayerDataSave
     {
