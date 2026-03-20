@@ -20,6 +20,11 @@ namespace Codebase
         private void Start() => 
             Initialize();
 
+        private void OnDestroy()
+        {
+            Save();
+        }
+
         public void Save()
         {
             if (!isInitialized)
@@ -60,6 +65,7 @@ namespace Codebase
                 {
                     Debug.Log("No save data found, creating new...");
                     saveData = new SaveData();
+                    Debug.Log(saveData.Balance);
                 }
             }
             catch (System.Exception e)
