@@ -23,8 +23,6 @@ namespace Codebase
         private Stat mentalHealthStat;
         private Stat healthStat;
 
-        private Wallet wallet;
-
         private List<Stat> stats;
 
         private void Start()
@@ -97,7 +95,7 @@ namespace Codebase
             healthStat.SetSavedValue(saveData.HealthStat);
             mentalHealthStat.SetSavedValue(saveData.MentalStat);
             
-            wallet.SetSaveBalance(saveData.Balance);
+            walletController.GetWallet()?.SetSaveBalance(saveData.Balance);
         }
 
         private void SetMultipliers()
