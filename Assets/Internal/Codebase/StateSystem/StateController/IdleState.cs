@@ -8,7 +8,6 @@ namespace Codebase
 
         public override void Enter()
         {
-            Debug.Log("Idle state is enter");
         }
 
         public override void Update()
@@ -18,7 +17,6 @@ namespace Codebase
 
         public override void Exit()
         {
-             Debug.Log("Current state is exit");
         }
     }
 }

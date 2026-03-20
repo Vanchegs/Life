@@ -45,18 +45,6 @@ namespace Codebase
         {
             if (isInitialized) return;
 
-            if (statsController == null)
-            {
-                Debug.LogError("StatsController reference is missing in Saver!");
-                return;
-            }
-
-            if (walletController == null)
-            {
-                Debug.LogError("WalletController reference is missing in Saver!");
-                return;
-            }
-
             LoadData();
             ApplyLoadedData();
             

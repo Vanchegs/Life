@@ -67,8 +67,6 @@ namespace Codebase
             {
                 stateMachine.ChangeState<SleepState>();
             }
-
-            Debug.Log(stateMachine.GetCurrentState());
         }
 
 
