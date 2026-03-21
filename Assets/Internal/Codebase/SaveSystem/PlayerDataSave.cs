@@ -70,7 +70,27 @@ namespace Codebase
                 return defaultData;
             }
         }
-    
+        
+        public static void ClearSaveFile()
+        {
+            try
+            {
+                if (File.Exists(savePath))
+                {
+                    File.Delete(savePath);
+                    Debug.Log($"Файл сохранения удален: {savePath}");
+                }
+                else
+                {
+                    Debug.Log("Файл сохранения не найден, нечего удалять");
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Ошибка при удалении файла сохранения: {e.Message}");
+            }
+        }
+        
         private static void EnsureDirectoryExists()
         {
             var directory = Path.GetDirectoryName(savePath);

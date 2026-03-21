@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Codebase
@@ -13,16 +14,14 @@ namespace Codebase
         private void OnEnable() => 
             GameEventBus.SaveGame += Save;
 
-        private void OnDisable()
-        {
+        private void OnDisable() => 
             GameEventBus.SaveGame -= Save;
-            Save();
-        }
 
-        private void Start()
-        {
+        private void Start() => 
             Initialize();
-        }
+
+        private void OnDestroy() => 
+            Save();
 
         public void Save()
         {

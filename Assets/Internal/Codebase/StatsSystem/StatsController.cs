@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,6 +36,10 @@ namespace Codebase
         {
             UpdateStats();
             statVisual.UpdateValue();
+        }
+
+        private void OnDisable()
+        {
         }
 
         private void InitializeStats()
