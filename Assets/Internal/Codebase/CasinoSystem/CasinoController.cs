@@ -6,7 +6,7 @@ namespace Codebase
     {
         private BetColors betColor;
 
-        public enum BetColors
+        private enum BetColors
         {
             Red,
             Black,
@@ -22,6 +22,13 @@ namespace Codebase
                 2 => BetColors.Red,
                 _ => betColor
             };
+        }
+
+        public void SpinClick()
+        {
+            var colorIndex = Random.Range(0, 3);
+            
+            
         }
     }
 }
