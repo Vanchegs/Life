@@ -11,7 +11,7 @@ namespace Codebase
         private const int GreenMultiplier = 10;
 
         private BetColors betColor;
-        private int betAmount;
+        private int betAmount = 20;
         private int balance;
 
         private enum BetColors
@@ -37,7 +37,7 @@ namespace Codebase
             if (betAmount < 10)
                 return;
             
-            var winColorIndex = Random.Range(0, 3);
+            var winColorIndex = Random.Range(0, 3); //переделать под малоый шанс выпадения зеленого
             
             var winBetColor = winColorIndex switch
             {
