@@ -30,6 +30,7 @@ namespace Codebase
             casinoWallet.GetSavedBalance();
             
             GameEventBus.OnUpdateCasinoBalance?.Invoke(casinoWallet.Balance);
+            GameEventBus.OnUpdateBetValueChange?.Invoke(betAmount);
         }
 
         public void BetColorClick(int colorIndex)
@@ -108,21 +109,17 @@ namespace Codebase
             };
         }
         
-        public void SetBetAmount(int amount)
-        {
-            betAmount = Mathf.Max(10, amount);
-            Debug.Log($"Ставка изменена: {betAmount}");
-        }
-        
         public void IncreaseBet(int increment = 10)
         {
             betAmount += increment;
+            GameEventBus.OnUpdateBetValueChange?.Invoke(betAmount);
             Debug.Log($"Ставка увеличена: {betAmount}");
         }
         
         public void DecreaseBet(int decrement = 10)
         {
             betAmount = Mathf.Max(10, betAmount - decrement);
+            GameEventBus.OnUpdateBetValueChange?.Invoke(betAmount);
             Debug.Log($"Ставка уменьшена: {betAmount}");
         }
     }
