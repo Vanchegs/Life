@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,12 +9,11 @@ namespace Codebase
         private const int BlackMultiplier = 2;
         private const int GreenMultiplier = 10;
 
-        private const float GreenChance = 0.1f;
-        private const float RedChance = 0.45f;
-        private const float BlackChance = 0.45f;
+        private const float GreenChance = 0.05f;
+        private const float RedChance = 0.475f;
 
         private BetColors betColor;
-        private int betAmount = 20;
+        private int betAmount;
         private CasinoWallet casinoWallet;
 
         private enum BetColors
@@ -30,6 +28,8 @@ namespace Codebase
             casinoWallet = new CasinoWallet();
             
             casinoWallet.GetSavedBalance();
+            
+            GameEventBus.OnUpdateCasinoBalance?.Invoke(casinoWallet.Balance);
         }
 
         public void BetColorClick(int colorIndex)
@@ -53,7 +53,7 @@ namespace Codebase
                 return;
             }
 
-            if (casinoWallet.Balance <= 0)
+            if (casinoWallet.Balance < betAmount)
             {
                 Debug.Log("Недостаточно денег");
                 return;
@@ -69,17 +69,20 @@ namespace Codebase
             
             Debug.Log($"Выпало: {winColor}, Ваша ставка: {betColor}");
             
-            if (winColor != betColor)
+            casinoWallet.DecreaseBalance(betAmount);
+            
+            if (winColor == betColor)
             {
-                casinoWallet.DecreaseBalance(betAmount);
-                Debug.Log($"Проигрыш! Ставка {betAmount} сгорела, Баланс: {casinoWallet.Balance}");
-                return;
+                int winAmount = CalculateWinAmount(winColor);
+                casinoWallet.IncreaseBalance(winAmount);
+                Debug.Log($"ПОБЕДА! Выигрыш: {winAmount}, Баланс: {casinoWallet.Balance}");
+            }
+            else
+            {
+                Debug.Log($"ПРОИГРЫШ! Баланс: {casinoWallet.Balance}");
             }
             
-            int winAmount = CalculateWinAmount(winColor);
-            casinoWallet.IncreaseBalance(winAmount);
-            
-            Debug.Log($"ПОБЕДА! Выигрыш: {winAmount}, Баланс: {casinoWallet.Balance}");
+            GameEventBus.OnUpdateCasinoBalance?.Invoke(casinoWallet.Balance);
         }
         
         private BetColors GetRandomColor()
@@ -104,10 +107,6 @@ namespace Codebase
                 _ => 0
             };
         }
-        
-        public int GetBalance() => casinoWallet.Balance;
-        
-        public int GetBetAmount() => betAmount;
         
         public void SetBetAmount(int amount)
         {
