@@ -71,8 +71,8 @@ namespace Codebase
             
             if (winColor != betColor)
             {
-                Debug.Log($"Проигрыш! Ставка {betAmount} сгорела");
                 casinoWallet.DecreaseBalance(betAmount);
+                Debug.Log($"Проигрыш! Ставка {betAmount} сгорела, Баланс: {casinoWallet.Balance}");
                 return;
             }
             
