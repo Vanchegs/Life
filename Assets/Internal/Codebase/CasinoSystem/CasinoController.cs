@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,13 +16,20 @@ namespace Codebase
 
         private BetColors betColor;
         private int betAmount = 20;
-        private int balance;
+        private CasinoWallet casinoWallet;
 
         private enum BetColors
         {
             Red,
             Black,
             Green
+        }
+
+        private void Start()
+        {
+            casinoWallet = new CasinoWallet();
+            
+            casinoWallet.GetSavedBalance();
         }
 
         public void BetColorClick(int colorIndex)
@@ -44,7 +52,13 @@ namespace Codebase
                 Debug.Log("Минимальная ставка: 10");
                 return;
             }
-            
+
+            if (casinoWallet.Balance <= 0)
+            {
+                Debug.Log("Недостаточно денег");
+                return;
+            }
+
             if (betColor == BetColors.Red && betAmount == 0)
             {
                 Debug.Log("Выберите цвет для ставки!");
@@ -58,13 +72,14 @@ namespace Codebase
             if (winColor != betColor)
             {
                 Debug.Log($"Проигрыш! Ставка {betAmount} сгорела");
+                casinoWallet.DecreaseBalance(betAmount);
                 return;
             }
             
             int winAmount = CalculateWinAmount(winColor);
-            balance += winAmount;
+            casinoWallet.IncreaseBalance(winAmount);
             
-            Debug.Log($"ПОБЕДА! Выигрыш: {winAmount}, Баланс: {balance}");
+            Debug.Log($"ПОБЕДА! Выигрыш: {winAmount}, Баланс: {casinoWallet.Balance}");
         }
         
         private BetColors GetRandomColor()
@@ -90,7 +105,7 @@ namespace Codebase
             };
         }
         
-        public int GetBalance() => balance;
+        public int GetBalance() => casinoWallet.Balance;
         
         public int GetBetAmount() => betAmount;
         
