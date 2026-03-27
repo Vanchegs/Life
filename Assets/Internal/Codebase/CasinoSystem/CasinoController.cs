@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,7 +13,7 @@ namespace Codebase
         private const float RedChance = 0.475f;
 
         private BetColors betColor;
-        private int betAmount;
+        private int betAmount = 10;
         private CasinoWallet casinoWallet;
 
         private enum BetColors
@@ -29,10 +28,7 @@ namespace Codebase
             casinoWallet = new CasinoWallet();
             
             casinoWallet.GetSavedBalance();
-        }
-
-        private void OnEnable()
-        {
+            
             GameEventBus.OnUpdateCasinoBalance?.Invoke(casinoWallet.Balance);
             GameEventBus.OnUpdateBetValueChange?.Invoke(betAmount);
         }
@@ -94,7 +90,7 @@ namespace Codebase
         
         private BetColors GetRandomColor()
         {
-            float randomValue = Random.Range(0f, 1f);
+            var randomValue = Random.Range(0f, 1f);
 
             return randomValue switch
             {
