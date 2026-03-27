@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -28,6 +29,8 @@ namespace Codebase
             casinoWallet = new CasinoWallet();
             
             casinoWallet.GetSavedBalance();
+            
+            StartCoroutine(LoadBalanceAndUpdateUI());
             
             GameEventBus.OnUpdateCasinoBalance?.Invoke(casinoWallet.Balance);
             GameEventBus.OnUpdateBetValueChange?.Invoke(betAmount);
@@ -111,18 +114,26 @@ namespace Codebase
             };
         }
         
+        private IEnumerator LoadBalanceAndUpdateUI()
+        {
+            casinoWallet.GetSavedBalance();
+            
+            yield return null;
+            
+            GameEventBus.OnUpdateCasinoBalance?.Invoke(casinoWallet.Balance);
+            GameEventBus.OnUpdateBetValueChange?.Invoke(betAmount);
+        }
+        
         public void IncreaseBet(int increment = 10)
         {
             betAmount += increment;
             GameEventBus.OnUpdateBetValueChange?.Invoke(betAmount);
-            Debug.Log($"Ставка увеличена: {betAmount}");
         }
         
         public void DecreaseBet(int decrement = 10)
         {
             betAmount = Mathf.Max(10, betAmount - decrement);
             GameEventBus.OnUpdateBetValueChange?.Invoke(betAmount);
-            Debug.Log($"Ставка уменьшена: {betAmount}");
         }
     }
 }
