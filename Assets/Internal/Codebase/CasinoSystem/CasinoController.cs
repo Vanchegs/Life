@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -28,7 +29,10 @@ namespace Codebase
             casinoWallet = new CasinoWallet();
             
             casinoWallet.GetSavedBalance();
-            
+        }
+
+        private void OnEnable()
+        {
             GameEventBus.OnUpdateCasinoBalance?.Invoke(casinoWallet.Balance);
             GameEventBus.OnUpdateBetValueChange?.Invoke(betAmount);
         }
@@ -74,13 +78,15 @@ namespace Codebase
             
             if (winColor == betColor)
             {
-                int winAmount = CalculateWinAmount(winColor);
+                var winAmount = CalculateWinAmount(winColor);
                 casinoWallet.IncreaseBalance(winAmount);
+                GameEventBus.OnUpdateCasinoBalance?.Invoke(casinoWallet.Balance);
                 Debug.Log($"ПОБЕДА! Выигрыш: {winAmount}, Баланс: {casinoWallet.Balance}");
             }
             else
             {
                 Debug.Log($"ПРОИГРЫШ! Баланс: {casinoWallet.Balance}");
+                GameEventBus.OnUpdateCasinoBalance?.Invoke(casinoWallet.Balance);
             }
             
             GameEventBus.OnUpdateCasinoBalance?.Invoke(casinoWallet.Balance);
