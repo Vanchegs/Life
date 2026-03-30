@@ -15,6 +15,15 @@ namespace Codebase
             Debug.Log(Balance);
         }
 
+        public void SaveBalance()
+        {
+            var savedBalance = PlayerDataSave.Load<SaveData>();
+
+            savedBalance.Balance = Balance;
+            
+            PlayerDataSave.Save(savedBalance);
+        }
+
         public void IncreaseBalance(int changeValue) => 
             Balance += changeValue;
 

@@ -37,10 +37,8 @@ namespace Codebase
             GameEventBus.OnUpdateBetValueChange?.Invoke(betAmount);
         }
 
-        private void OnDisable()
-        {
-            
-        }
+        private void OnDisable() => 
+            casinoWallet.SaveBalance();
 
         public void BetColorClick(int colorIndex)
         {
