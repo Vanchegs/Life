@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -34,6 +35,11 @@ namespace Codebase
             
             GameEventBus.OnUpdateCasinoBalance?.Invoke(casinoWallet.Balance);
             GameEventBus.OnUpdateBetValueChange?.Invoke(betAmount);
+        }
+
+        private void OnDisable()
+        {
+            
         }
 
         public void BetColorClick(int colorIndex)

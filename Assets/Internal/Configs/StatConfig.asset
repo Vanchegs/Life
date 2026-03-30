@@ -15,9 +15,9 @@ MonoBehaviour:
   maxValue: 100
   minValue: 0
   foodDecreaseValue: 0.7
-  foodIncreaseValue: 2
+  foodIncreaseValue: 3
   energyDecreaseValue: 0.7
-  energyIncreaseValue: 2
+  energyIncreaseValue: 3
   healthDecreaseValue: 0.4
   healthIncreaseValue: 1
   mentalDecreaseValue: 0.4

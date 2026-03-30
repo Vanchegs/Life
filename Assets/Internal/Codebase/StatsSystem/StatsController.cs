@@ -38,10 +38,6 @@ namespace Codebase
             statVisual.UpdateValue();
         }
 
-        private void OnDisable()
-        {
-        }
-
         private void InitializeStats()
         {
             foodStat = new Stat(StatType.FoodStat, statConfig.maxValue, statConfig.foodDecreaseValue, statConfig.foodIncreaseValue);
@@ -105,9 +101,9 @@ namespace Codebase
 
         private void SetMultipliers()
         {
-            float energyMultiplier = NormalMultiplier;
-            float healthMultiplier = NormalMultiplier; 
-            float mentalMultiplier = NormalMultiplier;
+            var energyMultiplier = NormalMultiplier;
+            var healthMultiplier = NormalMultiplier; 
+            var mentalMultiplier = NormalMultiplier;
 
             if (foodStat.GetCurrentStat() < DeficitValue)
             {
