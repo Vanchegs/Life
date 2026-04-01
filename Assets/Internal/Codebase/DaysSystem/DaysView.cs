@@ -7,9 +7,8 @@ namespace Codebase
     {
         [SerializeField] private TMP_Text daysText;
 
-        private int dayNumber;
-        
-        
+        private void UpdateDayNumber(int number) => 
+            daysText.text = number.ToString();
     }
 }
 
