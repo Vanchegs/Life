@@ -22,7 +22,7 @@ namespace Codebase
         private void OnDestroy() => 
             Save();
 
-        public void Save()
+        private void Save()
         {
             if (!isInitialized)
             {

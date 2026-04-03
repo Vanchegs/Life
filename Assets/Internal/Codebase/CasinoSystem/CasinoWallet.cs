@@ -24,10 +24,18 @@ namespace Codebase
             PlayerDataSave.Save(savedBalance);
         }
 
-        public void IncreaseBalance(int changeValue) => 
+        public void IncreaseBalance(int changeValue)
+        {
             Balance += changeValue;
+            
+            SaveBalance();
+        }
 
-        public void DecreaseBalance(int changeValue) => 
+        public void DecreaseBalance(int changeValue)
+        {
             Balance -= changeValue;
+            
+            SaveBalance();
+        }
     }
 }
