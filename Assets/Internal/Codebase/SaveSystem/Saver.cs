@@ -6,6 +6,7 @@ namespace Codebase
     {
         [SerializeField] private StatsController statsController;
         [SerializeField] private WalletController walletController;
+        [SerializeField] private DaysCounter daysCounter;
         
         private SaveData saveData;
         private bool isInitialized = false;
@@ -84,6 +85,7 @@ namespace Codebase
         private void UpdateSaveData()
         {
             saveData.Balance = walletController.GetWallet().GetBalance();
+            saveData.DayNumber = daysCounter.DayNumber;
             saveData.FoodStat = statsController.FoodStat;
             saveData.EnergyStat = statsController.EnergyStat;
             saveData.MentalStat = statsController.MentalStat;
