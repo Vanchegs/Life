@@ -8,6 +8,7 @@ namespace Codebase
     public class SaveData
     {
         public int Balance;
+        public int DayNumber;
         public float FoodStat;
         public float MentalStat;
         public float HealthStat;
