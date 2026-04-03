@@ -11,10 +11,10 @@ namespace Codebase
         private bool isInitialized = false;
 
         private void OnEnable() => 
-            GameEventBus.SaveGame += Save;
+            GameEventBus.OnSaveGame += Save;
 
         private void OnDisable() => 
-            GameEventBus.SaveGame -= Save;
+            GameEventBus.OnSaveGame -= Save;
 
         private void Start() => 
             Initialize();

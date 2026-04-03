@@ -8,8 +8,9 @@ namespace Codebase
         public static Action<int> OnUpdateBalance;
         public static Action<int> OnUpdateCasinoBalance;
         public static Action<int> OnUpdateBetValueChange;
+        public static Action<int> OnUpdateDayNumber;
         public static Action OnLossGame;
-        public static Action SaveGame;
+        public static Action OnSaveGame;
     }
 }
 
