@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxValue: 100
   minValue: 0
-  foodDecreaseValue: 0.7
+  foodDecreaseValue: 0.5
   foodIncreaseValue: 3
-  energyDecreaseValue: 0.7
+  energyDecreaseValue: 0.5
   energyIncreaseValue: 3
-  healthDecreaseValue: 0.4
+  healthDecreaseValue: 0.3
   healthIncreaseValue: 1
-  mentalDecreaseValue: 0.4
+  mentalDecreaseValue: 0.3
   mentalIncreaseValue: 1
