@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Codebase
 {
-    public class DaysController : MonoBehaviour
+    public class DaysCounter : MonoBehaviour
     {
         
     }
