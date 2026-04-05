@@ -16,6 +16,6 @@ namespace Codebase
             wallet;
         
         public void IncreaseWalletBalance() => 
-            wallet.ChangeBalance(2);
+            wallet.ChangeBalance(15);
     }
 }

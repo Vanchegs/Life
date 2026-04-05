@@ -34,7 +34,10 @@ namespace Codebase
                 yield return new WaitForSeconds(1);
 
                 if (workProgress >= timeForOrder)
+                {
                     StateController.WalletController.IncreaseWalletBalance();
+                    workProgress = 0;
+                }
                 else
                     workProgress++;
             }
