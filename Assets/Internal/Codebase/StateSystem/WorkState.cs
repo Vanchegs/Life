@@ -7,8 +7,8 @@ namespace Codebase
     {
         public WorkState(StateSwitcher stateController) : base(stateController) { }
 
-        private int timeForOrder;
-        private float currentTime;
+        private int timeForOrder = 8;
+        private float workProgress;
         
         private Coroutine workCoroutine;
 
@@ -32,10 +32,11 @@ namespace Codebase
             while (true)
             { 
                 yield return new WaitForSeconds(1);
-                
-                StateController.WalletController.IncreaseWalletBalance();
-                
-                Debug.Log("slergnir");
+
+                if (workProgress >= timeForOrder)
+                    StateController.WalletController.IncreaseWalletBalance();
+                else
+                    workProgress++;
             }
         }
 
