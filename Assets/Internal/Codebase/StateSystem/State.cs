@@ -3,9 +3,9 @@ namespace Codebase
     public abstract class State
     {
         protected StatsController StatsController;
-        protected StateController StateController;
+        protected StateSwitcher StateController;
         
-        protected State(StateController stateController)
+        protected State(StateSwitcher stateController)
         {
             StateController = stateController;
             StatsController = stateController.GetStatsController();

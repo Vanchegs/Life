@@ -2,7 +2,7 @@ namespace Codebase
 {
     public class IdleState : State
     {
-        public IdleState(StateController stateController) : base(stateController) { }
+        public IdleState(StateSwitcher stateController) : base(stateController) { }
 
         public override void Enter()
         {

@@ -2,7 +2,7 @@ namespace Codebase
 {
     public class EatState : State
     {
-        public EatState(StateController stateController) : base(stateController) { }
+        public EatState(StateSwitcher stateController) : base(stateController) { }
 
         public override void Enter()
         {

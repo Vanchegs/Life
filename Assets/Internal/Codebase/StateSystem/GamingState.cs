@@ -2,7 +2,7 @@ namespace Codebase
 {
     public class GamingState : State
     {
-        public GamingState(StateController stateController) : base(stateController) { }
+        public GamingState(StateSwitcher stateController) : base(stateController) { }
         
         public override void Enter()
         {

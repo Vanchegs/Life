@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace Codebase
 {
-    public class StateController : MonoBehaviour
+    public class StateSwitcher : MonoBehaviour
     {
         [SerializeField] private StatsController statsController;
         [SerializeField] private WalletController walletController;
         
         private StateMachine stateMachine;
-        
-        private Coroutine workCoroutine;
+
+        public WalletController WalletController => walletController;
 
         private void Start()
         {
@@ -29,23 +29,6 @@ namespace Codebase
 
         public StatsController GetStatsController() => 
             statsController;
-        
-        public void StartWorkCoroutine()
-        {
-            if (workCoroutine != null)
-                return;
-
-            workCoroutine = StartCoroutine(MoneyAccrual());
-        }
-
-        public void StopWorkCoroutine()
-        {
-            if (workCoroutine != null)
-            {
-                StopCoroutine(workCoroutine);
-                workCoroutine = null;
-            }
-        }
 
         private void CheckInput()
         {
@@ -77,16 +60,6 @@ namespace Codebase
             stateMachine.AddState(new GamingState(this));
             stateMachine.AddState(new EatState(this));
             stateMachine.AddState(new WorkState(this));
-        }
-
-        private IEnumerator MoneyAccrual()
-        {
-            while (true)
-            { 
-                yield return new WaitForSeconds(1);
-                
-                walletController.IncreaseWalletBalance();
-            }
         }
     }
 }
