@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Codebase
 {
@@ -6,6 +7,9 @@ namespace Codebase
     {
         [SerializeField] private StatsController statsController;
         [SerializeField] private WalletController walletController;
+
+        [SerializeField] private GameObject progressBarPanel;
+        [SerializeField] private Image fillImage;
         
         private StateMachine stateMachine;
 
@@ -58,7 +62,7 @@ namespace Codebase
             stateMachine.AddState(new SleepState(this));
             stateMachine.AddState(new GamingState(this));
             stateMachine.AddState(new EatState(this));
-            stateMachine.AddState(new WorkState(this));
+            stateMachine.AddState(new WorkState(this, progressBarPanel, fillImage));
         }
     }
 }
