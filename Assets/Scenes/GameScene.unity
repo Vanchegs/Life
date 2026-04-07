@@ -400,6 +400,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 137585122}
+  - component: {fileID: 137585123}
   m_Layer: 5
   m_Name: WorkProgressBar
   m_TagString: Untagged
@@ -427,6 +428,20 @@ RectTransform:
   m_AnchoredPosition: {x: 320, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &137585123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137585121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09df19b71ed44d4fb603ed9e05671202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressBarPanel: {fileID: 137585121}
+  fillImage: {fileID: 860904005}
 --- !u!1 &153983791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,8 +1871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statsController: {fileID: 1179982746}
   walletController: {fileID: 1179982752}
-  progressBarPanel: {fileID: 137585121}
-  fillImage: {fileID: 860904005}
+  workingView: {fileID: 137585123}
 --- !u!114 &1179982749
 MonoBehaviour:
   m_ObjectHideFlags: 0

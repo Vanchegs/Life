@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Codebase
 {
@@ -8,22 +7,19 @@ namespace Codebase
     {
         private int timeForOrder = 8;
         
-        private GameObject progressBarPanel;
-        private Image fillImage;
-        
         private float workProgress;
         private Coroutine workCoroutine;
+        private WorkingView workingView;
 
-        public WorkState(StateSwitcher stateController, GameObject progressBarPanel, Image fillImage) : base(stateController)
+        public WorkState(StateSwitcher stateController, WorkingView workingView) : base(stateController)
         {
-            this.progressBarPanel = progressBarPanel;
-            this.fillImage = fillImage;
+            this.workingView = workingView;
         }
 
         public override void Enter()
         {
-            ShowProgressBar(true);
-            UpdateProgressUI(workProgress);
+            workingView.ShowProgressBar(true);
+            workingView.UpdateProgressUI(workProgress);
             StartWorkCoroutine();
             Debug.Log(workProgress);
         }
@@ -34,7 +30,7 @@ namespace Codebase
 
         public override void Exit()
         {
-            ShowProgressBar(false);
+            workingView.ShowProgressBar(false);
             StopWorkCoroutine();
             Debug.Log(workProgress);
         }
@@ -48,7 +44,7 @@ namespace Codebase
                 workProgress += 0.1f;
                 
                 float progress = workProgress / timeForOrder;
-                UpdateProgressUI(progress);
+                workingView.UpdateProgressUI(progress);
                 
                 if (workProgress >= timeForOrder)
                 {
@@ -56,20 +52,6 @@ namespace Codebase
                     workProgress = 0f;
                 }
             }
-        }
-
-        private void UpdateProgressUI(float progress)
-        {
-            if (fillImage != null)
-            {
-                fillImage.fillAmount = Mathf.Clamp01(progress);
-            }
-        }
-
-        private void ShowProgressBar(bool show)
-        {
-            if (progressBarPanel != null)
-                progressBarPanel.SetActive(show);
         }
 
         private void StartWorkCoroutine()
