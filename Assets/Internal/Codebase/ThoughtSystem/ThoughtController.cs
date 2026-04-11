@@ -1,10 +1,14 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Codebase
 {
     public class ThoughtController : MonoBehaviour
     {
         [SerializeField] private ThoughtsConfig thoughts;
+        [SerializeField] private ThoughtView thoughtView;
+        [SerializeField] private float thoughtDuration = 3f;
         
         private enum ThoughtType
         {
@@ -12,6 +16,22 @@ namespace Codebase
             EnergyThought,
             MentalThought,
             HealthThought
+        }
+
+        private void Start()
+        {
+            GameEventBus.OnFellMental += ShowMentalThought;
+            GameEventBus.OnFellEnergy += ShowEnergyThought;
+            GameEventBus.OnFellHealth += ShowHealthThought;
+            GameEventBus.OnFellHungry += ShowHungryThought;
+        }
+
+        private void OnDisable()
+        {
+            GameEventBus.OnFellMental -= ShowMentalThought;
+            GameEventBus.OnFellEnergy -= ShowEnergyThought;
+            GameEventBus.OnFellHealth -= ShowHealthThought;
+            GameEventBus.OnFellHungry -= ShowHungryThought;
         }
 
         private string GetThought(ThoughtType type)
@@ -42,9 +62,56 @@ namespace Codebase
             return thought;
         }
 
-        private void ShowThought()
+        private void ShowHungryThought()
         {
+            string thought = GetThought(ThoughtType.HungryThought);
+            if (!string.IsNullOrEmpty(thought))
+                thoughtView.ShowThought(thought, thoughtDuration);
+        }
+
+        private void ShowEnergyThought()
+        {
+            string thought = GetThought(ThoughtType.EnergyThought);
+            if (!string.IsNullOrEmpty(thought))
+                thoughtView.ShowThought(thought, thoughtDuration);
+        }
+
+        private void ShowMentalThought()
+        {
+            string thought = GetThought(ThoughtType.MentalThought);
+            if (!string.IsNullOrEmpty(thought))
+                thoughtView.ShowThought(thought, thoughtDuration);
+        }
+
+        private void ShowHealthThought()
+        {
+            string thought = GetThought(ThoughtType.HealthThought);
+            if (!string.IsNullOrEmpty(thought))
+                thoughtView.ShowThought(thought, thoughtDuration);
+        }
+        
+        public void ShowRandomThought()
+        {
+            ThoughtType[] types = { ThoughtType.HungryThought, ThoughtType.EnergyThought, 
+                ThoughtType.MentalThought, ThoughtType.HealthThought };
             
+            ThoughtType randomType = types[Random.Range(0, types.Length)];
+            
+            switch (randomType)
+            {
+                case ThoughtType.HungryThought:
+                    ShowHungryThought();
+                    break;
+                case ThoughtType.EnergyThought:
+                    ShowEnergyThought();
+                    break;
+                case ThoughtType.MentalThought:
+                    ShowMentalThought();
+                    break;
+                case ThoughtType.HealthThought:
+                    ShowHealthThought();
+                    break;
+            }
         }
     }
 }

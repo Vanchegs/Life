@@ -11,6 +11,10 @@ namespace Codebase
         public static Action<int> OnUpdateDayNumber;
         public static Action OnLossGame;
         public static Action OnSaveGame;
+        public static Action OnFellMental;
+        public static Action OnFellHealth;
+        public static Action OnFellHungry;
+        public static Action OnFellEnergy;
     }
 }
 
