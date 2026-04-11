@@ -14,7 +14,7 @@ namespace Codebase
         
         private void Awake()
         {
-            startPosition = new Vector2(-300, -500);
+            startPosition = new Vector2(245, -100);
             endPosition = new Vector2(-800, -200);
             
             thoughtPanel.anchoredPosition = startPosition;
@@ -33,15 +33,13 @@ namespace Codebase
             thoughtPanel.anchoredPosition = startPosition;
             thoughtPanel.localScale = Vector3.one;
             
-            // Поднятие наверх
-            thoughtPanel.DOAnchorPosY(-150, 0.4f).SetEase(Ease.OutBack);
+            thoughtPanel.DOAnchorPosY(70, 0.4f).SetEase(Ease.OutBack);
             
             yield return new WaitForSeconds(duration);
             
-            // Уход влево и исчезновение
             Sequence hide = DOTween.Sequence();
             hide.Join(thoughtPanel.DOAnchorPosX(endPosition.x, 0.5f).SetEase(Ease.InBack));
-            hide.Join(thoughtPanel.DOScale(0.8f, 0.5f));
+            //hide.Join(thoughtPanel.DOScale(0.8f, 0.5f));
             hide.OnComplete(() => thoughtPanel.gameObject.SetActive(false));
             hide.Play();
         }
