@@ -68,7 +68,7 @@ namespace Codebase
                     randIndex = Random.Range(0, thoughts.healthThoughts.Count);
                     return thoughts.healthThoughts[randIndex];
                 case ThoughtType.RandomThought:
-                    randIndex = Random.Range(0, thoughts.healthThoughts.Count);
+                    randIndex = Random.Range(0, thoughts.randomThoughts.Count);
                     return thoughts.randomThoughts[randIndex];
                 default:
                     return null;
