@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,7 +15,8 @@ namespace Codebase
             HungryThought,
             EnergyThought,
             MentalThought,
-            HealthThought
+            HealthThought,
+            RandomThought
         }
 
         private void Start()
@@ -23,6 +25,8 @@ namespace Codebase
             GameEventBus.OnFellEnergy += ShowEnergyThought;
             GameEventBus.OnFellHealth += ShowHealthThought;
             GameEventBus.OnFellHungry += ShowHungryThought;
+
+            StartCoroutine(RegularRandomThoughtShowing());
         }
 
         private void OnDisable()
@@ -33,6 +37,18 @@ namespace Codebase
             GameEventBus.OnFellHungry -= ShowHungryThought;
         }
 
+        private IEnumerator RegularRandomThoughtShowing()
+        {
+            while (true)
+            {
+                var randSeconds = Random.Range(0, 20);
+                
+                yield return new WaitForSecondsRealtime(randSeconds);
+                
+                thoughtView.ShowRandomThought(GetRandomThought(ThoughtType.RandomThought));
+            }
+        }
+
         private string GetRandomThought(ThoughtType type)
         {
             int randIndex;
@@ -40,30 +56,25 @@ namespace Codebase
             switch (type)
             {
                 case ThoughtType.HungryThought:
-                    if (thoughts.hungryThoughts == null || thoughts.hungryThoughts.Count == 0) return null;
                     randIndex = Random.Range(0, thoughts.hungryThoughts.Count);
                     return thoughts.hungryThoughts[randIndex];
-                    
                 case ThoughtType.EnergyThought:
-                    if (thoughts.energyThoughts == null || thoughts.energyThoughts.Count == 0) return null;
                     randIndex = Random.Range(0, thoughts.energyThoughts.Count);
                     return thoughts.energyThoughts[randIndex];
-                    
                 case ThoughtType.MentalThought:
-                    if (thoughts.mentalThoughts == null || thoughts.mentalThoughts.Count == 0) return null;
                     randIndex = Random.Range(0, thoughts.mentalThoughts.Count);
                     return thoughts.mentalThoughts[randIndex];
-                    
                 case ThoughtType.HealthThought:
-                    if (thoughts.healthThoughts == null || thoughts.healthThoughts.Count == 0) return null;
                     randIndex = Random.Range(0, thoughts.healthThoughts.Count);
                     return thoughts.healthThoughts[randIndex];
-                    
+                case ThoughtType.RandomThought:
+                    randIndex = Random.Range(0, thoughts.healthThoughts.Count);
+                    return thoughts.randomThoughts[randIndex];
                 default:
                     return null;
             }
         }
-
+        
         private void ShowHungryThought()
         {
             string thought = GetRandomThought(ThoughtType.HungryThought);
@@ -88,18 +99,6 @@ namespace Codebase
         private void ShowHealthThought()
         {
             string thought = GetRandomThought(ThoughtType.HealthThought);
-            if (!string.IsNullOrEmpty(thought))
-                thoughtView.ShowStatThought(thought, thoughtDuration);
-        }
-        
-        public void ShowRandomStatThought()
-        {
-            ThoughtType[] types = { ThoughtType.HungryThought, ThoughtType.EnergyThought, 
-                ThoughtType.MentalThought, ThoughtType.HealthThought };
-            
-            ThoughtType randomType = types[Random.Range(0, types.Length)];
-            
-            string thought = GetRandomThought(randomType);
             if (!string.IsNullOrEmpty(thought))
                 thoughtView.ShowStatThought(thought, thoughtDuration);
         }
