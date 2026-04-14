@@ -109,24 +109,28 @@ namespace Codebase
                 energyMultiplier = DeficitMultiplier;
                 healthMultiplier = DeficitMultiplier;
                 mentalMultiplier = DeficitMultiplier;
+                GameEventBus.OnFellHungry?.Invoke();
             }
 
             if (energyStat.GetCurrentStat() < DeficitValue)
             {
                 healthMultiplier = DeficitMultiplier;
                 mentalMultiplier = DeficitMultiplier;
+                GameEventBus.OnFellEnergy?.Invoke();
             }
 
             if (mentalHealthStat.GetCurrentStat() < DeficitValue)
             {
                 energyMultiplier = DeficitMultiplier;
                 healthMultiplier = DeficitMultiplier;
+                GameEventBus.OnFellMental?.Invoke();
             }
 
             if (healthStat.GetCurrentStat() < DeficitValue)
             {
                 energyMultiplier = DeficitMultiplier;
                 mentalMultiplier = DeficitMultiplier;
+                GameEventBus.OnFellHealth.Invoke();
             }
 
             energyStat.ChangeMultiplier(energyMultiplier);

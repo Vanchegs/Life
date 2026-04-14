@@ -33,85 +33,75 @@ namespace Codebase
             GameEventBus.OnFellHungry -= ShowHungryThought;
         }
 
-        private string GetThought(ThoughtType type)
+        private string GetRandomThought(ThoughtType type)
         {
-            string thought = null;
             int randIndex;
             
             switch (type)
             {
                 case ThoughtType.HungryThought:
+                    if (thoughts.hungryThoughts == null || thoughts.hungryThoughts.Count == 0) return null;
                     randIndex = Random.Range(0, thoughts.hungryThoughts.Count);
-                    thought = thoughts.hungryThoughts[randIndex];
-                    break;
+                    return thoughts.hungryThoughts[randIndex];
+                    
                 case ThoughtType.EnergyThought:
+                    if (thoughts.energyThoughts == null || thoughts.energyThoughts.Count == 0) return null;
                     randIndex = Random.Range(0, thoughts.energyThoughts.Count);
-                    thought = thoughts.energyThoughts[randIndex];
-                    break;
-                case ThoughtType.HealthThought:
-                    randIndex = Random.Range(0, thoughts.healthThoughts.Count);
-                    thought = thoughts.healthThoughts[randIndex];
-                    break;
+                    return thoughts.energyThoughts[randIndex];
+                    
                 case ThoughtType.MentalThought:
+                    if (thoughts.mentalThoughts == null || thoughts.mentalThoughts.Count == 0) return null;
                     randIndex = Random.Range(0, thoughts.mentalThoughts.Count);
-                    thought = thoughts.mentalThoughts[randIndex];
-                    break;
+                    return thoughts.mentalThoughts[randIndex];
+                    
+                case ThoughtType.HealthThought:
+                    if (thoughts.healthThoughts == null || thoughts.healthThoughts.Count == 0) return null;
+                    randIndex = Random.Range(0, thoughts.healthThoughts.Count);
+                    return thoughts.healthThoughts[randIndex];
+                    
+                default:
+                    return null;
             }
-
-            return thought;
         }
 
         private void ShowHungryThought()
         {
-            string thought = GetThought(ThoughtType.HungryThought);
+            string thought = GetRandomThought(ThoughtType.HungryThought);
             if (!string.IsNullOrEmpty(thought))
                 thoughtView.ShowStatThought(thought, thoughtDuration);
         }
 
         private void ShowEnergyThought()
         {
-            string thought = GetThought(ThoughtType.EnergyThought);
+            string thought = GetRandomThought(ThoughtType.EnergyThought);
             if (!string.IsNullOrEmpty(thought))
                 thoughtView.ShowStatThought(thought, thoughtDuration);
         }
 
         private void ShowMentalThought()
         {
-            string thought = GetThought(ThoughtType.MentalThought);
+            string thought = GetRandomThought(ThoughtType.MentalThought);
             if (!string.IsNullOrEmpty(thought))
                 thoughtView.ShowStatThought(thought, thoughtDuration);
         }
 
         private void ShowHealthThought()
         {
-            string thought = GetThought(ThoughtType.HealthThought);
+            string thought = GetRandomThought(ThoughtType.HealthThought);
             if (!string.IsNullOrEmpty(thought))
                 thoughtView.ShowStatThought(thought, thoughtDuration);
         }
         
-        public void ShowRandomThought()
+        public void ShowRandomStatThought()
         {
             ThoughtType[] types = { ThoughtType.HungryThought, ThoughtType.EnergyThought, 
                 ThoughtType.MentalThought, ThoughtType.HealthThought };
             
             ThoughtType randomType = types[Random.Range(0, types.Length)];
             
-            switch (randomType)
-            {
-                case ThoughtType.HungryThought:
-                    ShowHungryThought();
-                    break;
-                case ThoughtType.EnergyThought:
-                    ShowEnergyThought();
-                    break;
-                case ThoughtType.MentalThought:
-                    ShowMentalThought();
-                    break;
-                case ThoughtType.HealthThought:
-                    ShowHealthThought();
-                    break;
-            }
+            string thought = GetRandomThought(randomType);
+            if (!string.IsNullOrEmpty(thought))
+                thoughtView.ShowStatThought(thought, thoughtDuration);
         }
     }
 }
-
