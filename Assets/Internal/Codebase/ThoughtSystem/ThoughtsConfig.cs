@@ -10,5 +10,6 @@ namespace Codebase
         public List<string> mentalThoughts;
         public List<string> healthThoughts;
         public List<string> energyThoughts;
+        public List<string> randomThoughts;
     }
 }

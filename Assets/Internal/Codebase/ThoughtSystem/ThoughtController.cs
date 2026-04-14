@@ -65,28 +65,28 @@ namespace Codebase
         {
             string thought = GetThought(ThoughtType.HungryThought);
             if (!string.IsNullOrEmpty(thought))
-                thoughtView.ShowThought(thought, thoughtDuration);
+                thoughtView.ShowStatThought(thought, thoughtDuration);
         }
 
         private void ShowEnergyThought()
         {
             string thought = GetThought(ThoughtType.EnergyThought);
             if (!string.IsNullOrEmpty(thought))
-                thoughtView.ShowThought(thought, thoughtDuration);
+                thoughtView.ShowStatThought(thought, thoughtDuration);
         }
 
         private void ShowMentalThought()
         {
             string thought = GetThought(ThoughtType.MentalThought);
             if (!string.IsNullOrEmpty(thought))
-                thoughtView.ShowThought(thought, thoughtDuration);
+                thoughtView.ShowStatThought(thought, thoughtDuration);
         }
 
         private void ShowHealthThought()
         {
             string thought = GetThought(ThoughtType.HealthThought);
             if (!string.IsNullOrEmpty(thought))
-                thoughtView.ShowThought(thought, thoughtDuration);
+                thoughtView.ShowStatThought(thought, thoughtDuration);
         }
         
         public void ShowRandomThought()
