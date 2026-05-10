@@ -14,14 +14,18 @@ namespace Codebase
         [SerializeField] private RectTransform randomThoughtPanel;
         [SerializeField] private TMP_Text randomThoughtText;
         
-        [SerializeField] private Vector2 defaultPosition = new Vector2(245, -100);
-        [SerializeField] private Vector2 offsetPosition = new Vector2(245, -160);
-        [SerializeField] private Vector2 endPosition = new Vector2(-800, -200);
+        [Header("Позиции")]
+        [SerializeField] private Vector2 defaultPosition = new(245, -100);
+        [SerializeField] private Vector2 upperPosition = new(245, -160);
+        [SerializeField] private Vector2 endPosition = new(-800, -200);
+        [SerializeField] private float targetY = -20;
         
-        private Queue<ThoughtMessage> messageQueue = new Queue<ThoughtMessage>();
-        private bool isShowing;
-        private bool isStatPanelActive;
-        private bool isRandomPanelActive;
+        private Queue<ThoughtMessage> messageQueue = new();
+        private bool isProcessing;
+        
+        private RectTransform currentActivePanel;
+        private bool isStatPanelVisible;
+        private bool isRandomPanelVisible;
         
         private enum ThoughtType
         {
@@ -55,7 +59,7 @@ namespace Codebase
         {
             messageQueue.Enqueue(new ThoughtMessage(text, duration, ThoughtType.Stat));
             
-            if (!isShowing)
+            if (!isProcessing)
                 StartCoroutine(ProcessQueue());
         }
         
@@ -63,95 +67,145 @@ namespace Codebase
         {
             messageQueue.Enqueue(new ThoughtMessage(text, duration, ThoughtType.Random));
             
-            if (!isShowing)
+            if (!isProcessing)
                 StartCoroutine(ProcessQueue());
         }
         
-        private System.Collections.IEnumerator ProcessQueue()
+        private IEnumerator ProcessQueue()
         {
-            isShowing = true;
+            isProcessing = true;
             
             while (messageQueue.Count > 0)
             {
                 var message = messageQueue.Dequeue();
                 
-                // Проверяем, есть ли активная панель другого типа
-                bool hasOtherPanel = (message.type == ThoughtType.Stat && isRandomPanelActive) ||
-                                    (message.type == ThoughtType.Random && isStatPanelActive);
+                // Проверяем, есть ли видимая панель другого типа
+                bool hasVisiblePanel = (message.type == ThoughtType.Stat && isRandomPanelVisible) ||
+                                      (message.type == ThoughtType.Random && isStatPanelVisible);
                 
-                Vector2 targetPosition = hasOtherPanel ? offsetPosition : defaultPosition;
+                if (hasVisiblePanel)
+                {
+                    // Находим старую панель и поднимаем её
+                    RectTransform oldPanel = message.type == ThoughtType.Stat ? randomThoughtPanel : statThoughtPanel;
+                    oldPanel.DOAnchorPosY(upperPosition.y, 0.3f).SetEase(Ease.OutQuad);
+                }
                 
+                // Показываем новую панель
                 if (message.type == ThoughtType.Stat)
                 {
-                    yield return StartCoroutine(AnimateStatThought(message.text, targetPosition, message.duration));
+                    yield return StartCoroutine(AnimateStatThought(message.text, message.duration));
                 }
                 else
                 {
-                    yield return StartCoroutine(AnimateRandomThought(message.text, targetPosition, message.duration));
+                    yield return StartCoroutine(AnimateRandomThought(message.text, message.duration));
                 }
                 
                 yield return new WaitForSeconds(0.1f);
             }
             
-            isShowing = false;
+            isProcessing = false;
         }
         
-        private IEnumerator AnimateStatThought(string text, Vector2 startPos, float duration)
+        private IEnumerator AnimateStatThought(string text, float duration)
         {
-            isStatPanelActive = true;
+            // Останавливаем все текущие анимации этой панели
+            statThoughtPanel.DOKill();
+            
+            // Устанавливаем текст
             statThoughtText.text = text;
-            statThoughtPanel.gameObject.SetActive(true);
-            statThoughtPanel.anchoredPosition = startPos;
+            
+            // Сбрасываем позицию
+            statThoughtPanel.anchoredPosition = defaultPosition;
             statThoughtPanel.localScale = Vector3.one;
             
-            // Поднятие наверх (Y = -20)
-            statThoughtPanel.DOAnchorPosY(90, 0.4f).SetEase(Ease.OutBack);
+            // Показываем панель
+            statThoughtPanel.gameObject.SetActive(true);
+            isStatPanelVisible = true;
+            currentActivePanel = statThoughtPanel;
             
+            // Анимация появления
+            statThoughtPanel.DOAnchorPosY(targetY, 0.4f).SetEase(Ease.OutBack);
+            
+            // Ждём указанное время
             yield return new WaitForSeconds(duration);
             
-            // Уход влево
-            Sequence hide = DOTween.Sequence();
-            hide.Join(statThoughtPanel.DOAnchorPosX(endPosition.x, 0.5f).SetEase(Ease.InBack));
-            hide.OnComplete(() => {
-                statThoughtPanel.gameObject.SetActive(false);
-                isStatPanelActive = false;
-            });
-            hide.Play();
+            // Анимация ухода
+            statThoughtPanel.DOAnchorPosX(endPosition.x, 0.5f).SetEase(Ease.InBack);
+            
+            // Ждём половину анимации ухода, чтобы скрыть панель
+            yield return new WaitForSeconds(0.3f);
+            
+            // Скрываем панель
+            statThoughtPanel.gameObject.SetActive(false);
+            isStatPanelVisible = false;
+            
+            // Сбрасываем позицию для следующего раза
+            statThoughtPanel.anchoredPosition = defaultPosition;
+            
+            if (currentActivePanel == statThoughtPanel)
+                currentActivePanel = null;
         }
         
-        private IEnumerator AnimateRandomThought(string text, Vector2 startPos, float duration)
+        private IEnumerator AnimateRandomThought(string text, float duration)
         {
-            isRandomPanelActive = true;
+            // Останавливаем все текущие анимации этой панели
+            randomThoughtPanel.DOKill();
+            
+            // Устанавливаем текст
             randomThoughtText.text = text;
-            randomThoughtPanel.gameObject.SetActive(true);
-            randomThoughtPanel.anchoredPosition = startPos;
+            
+            // Сбрасываем позицию
+            randomThoughtPanel.anchoredPosition = defaultPosition;
             randomThoughtPanel.localScale = Vector3.one;
             
-            // Поднятие наверх (Y = -20)
-            randomThoughtPanel.DOAnchorPosY(90, 0.4f).SetEase(Ease.OutBack);
+            // Показываем панель
+            randomThoughtPanel.gameObject.SetActive(true);
+            isRandomPanelVisible = true;
+            currentActivePanel = randomThoughtPanel;
             
+            // Анимация появления
+            randomThoughtPanel.DOAnchorPosY(targetY, 0.4f).SetEase(Ease.OutBack);
+            
+            // Ждём указанное время
             yield return new WaitForSeconds(duration);
             
-            // Уход влево
-            Sequence hide = DOTween.Sequence();
-            hide.Join(randomThoughtPanel.DOAnchorPosX(endPosition.x, 0.5f).SetEase(Ease.InBack));
-            hide.OnComplete(() => {
-                randomThoughtPanel.gameObject.SetActive(false);
-                isRandomPanelActive = false;
-            });
-            hide.Play();
+            // Анимация ухода
+            randomThoughtPanel.DOAnchorPosX(endPosition.x, 0.5f).SetEase(Ease.InBack);
+            
+            // Ждём половину анимации ухода
+            yield return new WaitForSeconds(0.3f);
+            
+            // Скрываем панель
+            randomThoughtPanel.gameObject.SetActive(false);
+            isRandomPanelVisible = false;
+            
+            // Сбрасываем позицию для следующего раза
+            randomThoughtPanel.anchoredPosition = defaultPosition;
+            
+            if (currentActivePanel == randomThoughtPanel)
+                currentActivePanel = null;
         }
         
         public void ClearQueue()
         {
             messageQueue.Clear();
-            isShowing = false;
+            isProcessing = false;
             StopAllCoroutines();
+            
+            statThoughtPanel.DOKill();
+            randomThoughtPanel.DOKill();
             
             statThoughtPanel.gameObject.SetActive(false);
             randomThoughtPanel.gameObject.SetActive(false);
-            isStatPanelActive = false;
-            isRandomPanelActive = false;
+            
+            isStatPanelVisible = false;
+            isRandomPanelVisible = false;
+            currentActivePanel = null;
+        }
+        
+        private void OnDestroy()
+        {
+            ClearQueue();
         }
     }
 }

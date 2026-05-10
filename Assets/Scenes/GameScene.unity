@@ -2714,9 +2714,10 @@ MonoBehaviour:
   statThoughtText: {fileID: 1517418143}
   randomThoughtPanel: {fileID: 446614775}
   randomThoughtText: {fileID: 446614776}
-  defaultPosition: {x: 245, y: -100}
-  offsetPosition: {x: 245, y: -140}
+  defaultPosition: {x: 245, y: 100}
+  upperPosition: {x: 245, y: 200}
   endPosition: {x: 0, y: 0}
+  targetY: 100
 --- !u!1001 &1517418141
 PrefabInstance:
   m_ObjectHideFlags: 0
