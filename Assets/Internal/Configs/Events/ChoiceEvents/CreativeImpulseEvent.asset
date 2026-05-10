@@ -27,4 +27,4 @@ MonoBehaviour:
   secondSolutionEnergyValue: 5
   secondSolutionHealthChangeValue: 5
   secondSolutionMentalHealthChangeValue: 10
-  secondSolutionMoneyChangeValue: -7
+  secondSolutionMoneyChangeValue: -10

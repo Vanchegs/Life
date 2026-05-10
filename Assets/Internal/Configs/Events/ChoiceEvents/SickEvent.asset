@@ -25,6 +25,6 @@ MonoBehaviour:
   firstSolutionMoneyChangeValue: -15
   secondSolutionFoodChangeValue: 0
   secondSolutionEnergyValue: -5
-  secondSolutionHealthChangeValue: -10
+  secondSolutionHealthChangeValue: -15
   secondSolutionMentalHealthChangeValue: -5
   secondSolutionMoneyChangeValue: 0

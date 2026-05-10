@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -18,9 +19,9 @@ namespace Codebase
         [SerializeField] private Vector2 endPosition = new Vector2(-800, -200);
         
         private Queue<ThoughtMessage> messageQueue = new Queue<ThoughtMessage>();
-        private bool isShowing = false;
-        private bool isStatPanelActive = false;
-        private bool isRandomPanelActive = false;
+        private bool isShowing;
+        private bool isStatPanelActive;
+        private bool isRandomPanelActive;
         
         private enum ThoughtType
         {
@@ -95,7 +96,7 @@ namespace Codebase
             isShowing = false;
         }
         
-        private System.Collections.IEnumerator AnimateStatThought(string text, Vector2 startPos, float duration)
+        private IEnumerator AnimateStatThought(string text, Vector2 startPos, float duration)
         {
             isStatPanelActive = true;
             statThoughtText.text = text;
@@ -104,7 +105,7 @@ namespace Codebase
             statThoughtPanel.localScale = Vector3.one;
             
             // Поднятие наверх (Y = -20)
-            statThoughtPanel.DOAnchorPosY(-20, 0.4f).SetEase(Ease.OutBack);
+            statThoughtPanel.DOAnchorPosY(90, 0.4f).SetEase(Ease.OutBack);
             
             yield return new WaitForSeconds(duration);
             
@@ -118,7 +119,7 @@ namespace Codebase
             hide.Play();
         }
         
-        private System.Collections.IEnumerator AnimateRandomThought(string text, Vector2 startPos, float duration)
+        private IEnumerator AnimateRandomThought(string text, Vector2 startPos, float duration)
         {
             isRandomPanelActive = true;
             randomThoughtText.text = text;
@@ -127,7 +128,7 @@ namespace Codebase
             randomThoughtPanel.localScale = Vector3.one;
             
             // Поднятие наверх (Y = -20)
-            randomThoughtPanel.DOAnchorPosY(-20, 0.4f).SetEase(Ease.OutBack);
+            randomThoughtPanel.DOAnchorPosY(90, 0.4f).SetEase(Ease.OutBack);
             
             yield return new WaitForSeconds(duration);
             

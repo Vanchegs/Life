@@ -2220,7 +2220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thoughts: {fileID: 11400000, guid: 46c1649a77040394486356d6a3a9fda4, type: 2}
   thoughtView: {fileID: 1503090444}
-  thoughtDuration: 3
+  thoughtDuration: 10
 --- !u!1 &1196823595
 GameObject:
   m_ObjectHideFlags: 0
