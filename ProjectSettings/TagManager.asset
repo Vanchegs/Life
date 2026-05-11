@@ -41,9 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Kitchen
+    uniqueID: 2849514345
+    locked: 0
   - name: MainRoom
     uniqueID: 4040628247
     locked: 0
-  - name: Kitchen
-    uniqueID: 2849514345
+  - name: UI
+    uniqueID: 6440387
     locked: 0
