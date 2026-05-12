@@ -11,41 +11,41 @@ namespace Codebase
         [SerializeField] private CanvasGroup canvasGroup;
         
         private Tween currentTween;
-        private float startY;
         
-        private void Awake()
+        public void ShowStatThought(string text, float duration, float startY, System.Action onComplete)
         {
-            startY = rect.anchoredPosition.y;
+            Show(text, duration, startY, onComplete);
         }
         
-        public void ShowStatThought(string text, float duration, System.Action onComplete)
+        public void ShowRandomThought(string text, float duration, float startY, System.Action onComplete)
         {
-            Show(text, duration, onComplete, false);
+            Show(text, duration, startY, onComplete);
         }
         
-        public void ShowRandomThought(string text, float duration, System.Action onComplete)
+        public void MoveToPosition(float yPos, float duration)
         {
-            Show(text, duration, onComplete, true);
+            rect.DOAnchorPosY(yPos, duration).SetEase(Ease.OutQuad);
         }
         
-        private void Show(string text, float duration, System.Action onComplete, bool isRandom)
+        private void Show(string text, float duration, float startY, System.Action onComplete)
         {
             textComponent.text = text;
             gameObject.SetActive(true);
             
             currentTween?.Kill();
             
-            rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, startY);
-            canvasGroup.alpha = 1f;
+            // Сброс
+            rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, startY - 30f);
+            canvasGroup.alpha = 0f;
             
             Sequence seq = DOTween.Sequence();
-            seq.Append(rect.DOAnchorPosY(startY + 30, 0.3f).SetEase(Ease.OutBack));
+            // Появление снизу
+            seq.Append(rect.DOAnchorPosY(startY, 0.3f).SetEase(Ease.OutBack));
             seq.Join(canvasGroup.DOFade(1f, 0.2f));
-            
+            // Ожидание
             seq.AppendInterval(duration);
-            
+            // Исчезновение
             seq.Append(canvasGroup.DOFade(0f, 0.3f));
-            seq.Join(rect.DOAnchorPosY(rect.anchoredPosition.y + 20, 0.3f));
             
             seq.OnComplete(() =>
             {
