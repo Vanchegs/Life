@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,6 +9,8 @@ namespace Codebase
         [SerializeField] private ThoughtsConfig thoughts;
         [SerializeField] private ThoughtView thoughtView;
         [SerializeField] private float thoughtDuration = 5f;
+        [SerializeField] private float randomThoughtMinDelay = 10f;
+        [SerializeField] private float randomThoughtMaxDelay = 15f;
         
         private bool hasShownHungryThought;
         private bool hasShownEnergyThought;
@@ -28,6 +31,8 @@ namespace Codebase
             GameEventBus.OnFellEnergy += ShowEnergyThought;
             GameEventBus.OnFellHealth += ShowHealthThought;
             GameEventBus.OnFellHungry += ShowHungryThought;
+            
+            StartCoroutine(RandomThoughtRoutine());
         }
 
         private void OnDisable()
@@ -36,6 +41,27 @@ namespace Codebase
             GameEventBus.OnFellEnergy -= ShowEnergyThought;
             GameEventBus.OnFellHealth -= ShowHealthThought;
             GameEventBus.OnFellHungry -= ShowHungryThought;
+            
+            StopAllCoroutines();
+        }
+        
+        private IEnumerator RandomThoughtRoutine()
+        {
+            while (true)
+            {
+                float delay = Random.Range(randomThoughtMinDelay, randomThoughtMaxDelay);
+                yield return new WaitForSeconds(delay);
+                
+                ShowRandomThought();
+            }
+        }
+        
+        private void ShowRandomThought()
+        {
+            if (thoughts.randomThoughts == null || thoughts.randomThoughts.Count == 0) return;
+            
+            string randomText = thoughts.randomThoughts[Random.Range(0, thoughts.randomThoughts.Count)];
+            thoughtView.ShowRandomThought(randomText, thoughtDuration);
         }
         
         public void ResetHungryFlag() => hasShownHungryThought = false;
