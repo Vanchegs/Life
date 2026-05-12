@@ -9,7 +9,6 @@ namespace Codebase
         [SerializeField] private ThoughtView thoughtView;
         [SerializeField] private float thoughtDuration = 5f;
         
-        // Флаги, чтобы мысль показывалась только 1 раз за падение
         private bool hasShownHungryThought;
         private bool hasShownEnergyThought;
         private bool hasShownMentalThought;
@@ -39,13 +38,11 @@ namespace Codebase
             GameEventBus.OnFellHungry -= ShowHungryThought;
         }
         
-        // Метод для сброса флагов (когда стат восстановился)
         public void ResetHungryFlag() => hasShownHungryThought = false;
         public void ResetEnergyFlag() => hasShownEnergyThought = false;
         public void ResetMentalFlag() => hasShownMentalThought = false;
         public void ResetHealthFlag() => hasShownHealthThought = false;
         
-        // Сбросить все флаги сразу
         public void ResetAllFlags()
         {
             hasShownHungryThought = false;
