@@ -31,6 +31,18 @@ namespace Codebase
         public StatsController GetStatsController() => 
             statsController;
 
+        public void ChangeStateOnSleep() => 
+            stateMachine.ChangeState<SleepState>();
+
+        public void ChangeStateOnWork() => 
+            stateMachine.ChangeState<WorkState>();
+
+        public void ChangeStateOnGaming() => 
+            stateMachine.ChangeState<GamingState>();
+
+        public void ChangeStateOnEat() => 
+            stateMachine.ChangeState<EatState>();
+
         private void CheckInput()
         {
             if (Input.GetKeyDown(KeyCode.Q))
