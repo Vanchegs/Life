@@ -53,7 +53,6 @@ namespace Codebase
             }
         }
 
-
         private void InitStates()
         {
             stateMachine.AddState(new IdleState(this));

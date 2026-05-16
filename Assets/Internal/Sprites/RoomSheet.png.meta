@@ -276,7 +276,7 @@ TextureImporter:
         width: 23
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -285,6 +285,28 @@ TextureImporter:
       bones: []
       spriteID: eef91bc43fa772c4187a4440f8666269
       internalID: -194254673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoomSheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 338
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7ca01eac20cee34e9fc6b3664494fb2
+      internalID: -176693101
       vertices: []
       indices: 
       edges: []
@@ -310,6 +332,7 @@ TextureImporter:
       RoomSheet_4: 695902754
       RoomSheet_5: -92511698
       RoomSheet_6: -194254673
+      RoomSheet_7: -176693101
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
