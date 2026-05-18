@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 61869919}
   - component: {fileID: 61869918}
   m_Layer: 0
-  m_Name: RoomSheet_7
+  m_Name: PC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -818,7 +818,7 @@ GameObject:
   - component: {fileID: 273696581}
   - component: {fileID: 273696580}
   m_Layer: 0
-  m_Name: RoomSheet_6
+  m_Name: Router
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1034,7 +1034,7 @@ GameObject:
   - component: {fileID: 450218988}
   - component: {fileID: 450218989}
   m_Layer: 0
-  m_Name: RoomSheet_5
+  m_Name: Monitor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1688,7 +1688,7 @@ GameObject:
   - component: {fileID: 729409888}
   - component: {fileID: 729409889}
   m_Layer: 0
-  m_Name: RoomSheet_1
+  m_Name: Kitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4200,7 +4200,7 @@ GameObject:
   - component: {fileID: 1675763008}
   - component: {fileID: 1675763007}
   m_Layer: 0
-  m_Name: RoomSheet_0
+  m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4366,7 +4366,7 @@ GameObject:
   - component: {fileID: 1691927586}
   - component: {fileID: 1691927587}
   m_Layer: 0
-  m_Name: RoomSheet_2
+  m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4769,7 +4769,7 @@ GameObject:
   - component: {fileID: 1858356941}
   - component: {fileID: 1858356942}
   m_Layer: 0
-  m_Name: RoomSheet_4
+  m_Name: TV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5269,7 +5269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129979051}
   m_Layer: 0
-  m_Name: Room
+  m_Name: MainRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5309,7 +5309,7 @@ GameObject:
   - component: {fileID: 2132999139}
   - component: {fileID: 2132999138}
   m_Layer: 0
-  m_Name: RoomSheet_3
+  m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5753,5 +5753,5 @@ SceneRoots:
   - {fileID: 983938333}
   - {fileID: 1179982745}
   - {fileID: 1196823599}
-  - {fileID: 106786460}
   - {fileID: 2129979051}
+  - {fileID: 106786460}
