@@ -11,7 +11,7 @@ namespace Codebase
         [SerializeField, SerializedDictionary] private SerializedDictionary<ItemType, ShopItem> shopItemSlots;
 
         public void OpenCloseShop() => 
-            shopView.MoveStore();
+            shopView.MoveShop();
 
         public void BuyClick(ShopItem shopItem)
         {
