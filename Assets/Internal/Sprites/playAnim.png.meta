@@ -1,0 +1,312 @@
+fileFormatVersion: 2
+guid: 9bfbcbe4d6d3e474dbccc49a5fe8e6b0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1522767781261914264
+    second: playAnim_0
+  - first:
+      213: 5033662943786335873
+    second: playAnim_1
+  - first:
+      213: -1979821689542385247
+    second: playAnim_2
+  - first:
+      213: 3265504233315517267
+    second: playAnim_3
+  - first:
+      213: -7456991363284925838
+    second: playAnim_4
+  - first:
+      213: 8601858823803782960
+    second: playAnim_5
+  - first:
+      213: -9142115048739756998
+    second: playAnim_6
+  - first:
+      213: -471114037214688110
+    second: playAnim_7
+  - first:
+      213: 90857869705384661
+    second: playAnim_8
+  - first:
+      213: 3936985267273414562
+    second: playAnim_9
+  - first:
+      213: 8536068625468166200
+    second: playAnim_10
+  - first:
+      213: -7760503201215139712
+    second: playAnim_11
+  - first:
+      213: -700185236583843199
+    second: playAnim_12
+  - first:
+      213: -6683040300563731813
+    second: playAnim_13
+  - first:
+      213: -5120565249964467825
+    second: playAnim_14
+  - first:
+      213: -3362312361776831147
+    second: playAnim_15
+  - first:
+      213: -6997759001175086469
+    second: playAnim_16
+  - first:
+      213: 8761257063097116373
+    second: playAnim_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 15
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: playAnim_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 181
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86f497a55ca0edae0800000000000000
+      internalID: -1522767781261914264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playAnim_1
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 0
+        width: 181
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18e7e6327c92bd540800000000000000
+      internalID: 5033662943786335873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playAnim_2
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 0
+        width: 181
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a16634b9a24684e0800000000000000
+      internalID: -1979821689542385247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playAnim_3
+      rect:
+        serializedVersion: 2
+        x: 1714
+        y: 0
+        width: 181
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3534e4f7cc6615d20800000000000000
+      internalID: 3265504233315517267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playAnim_4
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 0
+        width: 182
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2720f3a2dd1738890800000000000000
+      internalID: -7456991363284925838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d03e06cb24723ce4aa1df3001dc350a5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      playAnim_0: -1522767781261914264
+      playAnim_1: 5033662943786335873
+      playAnim_10: 8536068625468166200
+      playAnim_11: -7760503201215139712
+      playAnim_12: -700185236583843199
+      playAnim_13: -6683040300563731813
+      playAnim_14: -5120565249964467825
+      playAnim_15: -3362312361776831147
+      playAnim_16: -6997759001175086469
+      playAnim_17: 8761257063097116373
+      playAnim_2: -1979821689542385247
+      playAnim_3: 3265504233315517267
+      playAnim_4: -7456991363284925838
+      playAnim_5: 8601858823803782960
+      playAnim_6: -9142115048739756998
+      playAnim_7: -471114037214688110
+      playAnim_8: 90857869705384661
+      playAnim_9: 3936985267273414562
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
