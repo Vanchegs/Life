@@ -1,61 +1,25 @@
 fileFormatVersion: 2
-guid: 9bfbcbe4d6d3e474dbccc49a5fe8e6b0
+guid: d5a57978344331f4fbdd600deae15465
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1522767781261914264
-    second: playAnim_0
+      213: 834924688232710844
+    second: eatAnim_0
   - first:
-      213: 5033662943786335873
-    second: playAnim_1
+      213: -1488863327462140745
+    second: eatAnim_1
   - first:
-      213: -1979821689542385247
-    second: playAnim_2
+      213: -3246722013275847225
+    second: eatAnim_2
   - first:
-      213: 3265504233315517267
-    second: playAnim_3
+      213: -4633540749275953876
+    second: eatAnim_3
   - first:
-      213: -7456991363284925838
-    second: playAnim_4
+      213: -3284532030961337249
+    second: eatAnim_4
   - first:
-      213: 8601858823803782960
-    second: playAnim_5
-  - first:
-      213: -9142115048739756998
-    second: playAnim_6
-  - first:
-      213: -471114037214688110
-    second: playAnim_7
-  - first:
-      213: 90857869705384661
-    second: playAnim_8
-  - first:
-      213: 3936985267273414562
-    second: playAnim_9
-  - first:
-      213: 8536068625468166200
-    second: playAnim_10
-  - first:
-      213: -7760503201215139712
-    second: playAnim_11
-  - first:
-      213: -700185236583843199
-    second: playAnim_12
-  - first:
-      213: -6683040300563731813
-    second: playAnim_13
-  - first:
-      213: -5120565249964467825
-    second: playAnim_14
-  - first:
-      213: -3362312361776831147
-    second: playAnim_15
-  - first:
-      213: -6997759001175086469
-    second: playAnim_16
-  - first:
-      213: 8761257063097116373
-    second: playAnim_17
+      213: 1122025504902021608
+    second: eatAnim_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 17
+  spritePixelsToUnits: 21
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -164,133 +128,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: playAnim_0
+      name: eatAnim_0
       rect:
         serializedVersion: 2
         x: 12
-        y: 20
-        width: 180
-        height: 152
+        y: 9
+        width: 23
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86f497a55ca0edae0800000000000000
-      internalID: -1522767781261914264
+      spriteID: cb28050949f369b00800000000000000
+      internalID: 834924688232710844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playAnim_1
+      name: eatAnim_1
       rect:
         serializedVersion: 2
-        x: 224
-        y: 16
-        width: 180
-        height: 152
+        x: 60
+        y: 9
+        width: 23
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 18e7e6327c92bd540800000000000000
-      internalID: 5033662943786335873
+      spriteID: 7b4538721be765be0800000000000000
+      internalID: -1488863327462140745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playAnim_2
+      name: eatAnim_2
       rect:
         serializedVersion: 2
-        x: 502
-        y: 10
-        width: 180
-        height: 152
+        x: 108
+        y: 9
+        width: 22
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a16634b9a24684e0800000000000000
-      internalID: -1979821689542385247
+      spriteID: 7c58042e78351f2d0800000000000000
+      internalID: -3246722013275847225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playAnim_3
+      name: eatAnim_4
       rect:
         serializedVersion: 2
-        x: 768
-        y: 6
-        width: 180
-        height: 153
+        x: 156
+        y: 9
+        width: 23
+        height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3534e4f7cc6615d20800000000000000
-      internalID: 3265504233315517267
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: playAnim_4
-      rect:
-        serializedVersion: 2
-        x: 1004
-        y: 2
-        width: 180
-        height: 152
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2720f3a2dd1738890800000000000000
-      internalID: -7456991363284925838
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: playAnim_5
-      rect:
-        serializedVersion: 2
-        x: 1242
-        y: 7
-        width: 180
-        height: 153
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03742e09601ff5770800000000000000
-      internalID: 8601858823803782960
+      spriteID: f5c3821258ffa62d0800000000000000
+      internalID: -3284532030961337249
       vertices: []
       indices: 
       edges: []
@@ -299,7 +219,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3cdc4b19af067d04d951549a5842c10a
+    spriteID: bfb0c604a15e13f4bb9980f50791fca2
     internalID: 0
     vertices: []
     indices: 
@@ -309,25 +229,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      playAnim_0: -1522767781261914264
-      playAnim_1: 5033662943786335873
-      playAnim_10: 8536068625468166200
-      playAnim_11: -7760503201215139712
-      playAnim_12: -700185236583843199
-      playAnim_13: -6683040300563731813
-      playAnim_14: -5120565249964467825
-      playAnim_15: -3362312361776831147
-      playAnim_16: -6997759001175086469
-      playAnim_17: 8761257063097116373
-      playAnim_18: -1872039671
-      playAnim_2: -1979821689542385247
-      playAnim_3: 3265504233315517267
-      playAnim_4: -7456991363284925838
-      playAnim_5: 8601858823803782960
-      playAnim_6: -9142115048739756998
-      playAnim_7: -471114037214688110
-      playAnim_8: 90857869705384661
-      playAnim_9: 3936985267273414562
+      eatAnim_0: 834924688232710844
+      eatAnim_1: -1488863327462140745
+      eatAnim_2: -3246722013275847225
+      eatAnim_3: -4633540749275953876
+      eatAnim_4: -3284532030961337249
+      eatAnim_5: 1122025504902021608
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
