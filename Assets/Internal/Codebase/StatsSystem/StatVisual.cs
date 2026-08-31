@@ -6,33 +6,28 @@ namespace Codebase
 {
     public class StatVisual : MonoBehaviour
     {
-        [SerializeField] private Slider foodSlider;
-        [SerializeField] private Slider sleepSlider;
-        [SerializeField] private Slider healthSlider;
-        [SerializeField] private Slider mentalSlider;
+        [SerializeField] private Image energyStatusImage;
+        [SerializeField] private Image foodStatusImage;
+        [SerializeField] private Image mentalStatusImage;
+        [SerializeField] private Image healthStatusImage;
 
-        [SerializeField] private SpriteRenderer energyStatusSprite;
-        [SerializeField] private SpriteRenderer foodStatusSprite;
-        [SerializeField] private SpriteRenderer mentalStatusSprite;
-        [SerializeField] private SpriteRenderer healthStatusSprite;
-
-        [SerializeField] private List<Sprite> energyStatusSprites;
-        [SerializeField] private List<Sprite> foodStatusSprites;
-        [SerializeField] private List<Sprite> mentalStatusSprites;
-        [SerializeField] private List<Sprite> healthStatusSprites;
+        [SerializeField] private List<Sprite> energyStatusImages;
+        [SerializeField] private List<Sprite> foodStatusImages;
+        [SerializeField] private List<Sprite> mentalStatusImages;
+        [SerializeField] private List<Sprite> healthStatusImages;
 
         private Stat foodStat;
         private Stat energyStat;
         private Stat healthStat;
         private Stat mentalHealthStat;
-
-        public void Init(StatConfig statConfig, Stat foodStat, Stat energyStat, Stat healthStat, Stat mentalHealthStat)
-        {
-            InitSlider(foodSlider, statConfig);
-            InitSlider(sleepSlider, statConfig);
-            InitSlider(healthSlider, statConfig);
-            InitSlider(mentalSlider, statConfig);
         
+        private int lastFoodIndex = -1;
+        private int lastEnergyIndex = -1; 
+        private int lastMentalIndex = -1; 
+        private int lastHealthIndex = -1;
+
+        public void Init(Stat foodStat, Stat energyStat, Stat healthStat, Stat mentalHealthStat)
+        {
             this.foodStat = foodStat;
             this.energyStat = energyStat;
             this.healthStat = healthStat;
@@ -40,54 +35,24 @@ namespace Codebase
         
             UpdateValue();
         }
-        
-        private void InitSlider(Slider slider, StatConfig config)
-        {
-            if (slider == null) 
-            {
-                Debug.LogError($"Slider is null in {gameObject.name}");
-                return;
-            }
-        
-            slider.minValue = config.minValue;
-            slider.maxValue = config.maxValue;
-            slider.value = config.maxValue;
-        }
-    
+
         public void UpdateValue()
         {
-            foodSlider.value = Mathf.Clamp(foodStat.GetCurrentStat(), foodSlider.minValue, foodSlider.maxValue);
-            sleepSlider.value = Mathf.Clamp(energyStat.GetCurrentStat(), sleepSlider.minValue, sleepSlider.maxValue);
-            healthSlider.value = Mathf.Clamp(healthStat.GetCurrentStat(), healthSlider.minValue, healthSlider.maxValue);
-            mentalSlider.value = Mathf.Clamp(mentalHealthStat.GetCurrentStat(), mentalSlider.minValue, mentalSlider.maxValue);
-
-            if (foodStat.GetCurrentStat() >= 66)
-                foodStatusSprite.sprite = foodStatusSprites[0];
-            else if (foodStat.GetCurrentStat() >= 33 && foodStat.GetCurrentStat() < 66)
-                foodStatusSprite.sprite = foodStatusSprites[1];
-            else
-                foodStatusSprite.sprite = foodStatusSprites[2];
-            
-            if (energyStat.GetCurrentStat() >= 66)
-                energyStatusSprite.sprite = energyStatusSprites[0];
-            else if (energyStat.GetCurrentStat() >= 33 && energyStat.GetCurrentStat() < 66)
-                energyStatusSprite.sprite = energyStatusSprites[1];
-            else
-                energyStatusSprite.sprite = energyStatusSprites[2];
-
-            if (mentalHealthStat.GetCurrentStat() >= 66)
-                mentalStatusSprite.sprite = mentalStatusSprites[0];
-            else if (mentalHealthStat.GetCurrentStat() >= 33 && mentalHealthStat.GetCurrentStat() < 66)
-                mentalStatusSprite.sprite = mentalStatusSprites[1];
-            else
-                mentalStatusSprite.sprite = mentalStatusSprites[2];
-
-            if (healthStat.GetCurrentStat() >= 66)
-                healthStatusSprite.sprite = healthStatusSprites[0];
-            else if (healthStat.GetCurrentStat() >= 33 && healthStat.GetCurrentStat() < 66)
-                healthStatusSprite.sprite = healthStatusSprites[1];
-            else
-                healthStatusSprite.sprite = healthStatusSprites[2];
+            UpdateStatusSprite(foodStatusImage, foodStatusImages, foodStat.GetCurrentStat(), ref lastFoodIndex);
+            UpdateStatusSprite(energyStatusImage, energyStatusImages, energyStat.GetCurrentStat(), ref lastEnergyIndex);
+            UpdateStatusSprite(mentalStatusImage, mentalStatusImages, mentalHealthStat.GetCurrentStat(), ref lastMentalIndex);
+            UpdateStatusSprite(healthStatusImage, healthStatusImages, healthStat.GetCurrentStat(), ref lastHealthIndex);
         }
+
+        private void UpdateStatusSprite(Image image, List<Sprite> sprites, float value, ref int lastIndex)
+        {
+            int currentIndex = value >= 66 ? 0 : value >= 33 ? 1 : 2;
+    
+            if (currentIndex != lastIndex)
+            {
+                image.sprite = sprites[currentIndex];
+                lastIndex = currentIndex;
+            }
+        }    
     }
 }
