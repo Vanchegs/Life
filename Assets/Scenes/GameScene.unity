@@ -3423,9 +3423,9 @@ MonoBehaviour:
   - {fileID: -2413806693520163455, guid: ce4f613f4730da341bbe5a44372db041, type: 3}
   - {fileID: 7482667652216324306, guid: 78af2427396d0c5469bb75781e4f99b6, type: 3}
   mentalStatusImages:
-  - {fileID: -9105875041002477697, guid: 624f2a545906d7840b3856d7201d6105, type: 3}
-  - {fileID: -2085977509262326068, guid: 624f2a545906d7840b3856d7201d6105, type: 3}
-  - {fileID: 7005841016894055759, guid: 624f2a545906d7840b3856d7201d6105, type: 3}
+  - {fileID: 1439249845, guid: a0bb0a7e3085d894f9a9ba11a1b1b1a2, type: 3}
+  - {fileID: 3592564922968512821, guid: a0bb0a7e3085d894f9a9ba11a1b1b1a2, type: 3}
+  - {fileID: 199202959, guid: a0bb0a7e3085d894f9a9ba11a1b1b1a2, type: 3}
   healthStatusImages:
   - {fileID: 7482667652216324306, guid: 11ef23033eb4a304fb5b0e149a458575, type: 3}
   - {fileID: -2413806693520163455, guid: ce4f613f4730da341bbe5a44372db041, type: 3}
