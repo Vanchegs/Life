@@ -9,7 +9,7 @@ namespace Codebase
         public static Action<int> OnUpdateCasinoBalance;
         public static Action<int> OnUpdateBetValueChange;
         public static Action<int> OnUpdateDayNumber;
-        public static Action OnLossGame;
+        public static Action<LossGameTypes> OnLossGame;
         public static Action OnSaveGame;
         public static Action OnFellMental;
         public static Action OnFellHealth;

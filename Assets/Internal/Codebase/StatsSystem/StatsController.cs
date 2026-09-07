@@ -133,6 +133,12 @@ namespace Codebase
                 GameEventBus.OnFellHealth.Invoke();
             }
 
+            if (healthStat.GetCurrentStat() <= 0) 
+                GameEventBus.OnLossGame?.Invoke(LossGameTypes.Exhaustion);
+
+            if (mentalHealthStat.GetCurrentStat() <= 0) 
+                GameEventBus.OnLossGame?.Invoke(LossGameTypes.Suicide);
+
             energyStat.ChangeMultiplier(energyMultiplier);
             healthStat.ChangeMultiplier(healthMultiplier);
             mentalHealthStat.ChangeMultiplier(mentalMultiplier);
