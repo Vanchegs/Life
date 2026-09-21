@@ -3437,9 +3437,9 @@ MonoBehaviour:
   - {fileID: -2413806693520163455, guid: ce4f613f4730da341bbe5a44372db041, type: 3}
   - {fileID: 7482667652216324306, guid: 78af2427396d0c5469bb75781e4f99b6, type: 3}
   foodStatusImages:
-  - {fileID: 7482667652216324306, guid: 11ef23033eb4a304fb5b0e149a458575, type: 3}
-  - {fileID: -2413806693520163455, guid: ce4f613f4730da341bbe5a44372db041, type: 3}
-  - {fileID: 7482667652216324306, guid: 78af2427396d0c5469bb75781e4f99b6, type: 3}
+  - {fileID: 8885230763861354619, guid: 98b5b2178ef233c49b48f013fdee0b91, type: 3}
+  - {fileID: -2282677018737927301, guid: 98b5b2178ef233c49b48f013fdee0b91, type: 3}
+  - {fileID: 1215603904578726086, guid: 98b5b2178ef233c49b48f013fdee0b91, type: 3}
   mentalStatusImages:
   - {fileID: 1439249845, guid: a0bb0a7e3085d894f9a9ba11a1b1b1a2, type: 3}
   - {fileID: 3592564922968512821, guid: a0bb0a7e3085d894f9a9ba11a1b1b1a2, type: 3}
