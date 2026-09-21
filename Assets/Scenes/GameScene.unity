@@ -2881,8 +2881,8 @@ MonoBehaviour:
   simpleEvents: {fileID: 11400000, guid: 5d91c786de644d343b2c2e0448f597c1, type: 2}
   eventView: {fileID: 1503090443}
   statsController: {fileID: 1179982746}
-  minSpawnDelay: 10
-  maxSpawnDelay: 15
+  minSpawnDelay: 15
+  maxSpawnDelay: 45
   autoSelectDelay: 10
 --- !u!114 &1179982751
 MonoBehaviour:
