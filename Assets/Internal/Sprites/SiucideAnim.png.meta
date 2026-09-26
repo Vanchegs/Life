@@ -194,9 +194,9 @@ TextureImporter:
       name: SiucideAnim_3
       rect:
         serializedVersion: 2
-        x: 176
+        x: 175
         y: 0
-        width: 41
+        width: 42
         height: 186
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -218,7 +218,7 @@ TextureImporter:
         serializedVersion: 2
         x: 221
         y: 0
-        width: 40
+        width: 39
         height: 186
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -238,9 +238,9 @@ TextureImporter:
       name: SiucideAnim_5
       rect:
         serializedVersion: 2
-        x: 261
+        x: 260
         y: 0
-        width: 38
+        width: 39
         height: 186
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -262,7 +262,7 @@ TextureImporter:
         serializedVersion: 2
         x: 299
         y: 0
-        width: 39
+        width: 40
         height: 186
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -284,7 +284,7 @@ TextureImporter:
         serializedVersion: 2
         x: 339
         y: 0
-        width: 41
+        width: 40
         height: 186
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -304,12 +304,12 @@ TextureImporter:
       name: SiucideAnim_8
       rect:
         serializedVersion: 2
-        x: 380
+        x: 379
         y: 0
-        width: 38
+        width: 39
         height: 186
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5215008, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -353,7 +353,7 @@ TextureImporter:
         width: 44
         height: 186
       alignment: 9
-      pivot: {x: 0.43903282, y: 0.5020604}
+      pivot: {x: 0.40471026, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -370,12 +370,12 @@ TextureImporter:
       name: SiucideAnim_11
       rect:
         serializedVersion: 2
-        x: 501
+        x: 502
         y: 0
-        width: 66
+        width: 65
         height: 186
       alignment: 9
-      pivot: {x: 0.27121016, y: 0.5144225}
+      pivot: {x: 0.25811204, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -392,12 +392,12 @@ TextureImporter:
       name: SiucideAnim_12
       rect:
         serializedVersion: 2
-        x: 567
+        x: 566
         y: 0
         width: 71
         height: 186
       alignment: 9
-      pivot: {x: 0.25711188, y: 0.5041207}
+      pivot: {x: 0.26378965, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -419,7 +419,7 @@ TextureImporter:
         width: 74
         height: 186
       alignment: 9
-      pivot: {x: 0.2514228, y: 0.50000006}
+      pivot: {x: 0.242204, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -441,7 +441,7 @@ TextureImporter:
         width: 71
         height: 186
       alignment: 9
-      pivot: {x: 0.26251048, y: 0.5041207}
+      pivot: {x: 0.26378965, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -455,7 +455,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SiucideAnim_15
+      name: SiucideAnim_17
       rect:
         serializedVersion: 2
         x: 783
@@ -463,7 +463,7 @@ TextureImporter:
         width: 72
         height: 186
       alignment: 9
-      pivot: {x: 0.2551634, y: 0.5020604}
+      pivot: {x: 0.26124743, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -477,7 +477,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SiucideAnim_16
+      name: SiucideAnim_18
       rect:
         serializedVersion: 2
         x: 855
@@ -485,7 +485,7 @@ TextureImporter:
         width: 71
         height: 186
       alignment: 9
-      pivot: {x: 0.2625096, y: 0.5020604}
+      pivot: {x: 0.2608376, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -499,7 +499,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SiucideAnim_17
+      name: SiucideAnim_1
       rect:
         serializedVersion: 2
         x: 0
@@ -521,7 +521,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SiucideAnim_18
+      name: SiucideAnim_2
       rect:
         serializedVersion: 2
         x: 41
@@ -546,7 +546,7 @@ TextureImporter:
       name: SiucideAnim_19
       rect:
         serializedVersion: 2
-        x: 89
+        x: 88
         y: 0
         width: 45
         height: 186
@@ -568,9 +568,9 @@ TextureImporter:
       name: SiucideAnim_20
       rect:
         serializedVersion: 2
-        x: 134
+        x: 133
         y: 0
-        width: 41
+        width: 42
         height: 186
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -590,7 +590,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 773890f36b643eb4c86e00eb380a8406
+    spriteID: 3c6d33ba6c3068c4096e72a0b83bea7e
     internalID: 0
     vertices: []
     indices: 
@@ -600,19 +600,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      1: 983799562584756911
       SiucideAnim_0: -1637240049107043994
-      SiucideAnim_1: 1147921492605004990
+      SiucideAnim_1: -125514438625478811
       SiucideAnim_10: 5790567127019471826
       SiucideAnim_11: -6761926692648978012
       SiucideAnim_12: 983799562584756911
       SiucideAnim_13: -1223349457123348945
       SiucideAnim_14: 7214896787369992825
-      SiucideAnim_15: 7828828697684496665
-      SiucideAnim_16: -4402611452263307949
-      SiucideAnim_17: -125514438625478811
-      SiucideAnim_18: 1214404142032225004
+      SiucideAnim_17: 7828828697684496665
+      SiucideAnim_18: -4402611452263307949
       SiucideAnim_19: 5445061858273380569
-      SiucideAnim_2: 7398037865199366073
+      SiucideAnim_2: 1214404142032225004
       SiucideAnim_20: -2318759064317915586
       SiucideAnim_21: -9152834217290724075
       SiucideAnim_22: -3586577348982883188
