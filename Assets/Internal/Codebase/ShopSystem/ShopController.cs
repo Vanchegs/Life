@@ -5,13 +5,13 @@ namespace Codebase
 {
     public class ShopController : MonoBehaviour
     {
-        [SerializeField] private ShopView shopView;
+        [SerializeField] private PanelSlider shopView;
         [SerializeField] private StatsController statsController;
 
         [SerializeField, SerializedDictionary] private SerializedDictionary<ItemType, ShopItem> shopItemSlots;
 
-        public void OpenCloseShop() => 
-            shopView.MoveShop();
+        /*public void OpenCloseShop() => 
+            shopView.MoveShop();*/
 
         public void BuyClick(ShopItem shopItem)
         {
