@@ -13,6 +13,8 @@ namespace Codebase
         public float EnergyStat => energyStat.GetCurrentStat();
         public float MentalStat => mentalHealthStat.GetCurrentStat();
         public float HealthStat => healthStat.GetCurrentStat();
+        public int MaxValue => statConfig.maxValue;
+        public bool IsGameOver => isGameOver;
         
         [SerializeField] private StatConfig statConfig;
         [SerializeField] private StatVisual statVisual;
@@ -25,15 +27,30 @@ namespace Codebase
 
         private List<Stat> stats;
 
+        private bool isGameOver;
+        private bool isFoodLow;
+        private bool isEnergyLow;
+        private bool isMentalLow;
+        private bool isHealthLow;
+
+        private void Awake() =>
+            InitializeStats();
+
         private void Start()
         {
-            InitializeStats();
             statVisual.Init(foodStat, energyStat, healthStat, mentalHealthStat);
         }
 
         private void Update()
         {
+            if (isGameOver)
+                return;
+
             UpdateStats();
+
+            if (CheckLoss())
+                return;
+
             statVisual.UpdateValue();
         }
 
@@ -49,6 +66,9 @@ namespace Codebase
 
         public void IncreaseCurrentStat(StatType statType)
         {
+            if (isGameOver)
+                return;
+
             switch (statType)
             {
                 case StatType.FoodStat:
@@ -70,6 +90,9 @@ namespace Codebase
         
         public void ChangeStats(int moneyChangeValue, int foodChangeValue, int energyChangeValue, int mentalHealthChangeValue, int healthChangeValue)
         {
+            if (isGameOver)
+                return;
+
             walletController.GetWallet()?.ChangeBalance(moneyChangeValue);
             
             foodStat.EventStatChange(foodChangeValue);
@@ -94,8 +117,6 @@ namespace Codebase
             energyStat.SetSavedValue(saveData.EnergyStat);
             healthStat.SetSavedValue(saveData.HealthStat);
             mentalHealthStat.SetSavedValue(saveData.MentalStat);
-            
-            walletController.GetWallet()?.SetSaveBalance(saveData.Balance);
         }
 
         private void SetMultipliers()
@@ -104,44 +125,78 @@ namespace Codebase
             var healthMultiplier = NormalMultiplier; 
             var mentalMultiplier = NormalMultiplier;
 
-            if (foodStat.GetCurrentStat() < DeficitValue)
+            if (CheckDeficit(foodStat, ref isFoodLow))
             {
                 energyMultiplier = DeficitMultiplier;
                 healthMultiplier = DeficitMultiplier;
                 mentalMultiplier = DeficitMultiplier;
-                GameEventBus.OnFellHungry?.Invoke();
             }
 
-            if (energyStat.GetCurrentStat() < DeficitValue)
+            if (CheckDeficit(energyStat, ref isEnergyLow))
             {
                 healthMultiplier = DeficitMultiplier;
                 mentalMultiplier = DeficitMultiplier;
-                GameEventBus.OnFellEnergy?.Invoke();
             }
 
-            if (mentalHealthStat.GetCurrentStat() < DeficitValue)
+            if (CheckDeficit(mentalHealthStat, ref isMentalLow))
             {
                 energyMultiplier = DeficitMultiplier;
                 healthMultiplier = DeficitMultiplier;
-                GameEventBus.OnFellMental?.Invoke();
             }
 
-            if (healthStat.GetCurrentStat() < DeficitValue)
+            if (CheckDeficit(healthStat, ref isHealthLow))
             {
                 energyMultiplier = DeficitMultiplier;
                 mentalMultiplier = DeficitMultiplier;
-                GameEventBus.OnFellHealth.Invoke();
             }
-
-            if (healthStat.GetCurrentStat() <= 0) 
-                GameEventBus.OnLossGame?.Invoke(LossGameTypes.Exhaustion);
-
-            if (mentalHealthStat.GetCurrentStat() <= 0) 
-                GameEventBus.OnLossGame?.Invoke(LossGameTypes.Suicide);
 
             energyStat.ChangeMultiplier(energyMultiplier);
             healthStat.ChangeMultiplier(healthMultiplier);
             mentalHealthStat.ChangeMultiplier(mentalMultiplier);
+        }
+
+        private bool CheckDeficit(Stat stat, ref bool wasLow)
+        {
+            bool isLow = stat.GetCurrentStat() < DeficitValue;
+
+            if (wasLow == isLow)
+                return isLow;
+
+            wasLow = isLow;
+
+            if (!isLow)
+            {
+                GameEventBus.RaiseStatRecovered(stat.GetStatType());
+                return false;
+            }
+
+            switch (stat.GetStatType())
+            {
+                case StatType.FoodStat:
+                    GameEventBus.RaiseFellHungry();
+                    break;
+                case StatType.EnergyStat:
+                    GameEventBus.RaiseFellEnergy();
+                    break;
+                case StatType.MentalHealthStat:
+                    GameEventBus.RaiseFellMental();
+                    break;
+                case StatType.HealthStat:
+                    GameEventBus.RaiseFellHealth();
+                    break;
+            }
+
+            return true;
+        }
+
+        private bool CheckLoss()
+        {
+            if (HealthStat > 0 && MentalStat > 0)
+                return false;
+
+            isGameOver = true;
+            GameEventBus.RaiseLossGame(HealthStat <= 0 ? LossGameTypes.Exhaustion : LossGameTypes.Suicide);
+            return true;
         }
     }
 }

@@ -8,93 +8,90 @@ namespace Codebase
     public static class PlayerDataSave
     {
         private static readonly string savePath = Application.persistentDataPath + "/SavePlayerData.json";
-    
-        public static void Save<TData>(TData data)
+        private static readonly string backupPath = savePath + ".bak";
+        private static readonly string temporaryPath = savePath + ".tmp";
+
+        public static bool Save<TData>(TData data)
         {
             if (data == null)
-            {
-                Debug.Log($"Попытка сохранения null -> Тип: {typeof(TData).Name}");
-                return;
-            }
-    
-    #if !UNITY_EDITOR
+                return false;
+
+#if !UNITY_EDITOR
             const Formatting formatting = Formatting.None;
-    #else
+#else
             const Formatting formatting = Formatting.Indented;
-    #endif
+#endif
             try
             {
                 var json = JsonConvert.SerializeObject(data, formatting);
-    
                 EnsureDirectoryExists();
-                
-                File.WriteAllText(savePath, json);
-    
-                Debug.Log($"Данные сохранены: {savePath}");
-            }
-            catch (JsonException e)
-            {
-                Debug.LogError($"Ошибка при сериализации данных. data: {data}, type: {typeof(TData)} | Exception: {e}");
+                File.WriteAllText(temporaryPath, json);
+
+                if (File.Exists(savePath))
+                    File.Replace(temporaryPath, savePath, backupPath);
+                else
+                    File.Move(temporaryPath, savePath);
+
+                return true;
             }
             catch (Exception e)
             {
-                Debug.LogError($"Ошибка при сохранении данных. data: {data}, type: {typeof(TData)} | Exception: {e}");
+                Debug.LogError($"Ошибка при сохранении данных: {e.Message}");
+                return false;
             }
         }
-    
+
         public static TData Load<TData>(TData defaultData = default)
         {
-            try
+            if (TryLoad(savePath, out TData data))
+                return data;
+
+            if (TryLoad(backupPath, out data))
             {
-                EnsureDirectoryExists();
-    
-                if (!File.Exists(savePath))
-                {
-                    Debug.LogWarning("Файл сохранения не найден!");
-                    return defaultData;
-                }
-    
-                var json = File.ReadAllText(savePath);
-                var data = JsonConvert.DeserializeObject<TData>(json);
-    
+                Debug.LogWarning("Сохранение загружено из резервной копии");
                 return data;
             }
-            catch (JsonException e)
-            {
-                Debug.LogError($"Ошибка при десериализации данных: {e}");
-                return defaultData;
-            }
-            catch (Exception e)
-            {
-                Debug.LogError($"Ошибка при загрузке данных: {e}");
-                return defaultData;
-            }
+
+            return defaultData;
         }
-        
+
         public static void ClearSaveFile()
         {
             try
             {
-                if (File.Exists(savePath))
-                {
-                    File.Delete(savePath);
-                    Debug.Log($"Файл сохранения удален: {savePath}");
-                }
-                else
-                {
-                    Debug.Log("Файл сохранения не найден, нечего удалять");
-                }
+                File.Delete(savePath);
+                File.Delete(backupPath);
+                File.Delete(temporaryPath);
             }
             catch (Exception e)
             {
-                Debug.LogError($"Ошибка при удалении файла сохранения: {e.Message}");
+                Debug.LogError($"Ошибка при удалении сохранения: {e.Message}");
             }
         }
-        
+
+        private static bool TryLoad<TData>(string path, out TData data)
+        {
+            data = default;
+
+            if (!File.Exists(path))
+                return false;
+
+            try
+            {
+                data = JsonConvert.DeserializeObject<TData>(File.ReadAllText(path));
+                return data != null;
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning($"Не удалось загрузить сохранение {path}: {e.Message}");
+                return false;
+            }
+        }
+
         private static void EnsureDirectoryExists()
         {
             var directory = Path.GetDirectoryName(savePath);
-    
+
             if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
                 Directory.CreateDirectory(directory);
         }

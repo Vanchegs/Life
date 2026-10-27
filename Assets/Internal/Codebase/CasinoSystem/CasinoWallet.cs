@@ -8,16 +8,16 @@ namespace Codebase
 
         public void GetSavedBalance()
         {
-            var savedBalance = PlayerDataSave.Load<SaveData>();
+            var savedBalance = PlayerDataSave.Load<SaveData>() ?? new SaveData();
 
-            Balance = savedBalance.Balance;
+            Balance = Mathf.Max(0, savedBalance.Balance);
             
             Debug.Log(Balance);
         }
 
         public void SaveBalance()
         {
-            var savedBalance = PlayerDataSave.Load<SaveData>();
+            var savedBalance = PlayerDataSave.Load<SaveData>() ?? new SaveData();
 
             savedBalance.Balance = Balance;
             

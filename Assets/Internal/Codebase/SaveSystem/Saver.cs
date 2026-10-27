@@ -7,92 +7,59 @@ namespace Codebase
         [SerializeField] private StatsController statsController;
         [SerializeField] private WalletController walletController;
         [SerializeField] private DaysCounter daysCounter;
-        
-        private SaveData saveData;
-        private bool isInitialized = false;
 
-        private void OnEnable() => 
+        private SaveData saveData;
+        private bool isInitialized;
+
+        private void OnEnable() =>
             GameEventBus.OnSaveGame += Save;
 
-        private void OnDisable() => 
+        private void OnDisable() =>
             GameEventBus.OnSaveGame -= Save;
 
-        private void Start() => 
+        private void Start() =>
             Initialize();
 
-        private void OnDestroy() => 
+        private void OnApplicationPause(bool isPaused)
+        {
+            if (isPaused)
+                Save();
+        }
+
+        private void OnApplicationQuit() =>
+            Save();
+
+        private void OnDestroy() =>
             Save();
 
         private void Save()
         {
-            if (!isInitialized)
-            {
-                Debug.LogWarning("Attempted to save before initialization!");
+            if (!isInitialized || statsController == null || walletController == null || daysCounter == null)
                 return;
-            }
 
-            UpdateSaveData();
-            
-            try
-            {
-                PlayerDataSave.Save(saveData);
-                Debug.Log("Game saved successfully");
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogError($"Failed to save game: {e.Message}");
-            }
-        }
-
-        private void Initialize()
-        {
-            if (isInitialized) return;
-
-            LoadData();
-            ApplyLoadedData();
-            
-            isInitialized = true;
-        }
-
-        private void LoadData()
-        {
-            try
-            {
-                saveData = PlayerDataSave.Load<SaveData>();
-                if (saveData == null)
-                {
-                    Debug.Log("No save data found, creating new...");
-                    saveData = new SaveData();
-                    Debug.Log(saveData.Balance);
-                }
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogError($"Failed to load save data: {e.Message}");
-                saveData = new SaveData();
-            }
-        }
-
-        private void ApplyLoadedData()
-        {
-            walletController.GetWallet().SetSaveBalance(saveData.Balance);
-            
-            statsController.SetSavedStats(saveData);
-            
-            Debug.Log("Loaded data applied to game");
-        }
-
-        private void UpdateSaveData()
-        {
             saveData.Balance = walletController.GetWallet().GetBalance();
             saveData.DayNumber = daysCounter.DayNumber;
             saveData.FoodStat = statsController.FoodStat;
             saveData.EnergyStat = statsController.EnergyStat;
             saveData.MentalStat = statsController.MentalStat;
             saveData.HealthStat = statsController.HealthStat;
-            
-            Debug.Log($"Saving stats: Food={saveData.FoodStat}, Energy={saveData.EnergyStat}, " +
-                     $"Mental={saveData.MentalStat}, Health={saveData.HealthStat}, Balance={saveData.Balance}");
+
+            if (PlayerDataSave.Save(saveData))
+                Debug.Log("Game saved successfully");
+        }
+
+        private void Initialize()
+        {
+            if (isInitialized)
+                return;
+
+            saveData = PlayerDataSave.Load<SaveData>() ?? new SaveData(statsController.MaxValue);
+
+            walletController.GetWallet().SetSaveBalance(saveData.Balance);
+            statsController.SetSavedStats(saveData);
+            daysCounter.SetSavedDay(saveData.DayNumber);
+
+            isInitialized = true;
         }
     }
 }

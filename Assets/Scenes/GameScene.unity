@@ -1146,8 +1146,8 @@ Transform:
   m_GameObject: {fileID: 450218987}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0084, y: 2.2296, z: -0.4454509}
-  m_LocalScale: {x: 0.92648596, y: 0.95341194, z: 0.7944401}
+  m_LocalPosition: {x: -0.029411765, y: 2.323529412, z: -0.4454509}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2132999139}
@@ -1977,8 +1977,8 @@ Transform:
   m_GameObject: {fileID: 830709899}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.7534, y: -2.22, z: -0.06129427}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.9124, y: -2.2032, z: 0.5238}
+  m_LocalScale: {x: 0.99568635, y: 0.99568635, z: 0.99568635}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 408999280}
@@ -2030,7 +2030,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -254339049
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3345623224559595730, guid: a85189b7de9e67e4dbb4660afec36774, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2703,8 +2703,8 @@ Transform:
   m_GameObject: {fileID: 1142945808}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.0823, y: -2.942, z: -0.06129427}
-  m_LocalScale: {x: 1.006752, y: 0.81685024, z: 0}
+  m_LocalPosition: {x: -6.26, y: -3.6999998, z: 0.4544}
+  m_LocalScale: {x: 1.0791675, y: 0.864018, z: 1.02009}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1353318273}
@@ -3060,6 +3060,7 @@ GameObject:
   - component: {fileID: 1179982753}
   - component: {fileID: 1179982755}
   - component: {fileID: 1179982756}
+  - component: {fileID: 1179982757}
   m_Layer: 0
   m_Name: Contrllers
   m_TagString: Untagged
@@ -3146,6 +3147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopView: {fileID: 1503090446}
   statsController: {fileID: 1179982746}
+  walletController: {fileID: 1179982752}
   shopItemSlots:
     _serializedList:
     - Key: 1
@@ -5026,8 +5028,8 @@ Transform:
   m_GameObject: {fileID: 1700015898}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.8234997, y: -1.2159, z: -0.06129427}
-  m_LocalScale: {x: 1.0026277, y: 0.9842232, z: 1}
+  m_LocalPosition: {x: 8.56, y: -1.38, z: -0.06129427}
+  m_LocalScale: {x: 1, y: 1, z: 0.9367}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1438103448}
@@ -6568,6 +6570,22 @@ MonoBehaviour:
   gamingCharacter: {fileID: 1700015898}
   eatCharacter: {fileID: 2032138905}
   sleepCharacter: {fileID: 830709899}
+  workFurniture: {fileID: 2132999137}
+  gamingFurniture: {fileID: 1858356940}
+  sleepFurniture: {fileID: 1691927585}
+--- !u!114 &1179982757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179982744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419abead2c08479ebf630d4482ceef4e, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CasinoScene.unity
     guid: 88c0ceeac4188244a88fb790e7490915
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: ca7f51f12c2ba2b4caeb553acab99492
   m_configObjects: {}

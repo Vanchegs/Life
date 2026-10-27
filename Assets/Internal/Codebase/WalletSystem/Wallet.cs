@@ -1,3 +1,5 @@
+using System;
+
 namespace Codebase
 {
     public class Wallet
@@ -6,17 +8,26 @@ namespace Codebase
         
         public void ChangeBalance(int changeValue)
         {
-            balance += changeValue;
-            GameEventBus.OnUpdateBalance?.Invoke(balance);
+            balance = (int)Math.Max(0, Math.Min(int.MaxValue, (long)balance + changeValue));
+            GameEventBus.RaiseUpdateBalance(balance);
         }
 
         public int GetBalance() => 
             balance;
 
+        public bool TrySpend(int amount)
+        {
+            if (amount < 0 || balance < amount)
+                return false;
+
+            ChangeBalance(-amount);
+            return true;
+        }
+
         public void SetSaveBalance(int savedBalance)
         {
-            balance = savedBalance;
-            GameEventBus.OnUpdateBalance?.Invoke(balance);
+            balance = Math.Max(0, savedBalance);
+            GameEventBus.RaiseUpdateBalance(balance);
         }
     }
 }

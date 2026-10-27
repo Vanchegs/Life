@@ -20,7 +20,7 @@ namespace Codebase
         {
             StateController.GetCharacterView().ShowWork();
             workingView.ShowProgressBar(true);
-            workingView.UpdateProgressUI(workProgress);
+            workingView.UpdateProgressUI(workProgress / timeForOrder);
             StartWorkCoroutine();
             Debug.Log(workProgress);
         }

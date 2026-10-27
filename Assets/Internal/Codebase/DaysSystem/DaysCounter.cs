@@ -5,31 +5,28 @@ namespace Codebase
 {
     public class DaysCounter : MonoBehaviour
     {
-        private int dayNumber;
+        private int dayNumber = 1;
 
         public int DayNumber => dayNumber;
 
         private void Start()
         {
-            GetSavedDay();
-
             StartCoroutine(ChangeDays());
             
-            GameEventBus.OnUpdateDayNumber.Invoke(dayNumber);
+            GameEventBus.RaiseUpdateDayNumber(dayNumber);
         }
 
         private void IncreaseDayNumber()
         {
             dayNumber++;
             
-            GameEventBus.OnSaveGame?.Invoke();
+            GameEventBus.RaiseSaveGame();
         }
 
-        private void GetSavedDay()
+        public void SetSavedDay(int savedDayNumber)
         {
-            var savedDayNumber = PlayerDataSave.Load<SaveData>();
-
-            dayNumber = savedDayNumber?.DayNumber ?? 1;
+            dayNumber = Mathf.Max(1, savedDayNumber);
+            GameEventBus.RaiseUpdateDayNumber(dayNumber);
         }
 
         private IEnumerator ChangeDays()
@@ -40,7 +37,7 @@ namespace Codebase
                             
                 IncreaseDayNumber();
                             
-                GameEventBus.OnUpdateDayNumber?.Invoke(dayNumber);
+                GameEventBus.RaiseUpdateDayNumber(dayNumber);
             }
         }
     }

@@ -8,8 +8,11 @@ namespace Codebase
     {
         [SerializeField] private TMP_Text daysText;
 
-        private void OnEnable() => 
+        private void OnEnable()
+        {
             GameEventBus.OnUpdateDayNumber += UpdateDayNumber;
+            UpdateDayNumber(GameEventBus.DayNumber);
+        }
 
         private void OnDisable() => 
             GameEventBus.OnUpdateDayNumber -= UpdateDayNumber;

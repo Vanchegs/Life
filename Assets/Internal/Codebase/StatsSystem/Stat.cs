@@ -56,7 +56,9 @@ namespace Codebase
             currentValue;
 
         public void SetSavedValue(float value) => 
-            currentValue = value;
+            currentValue = float.IsNaN(value) || float.IsInfinity(value)
+                ? maxValue
+                : Mathf.Clamp(value, MinValue, maxValue);
     }
 }
 

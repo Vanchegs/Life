@@ -25,12 +25,15 @@ namespace Codebase
             HealthThought
         }
 
-        private void Start()
+        private void OnEnable()
         {
+            ResetAllFlags();
+
             GameEventBus.OnFellMental += ShowMentalThought;
             GameEventBus.OnFellEnergy += ShowEnergyThought;
             GameEventBus.OnFellHealth += ShowHealthThought;
             GameEventBus.OnFellHungry += ShowHungryThought;
+            GameEventBus.OnStatRecovered += ResetStatFlag;
             
             StartCoroutine(RandomThoughtRoutine());
         }
@@ -41,6 +44,7 @@ namespace Codebase
             GameEventBus.OnFellEnergy -= ShowEnergyThought;
             GameEventBus.OnFellHealth -= ShowHealthThought;
             GameEventBus.OnFellHungry -= ShowHungryThought;
+            GameEventBus.OnStatRecovered -= ResetStatFlag;
             
             StopAllCoroutines();
         }
@@ -75,6 +79,25 @@ namespace Codebase
             hasShownEnergyThought = false;
             hasShownMentalThought = false;
             hasShownHealthThought = false;
+        }
+
+        private void ResetStatFlag(StatType statType)
+        {
+            switch (statType)
+            {
+                case StatType.FoodStat:
+                    ResetHungryFlag();
+                    break;
+                case StatType.EnergyStat:
+                    ResetEnergyFlag();
+                    break;
+                case StatType.MentalHealthStat:
+                    ResetMentalFlag();
+                    break;
+                case StatType.HealthStat:
+                    ResetHealthFlag();
+                    break;
+            }
         }
 
         private string GetRandomThought(ThoughtType type)

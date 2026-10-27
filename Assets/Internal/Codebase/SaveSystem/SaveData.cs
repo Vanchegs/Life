@@ -13,5 +13,16 @@ namespace Codebase
         public float MentalStat;
         public float HealthStat;
         public float EnergyStat;
+
+        public SaveData() : this(100) { }
+
+        public SaveData(int maxValue)
+        {
+            DayNumber = 1;
+            FoodStat = maxValue;
+            MentalStat = maxValue;
+            HealthStat = maxValue;
+            EnergyStat = maxValue;
+        }
     }
 }

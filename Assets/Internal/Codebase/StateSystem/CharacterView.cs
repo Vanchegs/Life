@@ -9,6 +9,10 @@ namespace Codebase
         [SerializeField] private GameObject eatCharacter;
         [SerializeField] private GameObject sleepCharacter;
 
+        [SerializeField] private GameObject workFurniture;
+        [SerializeField] private GameObject gamingFurniture;
+        [SerializeField] private GameObject sleepFurniture;
+
         public void ShowWork() =>
             ShowCharacter(workCharacter);
 
@@ -26,6 +30,10 @@ namespace Codebase
 
         private void ShowCharacter(GameObject character)
         {
+            workFurniture.SetActive(character != workCharacter);
+            gamingFurniture.SetActive(character != gamingCharacter);
+            sleepFurniture.SetActive(character != sleepCharacter);
+
             workCharacter.SetActive(character == workCharacter);
             gamingCharacter.SetActive(character == gamingCharacter);
             eatCharacter.SetActive(character == eatCharacter);

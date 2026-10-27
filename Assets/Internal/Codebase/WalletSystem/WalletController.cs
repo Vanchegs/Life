@@ -9,7 +9,7 @@ namespace Codebase
         private void Awake()
         {
             wallet = new Wallet();
-            GameEventBus.OnUpdateBalance?.Invoke(wallet.GetBalance());
+            GameEventBus.RaiseUpdateBalance(wallet.GetBalance());
         }
         
         public Wallet GetWallet() => 

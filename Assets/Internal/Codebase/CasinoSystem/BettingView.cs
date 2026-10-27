@@ -7,8 +7,11 @@ namespace Codebase
     {
         [SerializeField] private TMP_Text betValue;
 
-        private void Start() => 
+        private void OnEnable()
+        {
             GameEventBus.OnUpdateBetValueChange += ChangeBetValue;
+            ChangeBetValue(GameEventBus.BetValue);
+        }
 
         private void OnDisable() => 
             GameEventBus.OnUpdateBetValueChange -= ChangeBetValue;

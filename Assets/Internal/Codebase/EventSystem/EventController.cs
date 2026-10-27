@@ -8,10 +8,10 @@ namespace Codebase
     {
         [SerializeField] private EventsList choiceEvents;
         [SerializeField] private EventsList simpleEvents;
-        
+
         [SerializeField] private EventView eventView;
         [SerializeField] private StatsController statsController;
-        
+
         [SerializeField] private int minSpawnDelay, maxSpawnDelay;
         [SerializeField] private float autoSelectDelay = 10f;
 
@@ -20,56 +20,32 @@ namespace Codebase
         private GameEvent currentEvent;
         private int spawnDelay;
         private EventSelector eventSelector;
-        
+
         private Coroutine autoHideCoroutine;
 
         private void Start()
         {
             isEventActive = true;
             spawnDelay = minSpawnDelay;
-
             eventSelector = new EventSelector(choiceEvents, simpleEvents);
-            
             StartCoroutine(SpawnEvent());
         }
-        
+
         public void OnSimpleEventButtonClicked()
         {
             if (currentEvent is SimpleEvent simpleEvent)
             {
                 StopAutoHideCoroutine();
-                
-                statsController.ChangeStats(
-                    simpleEvent.moneyChangeValue,
-                    simpleEvent.foodChangeValue,
-                    simpleEvent.energyChangeValue,
-                    simpleEvent.mentalHealthChangeValue,
-                    simpleEvent.healthChangeValue
-                );
-                
-                CloseEvent();
-                
-                Debug.Log($"Simple event applied: {simpleEvent.eventName}");
+                ApplySimpleEvent(simpleEvent);
             }
         }
-        
+
         public void OnFirstSolutionButtonClicked()
         {
             if (currentEvent is ChoiceEvent choiceEvent)
             {
                 StopAutoHideCoroutine();
-                
-                statsController.ChangeStats(
-                    choiceEvent.firstSolutionMoneyChangeValue,
-                    choiceEvent.firstSolutionFoodChangeValue,
-                    choiceEvent.firstSolutionEnergyValue,
-                    choiceEvent.firstSolutionMentalHealthChangeValue,
-                    choiceEvent.firstSolutionHealthChangeValue
-                );
-                
-                CloseEvent();
-                
-                Debug.Log($"Choice event - first solution: {choiceEvent.eventName}");
+                ApplyChoiceEvent(choiceEvent, true);
             }
         }
 
@@ -78,19 +54,32 @@ namespace Codebase
             if (currentEvent is ChoiceEvent choiceEvent)
             {
                 StopAutoHideCoroutine();
-                
-                statsController.ChangeStats(
-                    choiceEvent.secondSolutionMoneyChangeValue,
-                    choiceEvent.secondSolutionFoodChangeValue,
-                    choiceEvent.secondSolutionEnergyValue,
-                    choiceEvent.secondSolutionMentalHealthChangeValue,
-                    choiceEvent.secondSolutionHealthChangeValue
-                );
-
-                CloseEvent();
-                
-                Debug.Log($"Choice event - second solution: {choiceEvent.eventName}");
+                ApplyChoiceEvent(choiceEvent, false);
             }
+        }
+
+        private void ApplySimpleEvent(SimpleEvent simpleEvent)
+        {
+            statsController.ChangeStats(
+                moneyChangeValue: simpleEvent.moneyChangeValue,
+                foodChangeValue: simpleEvent.foodChangeValue,
+                energyChangeValue: simpleEvent.energyChangeValue,
+                mentalHealthChangeValue: simpleEvent.mentalHealthChangeValue,
+                healthChangeValue: simpleEvent.healthChangeValue);
+
+            CloseEvent();
+        }
+
+        private void ApplyChoiceEvent(ChoiceEvent choiceEvent, bool isFirstSolution)
+        {
+            statsController.ChangeStats(
+                moneyChangeValue: isFirstSolution ? choiceEvent.firstSolutionMoneyChangeValue : choiceEvent.secondSolutionMoneyChangeValue,
+                foodChangeValue: isFirstSolution ? choiceEvent.firstSolutionFoodChangeValue : choiceEvent.secondSolutionFoodChangeValue,
+                energyChangeValue: isFirstSolution ? choiceEvent.firstSolutionEnergyValue : choiceEvent.secondSolutionEnergyValue,
+                mentalHealthChangeValue: isFirstSolution ? choiceEvent.firstSolutionMentalHealthChangeValue : choiceEvent.secondSolutionMentalHealthChangeValue,
+                healthChangeValue: isFirstSolution ? choiceEvent.firstSolutionHealthChangeValue : choiceEvent.secondSolutionHealthChangeValue);
+
+            CloseEvent();
         }
 
         private void StopAutoHideCoroutine()
@@ -112,55 +101,13 @@ namespace Codebase
         private IEnumerator AutoHideCoroutine()
         {
             yield return new WaitForSeconds(autoSelectDelay);
-            
-            if (currentEvent != null)
-            {
-                Debug.Log("Время вышло! Автоматический выбор...");
-                
-                if (currentEvent is SimpleEvent simpleEvent)
-                {
-                    statsController.ChangeStats(
-                        simpleEvent.moneyChangeValue,
-                        simpleEvent.foodChangeValue,
-                        simpleEvent.energyChangeValue,
-                        simpleEvent.mentalHealthChangeValue,
-                        simpleEvent.healthChangeValue
-                    );
-                    
-                    Debug.Log($"Simple event auto-applied: {simpleEvent.eventName}");
-                }
-                else if (currentEvent is ChoiceEvent choiceEvent)
-                {
-                    int randomChoice = Random.Range(0, 2);
-                    
-                    if (randomChoice == 0)
-                    {
-                        statsController.ChangeStats(
-                            choiceEvent.firstSolutionMoneyChangeValue,
-                            choiceEvent.firstSolutionFoodChangeValue,
-                            choiceEvent.firstSolutionEnergyValue,
-                            choiceEvent.firstSolutionMentalHealthChangeValue,
-                            choiceEvent.firstSolutionHealthChangeValue
-                        );
-                        Debug.Log($"Choice event auto-selected: first solution for {choiceEvent.eventName}");
-                    }
-                    else
-                    {
-                        statsController.ChangeStats(
-                            choiceEvent.secondSolutionMoneyChangeValue,
-                            choiceEvent.secondSolutionFoodChangeValue,
-                            choiceEvent.secondSolutionEnergyValue,
-                            choiceEvent.secondSolutionMentalHealthChangeValue,
-                            choiceEvent.secondSolutionHealthChangeValue
-                        );
-                        Debug.Log($"Choice event auto-selected: second solution for {choiceEvent.eventName}");
-                    }
-                }
-                
-                CloseEvent();
-            }
-            
+
             autoHideCoroutine = null;
+
+            if (currentEvent is SimpleEvent simpleEvent)
+                ApplySimpleEvent(simpleEvent);
+            else if (currentEvent is ChoiceEvent choiceEvent)
+                ApplyChoiceEvent(choiceEvent, Random.Range(0, 2) == 0);
         }
 
         private IEnumerator SpawnEvent()
@@ -172,7 +119,7 @@ namespace Codebase
                     yield return new WaitForSeconds(1f);
                     continue;
                 }
-        
+
                 yield return new WaitForSeconds(spawnDelay);
 
                 CreateEvent();
@@ -183,7 +130,7 @@ namespace Codebase
         private void CreateEvent()
         {
             StopAutoHideCoroutine();
-            
+
             currentEvent = eventSelector.GetEvent();
             eventView.ShowEvent(currentEvent);
             isEventExist = true;

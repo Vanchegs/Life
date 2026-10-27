@@ -7,8 +7,11 @@ namespace Codebase
    {
        [SerializeField] private TMP_Text balanceView;
 
-       private void Start() => 
+       private void OnEnable()
+       {
            GameEventBus.OnUpdateCasinoBalance += UpdateBalanceView;
+           UpdateBalanceView(GameEventBus.CasinoBalance);
+       }
 
        private void OnDisable() => 
            GameEventBus.OnUpdateCasinoBalance -= UpdateBalanceView;
