@@ -6,6 +6,7 @@ namespace Codebase
         
         public override void Enter()
         {
+            StateController.GetCharacterView().ShowGaming();
         }
 
         public override void Update()

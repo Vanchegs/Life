@@ -8,6 +8,7 @@ namespace Codebase
         [SerializeField] private WalletController walletController;
 
         [SerializeField] private WorkingView workingView;
+        [SerializeField] private CharacterView characterView;
         
         private StateMachine stateMachine;
 
@@ -30,6 +31,9 @@ namespace Codebase
 
         public StatsController GetStatsController() => 
             statsController;
+
+        public CharacterView GetCharacterView() =>
+            characterView;
 
         public void ChangeStateOnSleep() => 
             stateMachine.ChangeState<SleepState>();

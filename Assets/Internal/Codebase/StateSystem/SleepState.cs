@@ -6,6 +6,7 @@ namespace Codebase
 
         public override void Enter()
         {
+            StateController.GetCharacterView().ShowSleep();
         }
 
         public override void Update()

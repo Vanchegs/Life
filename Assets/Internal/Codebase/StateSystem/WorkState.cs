@@ -18,6 +18,7 @@ namespace Codebase
 
         public override void Enter()
         {
+            StateController.GetCharacterView().ShowWork();
             workingView.ShowProgressBar(true);
             workingView.UpdateProgressUI(workProgress);
             StartWorkCoroutine();
